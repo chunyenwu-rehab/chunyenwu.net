@@ -48,21 +48,21 @@ export const FEATURED = {
   blurb: '從我寫過的內容裡，挑出對復健與照顧最有幫助的幾篇，集中放在這裡。',
 } as const;
 
-// 首頁 HERO 大圖與授權出處（顯示在 footer）
+// 首頁 HERO 大圖。credit 為 null 表示自有照片、footer 不需標示授權。
 export const HERO_IMAGE = {
   src: '/hero.jpg',
-  width: 960,
-  height: 640,
-  alt: '木質書桌上，一雙手正在筆記本上書寫，旁邊放著咖啡',
-  credit: {
-    title: 'Journal Notepad',
-    author: 'Cathryn Lavery',
-    source: 'StockSnap',
-    sourceUrl: 'https://stocksnap.io/photo/journal-notepad-DPKNIIN5X3',
-    license: 'CC0 1.0',
-    licenseUrl: 'https://creativecommons.org/publicdomain/zero/1.0/',
+  width: 1600,
+  height: 1200,
+  alt: '吳俊諺醫師站在東華醫院偏鄉巡迴醫療車前，一旁備有遠距醫療設備',
+  credit: null as null | {
+    title: string;
+    author: string;
+    source: string;
+    sourceUrl: string;
+    license: string;
+    licenseUrl: string;
   },
-} as const;
+};
 
 // 對外連結（email 預設不公開；要放再加）
 export const SOCIAL = {

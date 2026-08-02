@@ -30,11 +30,13 @@ const c = HERO_IMAGE.credit;
   </div>
 
   <div class="container legal">
-    <p class="credit">
-      首頁圖片：<a href={c.sourceUrl} target="_blank" rel="noopener">{c.title}</a>
-      by {c.author}（{c.source}），授權
-      <a href={c.licenseUrl} target="_blank" rel="noopener">{c.license}</a>
-    </p>
+    {c && (
+      <p class="credit">
+        首頁圖片：<a href={c.sourceUrl} target="_blank" rel="noopener">{c.title}</a>
+        by {c.author}（{c.source}），授權
+        <a href={c.licenseUrl} target="_blank" rel="noopener">{c.license}</a>
+      </p>
+    )}
     <p>© {year} {SITE.author}．本站文章為個人學習與衛教分享，不構成醫療診斷或治療建議。</p>
   </div>
 </footer>
@@ -95,9 +97,11 @@ const c = HERO_IMAGE.credit;
     font-size: 0.82rem;
     margin: 0;
   }
-  .legal .credit {
+  .legal p:first-child {
     border-top: 1px solid var(--line);
     padding-top: 1.2rem;
+  }
+  .legal .credit {
     margin-bottom: 0.4rem;
   }
   .legal a {

@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostList from '../components/PostList.astro';
+import { CATEGORIES, FEATURED, SITE, SOCIAL } from '../consts';
+import { getPublishedPosts } from '../utils';
+
+const posts = await getPublishedPosts();
+const latest = posts.slice(0, 5);
+// 首頁三張主題卡：兩個寫作分類 + 精選復健頁
+const themes = [CATEGORIES['學習'], CATEGORIES['醫療'], FEATURED];
+---
+
+<BaseLayout>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">復健科醫師 · {SITE.author}</p>
+      <h1>{SITE.tagline}</h1>
+      <p class="lede">
+        這裡收著我在進修路上讀到的、想到的，還有一些關於復健的思考。<br />
+        寫給同樣在學習的人，也寫給幾年後的自己。
+      </p>
+      <div class="cta">
+        <a class="btn btn--primary" href="#latest">看最新文章</a>
+        <a class="btn btn--ghost" href="/about/">關於我</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 三大主題 -->
+  <section class="container themes">
+    {
+      themes.map((c) => (
+        <a class="theme" href={c.href} style={`--accent:${c.color}`}>
+          <span class="theme-label">{c.label}</span>
+          <span class="theme-blurb">{c.blurb}</span>
+          <span class="theme-more">前往 →</span>
+        </a>
+      ))
+    }
+  </section>
+
+  <!-- 最新文章 -->
+  <section class="container section" id="latest">
+    <div class="section-head">
+      <h2>最新文章</h2>
+      {posts.length > latest.length && <a class="more" href="/learning/">看更多</a>}
+    </div>
+    <PostList posts={latest} empty="文章正在路上，很快就會有第一篇。" />
+  </section>
+
+  <!-- 導向 17rehab -->
+  <section class="container">
+    <aside class="rehab">
+      <div>
+        <p class="rehab-kicker">正在照顧中風、腦傷或脊髓損傷的家人？</p>
+        <p class="rehab-text">
+          神經復健的照顧資源與決策指南，我整理在另一個平台
+          「<strong>作伙來復健</strong>」。那裡有更完整、更實用的衛教內容。
+        </p>
+      </div>
+      <a class="btn btn--primary" href={SOCIAL.rehab.href} target="_blank" rel="noopener">
+        前往作伙來復健 ↗
+      </a>
+    </aside>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 4rem 0 2.5rem;
+  }
+  .eyebrow {
+    color: var(--teal);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    margin: 0 0 0.8rem;
+    font-size: 0.95rem;
+  }
+  .hero h1 {
+    max-width: 20ch;
+    margin: 0 0 1rem;
+  }
+  .lede {
+    color: var(--ink-soft);
+    font-size: 1.1rem;
+    max-width: 38rem;
+    margin: 0 0 1.8rem;
+  }
+  .cta {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .themes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.1rem;
+    margin-top: 1rem;
+  }
+  .theme {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1.6rem 1.5rem;
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--accent);
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: transform 0.14s ease, box-shadow 0.18s ease;
+  }
+  .theme:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+  }
+  .theme-label {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--ink);
+  }
+  .theme-blurb {
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    line-height: 1.7;
+    flex: 1;
+  }
+  .theme-more {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .section {
+    margin-top: 3.5rem;
+  }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .section-head h2 {
+    margin: 0;
+  }
+  .more {
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .rehab {
+    margin-top: 3rem;
+    background: var(--teal-soft);
+    border-radius: var(--radius);
+    padding: 2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .rehab-kicker {
+    font-weight: 700;
+    color: var(--teal-dark);
+    margin: 0 0 0.4rem;
+  }
+  .rehab-text {
+    margin: 0;
+    color: var(--ink-soft);
+    max-width: 40rem;
+  }
+
+  @media (max-width: 720px) {
+    .themes {
+      grid-template-columns: 1fr;
+    }
+    .hero {
+      padding-top: 2.6rem;
+    }
+  }
+</style>

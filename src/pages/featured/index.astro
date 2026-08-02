@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostList from '../../components/PostList.astro';
+import { FEATURED } from '../../consts';
+import { getFeaturedPosts } from '../../utils';
+
+const posts = await getFeaturedPosts();
+---
+
+<BaseLayout title={FEATURED.label} description={FEATURED.blurb}>
+  <section class="container cat-head" style={`--accent:${FEATURED.color}`}>
+    <span class="tag tag--featured">{FEATURED.label}</span>
+    <h1>{FEATURED.label}</h1>
+    <p class="blurb">{FEATURED.blurb}</p>
+  </section>
+  <section class="container">
+    <PostList
+      posts={posts}
+      empty="精選文章整理中——之後會把最推薦的復健好文放在這裡。"
+    />
+  </section>
+</BaseLayout>
+
+<style>
+  .cat-head {
+    padding: 3rem 0 1.5rem;
+    border-bottom: 2px solid var(--accent);
+    margin-bottom: 1rem;
+  }
+  .cat-head h1 {
+    margin: 0.8rem 0 0.6rem;
+  }
+  .blurb {
+    color: var(--ink-soft);
+    max-width: 40rem;
+    margin: 0;
+  }
+</style>

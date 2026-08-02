@@ -1,0 +1,244 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE, SOCIAL } from '../consts';
+
+const description =
+  '吳俊諺，復健科醫師，員林常春醫院復健科主任。專注神經復健、運動醫學、疼痛與再生醫療，也關注復健科技與醫療流程改善。';
+
+// 學經歷分組
+const credentials = [
+  {
+    title: '現職',
+    items: [
+      '員林常春醫院 復健科主任',
+      '惠來醫療體系復健醫療團隊醫師（員林宏仁醫院、竹山東華醫院）',
+      '台灣運動醫學醫學會 監事',
+    ],
+  },
+  {
+    title: '專科資格',
+    items: ['復健醫學專科醫師', '運動醫學專科醫師'],
+  },
+  {
+    title: '學歷',
+    items: [
+      '中山醫學大學 醫學系 醫學士',
+      '台東大學 健康促進與休閒管理 碩士',
+    ],
+  },
+  {
+    title: '專業經歷',
+    cols: true,
+    items: [
+      '住院神經復健醫療',
+      '中風、腦外傷及脊髓損傷復健照護',
+      '兒童發展遲緩評估與復健',
+      '運動傷害與肌肉骨骼疼痛診療',
+      '增生治療與超音波導引注射治療',
+      '經顱磁刺激治療臨床應用',
+      '台東偏鄉巡迴醫療服務經驗',
+      '教育部校園運動防護相關醫療服務',
+      '國際奧會隊醫相關課程訓練',
+    ],
+  },
+  {
+    title: '關注領域',
+    cols: true,
+    items: [
+      '神經復健與住院復健照護',
+      '運動醫學與運動傷害',
+      '疼痛治療與再生醫療',
+      '復健科技與經顱磁刺激',
+      '病人及家屬溝通',
+      '醫療團隊管理與流程改善',
+      '人工智慧在醫療工作中的應用',
+    ],
+  },
+];
+---
+
+<BaseLayout title="關於" description={description}>
+  <article class="container about">
+    <div class="prose">
+      <h1>關於我</h1>
+
+      <p class="lead">
+        我是 {SITE.author}，一名復健科醫師，也是持續學習、觀察與思考的人。
+      </p>
+
+      <p>
+        在臨床工作中，我主要照顧中風、腦外傷、脊髓損傷等神經復健病人，也協助發展遲緩兒童、
+        運動傷害患者，以及受到疼痛或關節退化困擾的人。
+      </p>
+
+      <p>
+        對我而言，復健不只是傷害疼痛的緩解，更是肌力、動作與功能的訓練；
+        也更是在疾病、受傷與生活改變之後，陪伴一個人重新找回自主、信心與生活的方向。
+        醫療專業很重要，但理解病人正在經歷什麼、協助家屬看清下一步，
+        同樣是復健過程中不可缺少的一部分。
+      </p>
+
+      <p>
+        過去的醫療經歷，讓我曾在不同地區與不同層級的醫療現場工作，也曾參與台東偏鄉巡迴醫療。
+        從資源有限的偏鄉，到需要跨專業合作的復健病房，我逐漸體會到：醫師不一定能解決所有問題，
+        但可以在別人需要的時候，運用自己的專業，成為他生命中的一份支持。
+      </p>
+
+      <p>
+        目前任職於員林常春醫院，主要投入住院神經復健、門診復健、運動傷害與疼痛治療，
+        也持續關注經顱磁刺激、增生治療及各項復健科技的臨床應用。
+      </p>
+
+      <p>
+        行醫以外，我喜歡參與課程、閱讀、看電影，也關心醫療溝通、領導管理、團隊合作、
+        人工智慧與醫療流程改善。每一次進修，都不只是增加一項知識或技術，
+        也讓我重新思考：在忙碌的醫療現場中，我們如何做出更好的選擇，
+        並且保留理解、陪伴與反思的空間。
+      </p>
+
+      <p>
+        這個網站記錄我的進修心得、醫療觀察與生活雜想，也分享部分復健醫療與照顧支持相關內容。
+        希望透過文字整理自己的學習，也讓醫療知識更容易被理解，
+        陪伴正在復健路上的病人與家屬，找到適合自己的下一步。
+      </p>
+
+      <blockquote class="belief">
+        我始終相信，醫療不只是治療疾病，更是在一個人需要的時候，
+        運用自己的專業，成為彼此生命中的天使。
+      </blockquote>
+    </div>
+
+    <!-- 學經歷 -->
+    <section class="cv">
+      <h2>學經歷</h2>
+      <div class="cv-grid">
+        {
+          credentials.map((group) => (
+            <div class:list={['cv-group', { 'cv-group--cols': group.cols }]}>
+              <h3>{group.title}</h3>
+              <ul>
+                {group.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <div class="prose">
+      <h2>我也在這些地方</h2>
+      <ul class="links">
+        <li>
+          神經復健衛教平台
+          <a href={SOCIAL.rehab.href} target="_blank" rel="noopener">作伙來復健 ↗</a>
+        </li>
+        <li>
+          <a href={SOCIAL.facebook.href} target="_blank" rel="noopener">Facebook ↗</a>
+        </li>
+        <li>
+          <a href={SOCIAL.instagram.href} target="_blank" rel="noopener">Instagram ↗</a>
+        </li>
+      </ul>
+
+      <p class="note">
+        本站內容為個人學習與衛教分享，記錄的是我的觀點與思考，不針對特定個案，
+        也不構成醫療診斷或治療建議。有健康問題，請諮詢您的主治醫師。
+      </p>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .about {
+    padding: 3rem 0 1rem;
+  }
+  .lead {
+    font-size: 1.18rem;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .belief {
+    margin: 2.5rem 0 0;
+    padding: 1.4rem 1.6rem;
+    border-left: 4px solid var(--coral);
+    background: var(--coral-soft);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--teal-dark);
+  }
+
+  .cv {
+    max-width: var(--measure);
+    margin: 3.5rem auto 0;
+  }
+  .cv h2 {
+    margin-top: 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--ink);
+  }
+  .cv-grid {
+    display: grid;
+    gap: 1.8rem 2.5rem;
+  }
+  .cv-group h3 {
+    font-size: 1rem;
+    color: var(--teal);
+    margin: 0 0 0.6rem;
+    padding-left: 0.7rem;
+    border-left: 3px solid var(--gold);
+    line-height: 1.3;
+  }
+  .cv-group ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.45rem;
+  }
+  .cv-group li {
+    position: relative;
+    padding-left: 1.1rem;
+    color: var(--ink);
+    line-height: 1.7;
+  }
+  .cv-group li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.75em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--coral);
+  }
+
+  .links {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 0.6rem;
+  }
+  .links li {
+    color: var(--ink-soft);
+  }
+  .note {
+    margin-top: 3rem;
+    padding: 1.1rem 1.3rem;
+    background: var(--teal-soft);
+    border-radius: var(--radius-sm);
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+  }
+
+  /* 桌機時，把項目多、字短的兩組排成雙欄 */
+  @media (min-width: 640px) {
+    .cv-group--cols ul {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.45rem 1.5rem;
+    }
+  }
+</style>

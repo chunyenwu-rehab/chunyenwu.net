@@ -1,0 +1,100 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import { CATEGORIES } from '../../consts';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => data.draft !== true);
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const { title, description, pubDate, updatedDate, category, tags } = post.data;
+const cat = CATEGORIES[category];
+---
+
+<BaseLayout title={title} description={description} type="article">
+  <article class="container">
+    <header class="post-head prose">
+      <div class="meta">
+        <a class={`tag tag--${category}`} href={cat.href}>{cat.label}</a>
+        <FormattedDate date={pubDate} />
+        {updatedDate && <span class="updated">（更新於 <FormattedDate date={updatedDate} />）</span>}
+      </div>
+      <h1>{title}</h1>
+      {description && <p class="desc">{description}</p>}
+    </header>
+
+    <div class="post-body prose">
+      <Content />
+    </div>
+
+    {
+      tags.length > 0 && (
+        <footer class="prose tags">
+          {tags.map((t) => (
+            <span class="chip">#{t}</span>
+          ))}
+        </footer>
+      )
+    }
+
+    <nav class="prose back">
+      <a href={cat.href}>← 回到{cat.label}</a>
+    </nav>
+  </article>
+</BaseLayout>
+
+<style>
+  .post-head {
+    padding: 3rem 0 1.5rem;
+  }
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+    color: var(--ink-faint);
+    font-size: 0.88rem;
+    margin-bottom: 1rem;
+  }
+  .post-head h1 {
+    margin: 0 0 0.6rem;
+  }
+  .desc {
+    color: var(--ink-soft);
+    font-size: 1.12rem;
+    margin: 0;
+  }
+  .post-body {
+    padding-top: 0.5rem;
+  }
+  .tags {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .chip {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    padding: 0.2em 0.7em;
+    border-radius: 999px;
+  }
+  .back {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+  }
+  .back a {
+    font-weight: 600;
+    text-decoration: none;
+  }
+</style>

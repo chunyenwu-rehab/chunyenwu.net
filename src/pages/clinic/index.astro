@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostList from '../../components/PostList.astro';
+import { CATEGORIES } from '../../consts';
+import { getPostsByCategory } from '../../utils';
+
+const cat = CATEGORIES['醫療'];
+const posts = await getPostsByCategory('醫療');
+---
+
+<BaseLayout title={cat.label} description={cat.blurb}>
+  <section class="container cat-head" style={`--accent:${cat.color}`}>
+    <span class={`tag tag--醫療`}>{cat.label}</span>
+    <h1>{cat.label}</h1>
+    <p class="blurb">{cat.blurb}</p>
+  </section>
+  <section class="container">
+    <PostList posts={posts} />
+  </section>
+</BaseLayout>
+
+<style>
+  .cat-head {
+    padding: 3rem 0 1.5rem;
+    border-bottom: 2px solid var(--accent);
+    margin-bottom: 1rem;
+  }
+  .cat-head h1 {
+    margin: 0.8rem 0 0.6rem;
+  }
+  .blurb {
+    color: var(--ink-soft);
+    max-width: 40rem;
+    margin: 0;
+  }
+</style>

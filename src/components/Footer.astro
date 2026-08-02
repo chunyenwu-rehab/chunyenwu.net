@@ -1,0 +1,94 @@
+---
+import { SITE, SOCIAL } from '../consts';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container inner">
+    <div class="col">
+      <p class="name">{SITE.title}</p>
+      <p class="tag">{SITE.tagline}</p>
+    </div>
+
+    <div class="col links">
+      <p class="col-title">連結</p>
+      <ul>
+        <li>
+          <a href={SOCIAL.rehab.href} target="_blank" rel="noopener">
+            {SOCIAL.rehab.label} ↗
+          </a>
+        </li>
+        <li>
+          <a href={SOCIAL.facebook.href} target="_blank" rel="noopener">Facebook ↗</a>
+        </li>
+        <li>
+          <a href={SOCIAL.instagram.href} target="_blank" rel="noopener">Instagram ↗</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container legal">
+    <p>© {year} {SITE.author}．本站文章為個人學習與衛教分享，不構成醫療診斷或治療建議。</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: 5rem;
+    border-top: 1px solid var(--line);
+    background: var(--paper-2);
+  }
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding-top: 2.6rem;
+    padding-bottom: 1.6rem;
+  }
+  .name {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin: 0 0 0.3rem;
+  }
+  .tag {
+    color: var(--ink-soft);
+    margin: 0;
+    max-width: 22rem;
+    font-size: 0.95rem;
+  }
+  .col-title {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 0.6rem;
+  }
+  .links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.4rem;
+  }
+  .links a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+  .links a:hover {
+    color: var(--teal);
+  }
+  .legal {
+    padding-bottom: 2.2rem;
+  }
+  .legal p {
+    color: var(--ink-faint);
+    font-size: 0.82rem;
+    margin: 0;
+    border-top: 1px solid var(--line);
+    padding-top: 1.2rem;
+  }
+</style>

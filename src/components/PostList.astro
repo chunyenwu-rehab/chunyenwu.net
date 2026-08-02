@@ -1,0 +1,38 @@
+---
+import PostCard from './PostCard.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  posts: CollectionEntry<'blog'>[];
+  empty?: string;
+}
+const { posts, empty = '這個分類還在醞釀中，很快就有新文章。' } = Astro.props;
+---
+
+{
+  posts.length === 0 ? (
+    <p class="empty">{empty}</p>
+  ) : (
+    <div class="list">
+      {posts.map((p) => (
+        <PostCard
+          id={p.id}
+          title={p.data.title}
+          description={p.data.description}
+          pubDate={p.data.pubDate}
+          category={p.data.category}
+        />
+      ))}
+    </div>
+  )
+}
+
+<style>
+  .empty {
+    color: var(--ink-faint);
+    padding: 2rem 0;
+  }
+  .list :global(article:last-child) {
+    border-bottom: none;
+  }
+</style>

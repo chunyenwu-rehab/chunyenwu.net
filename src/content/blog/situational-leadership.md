@@ -4,6 +4,7 @@ description: 從電影《黑莓》看情境領導——忙碌不等於方向，�
 pubDate: 2026-08-02
 category: 學習
 featured: false
+image: /blackberry-screen.jpg
 tags: [進修心得, 領導管理, 團隊]
 draft: false
 ---

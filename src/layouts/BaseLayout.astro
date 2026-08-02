@@ -9,11 +9,20 @@ interface Props {
   description?: string;
   /** 頁面型態，供 og:type 使用 */
   type?: 'website' | 'article';
+  /** 社群分享顯圖（og:image）；相對路徑會自動轉為絕對網址。預設用首頁大圖。 */
+  image?: string;
 }
 
-const { title, description = SITE.description, type = 'website' } = Astro.props;
+const {
+  title,
+  description = SITE.description,
+  type = 'website',
+  image = '/hero.jpg',
+} = Astro.props;
 const pageTitle = title ? `${title}｜${SITE.title}` : `${SITE.title}｜${SITE.tagline}`;
-const canonical = new URL(Astro.url.pathname, Astro.site ?? SITE.url).href;
+const base = Astro.site ?? SITE.url;
+const canonical = new URL(Astro.url.pathname, base).href;
+const ogImage = new URL(image, base).href;
 ---
 
 <!doctype html>
@@ -32,7 +41,10 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? SITE.url).href;
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content={SITE.title} />
     <meta property="og:locale" content={SITE.locale} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={pageTitle} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

@@ -20,7 +20,7 @@ const cat = CATEGORIES[category];
 const { isUpdated, lastModified } = getPostDates(post.id, pubDate);
 ---
 
-<BaseLayout title={title} description={description} type="article">
+<BaseLayout title={title} description={description} type="article" image={post.data.image}>
   <article class="container">
     <header class="post-head prose">
       <div class="meta">

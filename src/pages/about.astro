@@ -118,6 +118,33 @@ const credentials = [
       </blockquote>
     </div>
 
+    <!-- 門診時間 -->
+    <section class="clinic">
+      <h2>門診時間</h2>
+      <div class="clinic-wrap">
+        <table class="clinic-table">
+          <thead>
+            <tr>
+              <th>星期</th>
+              <th>上午</th>
+              <th>下午</th>
+              <th>晚上</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th>週二</th><td>—</td><td>—</td><td>常春</td></tr>
+            <tr><th>週三</th><td>常春</td><td>鹿谷</td><td>—</td></tr>
+            <tr><th>週四</th><td>東華</td><td>東華</td><td>—</td></tr>
+            <tr><th>週五</th><td>—</td><td>常春</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="clinic-note">
+        常春＝員林常春醫院　·　東華＝竹山東華醫院　·　鹿谷＝鹿谷門診。<br />
+        實際門診時間可能異動，請以各院所最新公告為準。
+      </p>
+    </section>
+
     <!-- 學經歷 -->
     <section class="cv">
       <h2>學經歷</h2>
@@ -209,6 +236,48 @@ const credentials = [
     font-size: 1.15rem;
     line-height: 1.9;
     color: var(--teal-dark);
+  }
+
+  .clinic {
+    max-width: var(--measure);
+    margin: 2.8rem auto 0;
+  }
+  .clinic h2 {
+    margin-top: 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--ink);
+  }
+  .clinic-wrap {
+    overflow-x: auto;
+  }
+  .clinic-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+  }
+  .clinic-table th,
+  .clinic-table td {
+    border: 1px solid var(--line);
+    padding: 0.6em 0.4em;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .clinic-table thead th {
+    background: var(--teal-soft);
+    color: var(--teal-dark);
+  }
+  .clinic-table tbody th {
+    background: color-mix(in srgb, var(--gold-soft) 35%, transparent);
+    font-weight: 700;
+  }
+  .clinic-table td {
+    color: var(--ink);
+  }
+  .clinic-note {
+    margin-top: 0.9rem;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    line-height: 1.7;
   }
 
   .cv {

@@ -1,9 +1,9 @@
 ---
 import PostCard from './PostCard.astro';
-import type { CollectionEntry } from 'astro:content';
+import type { PostView } from '../utils';
 
 interface Props {
-  posts: CollectionEntry<'blog'>[];
+  posts: PostView[];
   empty?: string;
 }
 const { posts, empty = '這個分類還在醞釀中，很快就有新文章。' } = Astro.props;
@@ -21,6 +21,8 @@ const { posts, empty = '這個分類還在醞釀中，很快就有新文章。' 
           description={p.data.description}
           pubDate={p.data.pubDate}
           category={p.data.category}
+          isUpdated={p.isUpdated}
+          lastModified={p.lastModified}
         />
       ))}
     </div>

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PostList from '../components/PostList.astro';
-import { CATEGORIES, FEATURED, SITE, SOCIAL } from '../consts';
+import { CATEGORIES, FEATURED, HERO_IMAGE, SITE, SOCIAL } from '../consts';
 import { getPublishedPosts } from '../utils';
 
 const posts = await getPublishedPosts();
@@ -24,6 +24,15 @@ const themes = [CATEGORIES['學習'], CATEGORIES['醫療'], FEATURED];
         <a class="btn btn--primary" href="#latest">看最新文章</a>
         <a class="btn btn--ghost" href="/about/">關於我</a>
       </div>
+
+      <img
+        class="hero-img"
+        src={HERO_IMAGE.src}
+        width={HERO_IMAGE.width}
+        height={HERO_IMAGE.height}
+        alt={HERO_IMAGE.alt}
+        fetchpriority="high"
+      />
     </div>
   </section>
 
@@ -91,6 +100,16 @@ const themes = [CATEGORIES['學習'], CATEGORIES['醫療'], FEATURED];
     display: flex;
     gap: 0.8rem;
     flex-wrap: wrap;
+  }
+  /* HERO 大圖：等比例縮放，寬度不超過內文區寬度 */
+  .hero-img {
+    display: block;
+    width: 100%;
+    max-width: 40rem;
+    height: auto;
+    margin-top: 2.6rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
   }
 
   .themes {

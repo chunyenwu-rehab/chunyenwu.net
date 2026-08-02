@@ -48,6 +48,22 @@ export const FEATURED = {
   blurb: '從我寫過的內容裡，挑出對復健與照顧最有幫助的幾篇，集中放在這裡。',
 } as const;
 
+// 首頁 HERO 大圖與授權出處（顯示在 footer）
+export const HERO_IMAGE = {
+  src: '/hero.jpg',
+  width: 960,
+  height: 640,
+  alt: '木質書桌上，一雙手正在筆記本上書寫，旁邊放著咖啡',
+  credit: {
+    title: 'Journal Notepad',
+    author: 'Cathryn Lavery',
+    source: 'StockSnap',
+    sourceUrl: 'https://stocksnap.io/photo/journal-notepad-DPKNIIN5X3',
+    license: 'CC0 1.0',
+    licenseUrl: 'https://creativecommons.org/publicdomain/zero/1.0/',
+  },
+} as const;
+
 // 對外連結（email 預設不公開；要放再加）
 export const SOCIAL = {
   rehab: { label: '作伙來復健', href: 'https://17rehab.com' },

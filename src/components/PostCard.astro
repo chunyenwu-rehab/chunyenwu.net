@@ -8,16 +8,27 @@ interface Props {
   description?: string;
   pubDate: Date;
   category: CategoryKey;
+  isUpdated?: boolean;
+  lastModified?: Date;
 }
 
-const { id, title, description, pubDate, category } = Astro.props;
+const { id, title, description, pubDate, category, isUpdated, lastModified } =
+  Astro.props;
 const cat = CATEGORIES[category];
 ---
 
 <article class="card">
   <div class="meta">
     <a class={`tag tag--${category}`} href={cat.href}>{cat.label}</a>
-    <FormattedDate date={pubDate} />
+    {
+      isUpdated && lastModified ? (
+        <span class="date">
+          更新 <FormattedDate date={lastModified} />
+        </span>
+      ) : (
+        <FormattedDate date={pubDate} />
+      )
+    }
   </div>
   <h3 class="title">
     <a href={`/posts/${id}/`}>{title}</a>
@@ -34,6 +45,7 @@ const cat = CATEGORIES[category];
     display: flex;
     align-items: center;
     gap: 0.9rem;
+    flex-wrap: wrap;
     margin-bottom: 0.6rem;
     color: var(--ink-faint);
     font-size: 0.85rem;
@@ -54,5 +66,6 @@ const cat = CATEGORIES[category];
     color: var(--ink-soft);
     margin: 0;
     font-size: 0.98rem;
+    overflow-wrap: anywhere;
   }
 </style>

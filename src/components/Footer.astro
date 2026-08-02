@@ -1,6 +1,7 @@
 ---
-import { SITE, SOCIAL } from '../consts';
+import { SITE, SOCIAL, HERO_IMAGE } from '../consts';
 const year = new Date().getFullYear();
+const c = HERO_IMAGE.credit;
 ---
 
 <footer class="site-footer">
@@ -29,6 +30,11 @@ const year = new Date().getFullYear();
   </div>
 
   <div class="container legal">
+    <p class="credit">
+      首頁圖片：<a href={c.sourceUrl} target="_blank" rel="noopener">{c.title}</a>
+      by {c.author}（{c.source}），授權
+      <a href={c.licenseUrl} target="_blank" rel="noopener">{c.license}</a>
+    </p>
     <p>© {year} {SITE.author}．本站文章為個人學習與衛教分享，不構成醫療診斷或治療建議。</p>
   </div>
 </footer>
@@ -88,7 +94,16 @@ const year = new Date().getFullYear();
     color: var(--ink-faint);
     font-size: 0.82rem;
     margin: 0;
+  }
+  .legal .credit {
     border-top: 1px solid var(--line);
     padding-top: 1.2rem;
+    margin-bottom: 0.4rem;
+  }
+  .legal a {
+    color: var(--ink-soft);
+  }
+  .legal a:hover {
+    color: var(--teal);
   }
 </style>

@@ -59,13 +59,23 @@ const credentials = [
 
 <BaseLayout title="關於" description={description}>
   <article class="container about">
+    <header class="about-head">
+      <img
+        class="avatar"
+        src="/avatar.jpg"
+        width="800"
+        height="1132"
+        alt={`${SITE.author}醫師`}
+      />
+      <div class="about-head-text">
+        <h1>關於我</h1>
+        <p class="lead">
+          我是 {SITE.author}，一名復健科醫師，也是持續學習、觀察與思考的人。
+        </p>
+      </div>
+    </header>
+
     <div class="prose">
-      <h1>關於我</h1>
-
-      <p class="lead">
-        我是 {SITE.author}，一名復健科醫師，也是持續學習、觀察與思考的人。
-      </p>
-
       <p>
         在臨床工作中，我主要照顧中風、腦外傷、脊髓損傷等神經復健病人，也協助發展遲緩兒童、
         運動傷害患者，以及受到疼痛或關節退化困擾的人。
@@ -154,10 +164,44 @@ const credentials = [
   .about {
     padding: 3rem 0 1rem;
   }
+  .about-head {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    max-width: var(--measure);
+    margin: 0 auto 1.5rem;
+    flex-wrap: wrap;
+  }
+  .avatar {
+    width: 200px;
+    height: auto;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    flex-shrink: 0;
+  }
+  .about-head-text {
+    flex: 1;
+    min-width: 15rem;
+  }
+  .about-head-text h1 {
+    margin-top: 0;
+  }
   .lead {
     font-size: 1.18rem;
     color: var(--ink);
     font-weight: 500;
+    margin-bottom: 0;
+  }
+  @media (max-width: 560px) {
+    .about-head {
+      gap: 1.2rem;
+      justify-content: center;
+      text-align: center;
+    }
+    .avatar {
+      width: 160px;
+      margin-inline: auto;
+    }
   }
   .belief {
     margin: 2.5rem 0 0;

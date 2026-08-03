@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PostList from '../components/PostList.astro';
-import { CATEGORIES, FEATURED, HERO_IMAGE, SITE } from '../consts';
+import { CATEGORIES, FEATURED, HERO_IMAGE, SITE, SOCIAL } from '../consts';
 import { getPublishedPosts } from '../utils';
 
 const posts = await getPublishedPosts();
@@ -56,6 +56,22 @@ const themes = [CATEGORIES['學習'], CATEGORIES['醫療'], FEATURED];
       {posts.length > latest.length && <a class="more" href="/learning/">看更多</a>}
     </div>
     <PostList posts={latest} empty="文章正在路上，很快就會有第一篇。" />
+  </section>
+
+  <!-- 導向 17rehab -->
+  <section class="container">
+    <aside class="rehab">
+      <div>
+        <p class="rehab-kicker">正在照顧中風、腦傷或脊髓損傷的家人？</p>
+        <p class="rehab-text">
+          神經復健的照顧資源與決策指南，我整理在另一個平台
+          「<strong>作伙來復健</strong>」。那裡有更完整、更實用的衛教內容。
+        </p>
+      </div>
+      <a class="btn btn--primary" href={SOCIAL.rehab.href} target="_blank" rel="noopener">
+        前往作伙來復健 ↗
+      </a>
+    </aside>
   </section>
 
 </BaseLayout>

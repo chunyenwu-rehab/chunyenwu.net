@@ -11,6 +11,8 @@ interface Props {
   type?: 'website' | 'article';
   /** 社群分享顯圖（og:image）；相對路徑會自動轉為絕對網址。預設用首頁大圖。 */
   image?: string;
+  /** 結構化資料（JSON-LD）節點陣列；會被包進 schema.org 的 @graph 一起輸出。 */
+  jsonLd?: Record<string, unknown>[];
 }
 
 const {
@@ -18,11 +20,16 @@ const {
   description = SITE.description,
   type = 'website',
   image = '/hero.jpg',
+  jsonLd,
 } = Astro.props;
 const pageTitle = title ? `${title}｜${SITE.title}` : `${SITE.title}｜${SITE.tagline}`;
 const base = Astro.site ?? SITE.url;
 const canonical = new URL(Astro.url.pathname, base).href;
 const ogImage = new URL(image, base).href;
+const graph =
+  jsonLd && jsonLd.length
+    ? JSON.stringify({ '@context': 'https://schema.org', '@graph': jsonLd })
+    : null;
 ---
 
 <!doctype html>
@@ -49,6 +56,9 @@ const ogImage = new URL(image, base).href;
     <meta property="og:image:alt" content={pageTitle} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={ogImage} />
+
+    <!-- 結構化資料 JSON-LD -->
+    {graph && <script type="application/ld+json" set:html={graph} />}
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE, SOCIAL } from '../consts';
+import { personSchema } from '../schema';
 
 const description =
   '吳俊諺，復健科醫師，員林常春醫院復健科主任。專注神經復健、運動醫學、疼痛與再生醫療，也關注復健科技與醫療流程改善。';
@@ -57,7 +58,7 @@ const credentials = [
 ];
 ---
 
-<BaseLayout title="關於" description={description}>
+<BaseLayout title="關於" description={description} jsonLd={[personSchema]}>
   <article class="container about">
     <header class="about-head">
       <img

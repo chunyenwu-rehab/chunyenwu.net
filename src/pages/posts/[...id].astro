@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import { CATEGORIES, SITE } from '../../consts';
 import { getPostDates } from '../../lastmod';
+import { personSchema, blogPostingSchema } from '../../schema';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => data.draft !== true);
@@ -18,9 +19,28 @@ const { Content } = await render(post);
 const { title, description, pubDate, category, tags } = post.data;
 const cat = CATEGORIES[category];
 const { isUpdated, lastModified } = getPostDates(post.id, pubDate);
+
+const base = Astro.site ?? SITE.url;
+const postUrl = new URL(Astro.url.pathname, base).href;
+const articleSchema = blogPostingSchema({
+  title,
+  description,
+  url: postUrl,
+  datePublished: pubDate.toISOString(),
+  dateModified: lastModified.toISOString(),
+  image: new URL(post.data.image ?? '/hero.jpg', base).href,
+  section: cat.label,
+  keywords: tags,
+});
 ---
 
-<BaseLayout title={title} description={description} type="article" image={post.data.image}>
+<BaseLayout
+  title={title}
+  description={description}
+  type="article"
+  image={post.data.image}
+  jsonLd={[personSchema, articleSchema]}
+>
   <article class="container">
     <header class="post-head prose">
       <div class="meta">

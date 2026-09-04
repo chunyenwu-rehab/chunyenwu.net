@@ -4,6 +4,9 @@ description: 指引第四章整章沒有一條治療建議，全部在談怎麼�
 pubDate: 2026-09-05
 category: 學習
 featured: false
+image: /og-stroke-guideline-2026.png
+imageWidth: 1200
+imageHeight: 630
 tags: [中風, 神經復健, 復健指引, 評估工具, 實證醫學]
 draft: false
 ---

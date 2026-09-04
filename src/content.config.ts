@@ -13,6 +13,8 @@ const blog = defineCollection({
     category: z.enum(['學習', '醫療']),
     featured: z.boolean().default(false),
     image: z.string().optional(), // 社群分享顯圖；不填則用全站預設
+    imageWidth: z.number().optional(), // 顯圖尺寸；不填沿用預設 1600×1200
+    imageHeight: z.number().optional(),
 
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),

@@ -4,6 +4,9 @@ description: 指引第六章談認知、失語症、動作言語障礙與空間�
 pubDate: 2026-09-05
 category: 學習
 featured: false
+image: /og-stroke-guideline-2026.png
+imageWidth: 1200
+imageHeight: 630
 tags: [中風, 神經復健, 復健指引, 失語症, 認知復健, 空間忽略]
 draft: false
 ---

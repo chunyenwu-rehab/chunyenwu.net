@@ -4,6 +4,9 @@ description: AHA/ASA 更新了成人中風復健指引，248 條建議，距離�
 pubDate: 2026-09-05
 category: 學習
 featured: false
+image: /og-stroke-guideline-2026.png
+imageWidth: 1200
+imageHeight: 630
 tags: [中風, 神經復健, 復健指引, 實證醫學, 進修心得]
 draft: false
 ---

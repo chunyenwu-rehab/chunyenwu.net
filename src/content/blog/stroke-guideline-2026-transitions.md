@@ -4,6 +4,9 @@ description: 指引第七章談出院銜接、照顧者、社區與遠距復健�
 pubDate: 2026-09-05
 category: 學習
 featured: false
+image: /og-stroke-guideline-2026.png
+imageWidth: 1200
+imageHeight: 630
 tags: [中風, 神經復健, 復健指引, 照顧者支持, 社區復健, 重返工作]
 draft: false
 ---

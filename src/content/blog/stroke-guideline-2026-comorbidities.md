@@ -4,6 +4,9 @@ description: 指引第三章談皮膚、血栓、膀胱腸道、肩痛、中樞�
 pubDate: 2026-09-05
 category: 學習
 featured: false
+image: /og-stroke-guideline-2026.png
+imageWidth: 1200
+imageHeight: 630
 tags: [中風, 神經復健, 復健指引, 併發症, 實證醫學]
 draft: false
 ---

@@ -1,0 +1,71 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>
+  :root{
+    --teal:#1a5c5a; --coral:#e8735a; --gold:#d4a843;
+    --ink:#29302f; --ink-soft:#5c625f; --ink-faint:#8b8f8c;
+    --paper:#faf7f1; --line:#e8e1d6;
+    --serif:'Noto Serif TC','Songti TC','Source Han Serif TC',serif;
+    --sans:'Noto Sans TC','PingFang TC',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{width:1200px;height:630px;background:var(--paper);font-family:var(--sans);
+       color:var(--ink);position:relative;overflow:hidden}
+  .bar{display:flex;height:12px}
+  .bar i{flex:1}
+  .bar i:nth-child(1){background:var(--teal)}
+  .bar i:nth-child(2){background:var(--coral);flex:0 0 22%}
+  .bar i:nth-child(3){background:var(--gold);flex:0 0 14%}
+
+  .pad{padding:64px 72px 0}
+  .kicker{font-size:22px;letter-spacing:.16em;color:var(--teal);font-weight:600}
+  h1{font-family:var(--serif);font-size:82px;line-height:1.16;color:var(--teal);
+     margin-top:26px;letter-spacing:.01em}
+  .sub{font-family:var(--serif);font-size:34px;color:var(--ink-soft);margin-top:22px}
+
+  /* 縱貫線：向右淡出，沒有終點 */
+  .flow{position:absolute;left:72px;right:0;top:404px}
+  .rail{position:relative;height:5px;
+        background:linear-gradient(90deg,var(--teal) 0%,var(--teal) 62%,rgba(26,92,90,.18) 88%,rgba(26,92,90,0) 100%)}
+  .dot{position:absolute;top:50%;width:19px;height:19px;border-radius:50%;
+       background:var(--paper);border:5px solid var(--teal);transform:translate(-50%,-50%)}
+  .dot.c{border-color:var(--coral)}
+  .dot.g{border-color:var(--gold)}
+  .labels{position:relative;height:40px;margin-top:22px;font-size:19px;color:var(--ink-faint)}
+  .labels span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+
+  .foot{position:absolute;left:72px;right:72px;bottom:52px;display:flex;
+        justify-content:space-between;align-items:flex-end;font-size:22px;color:var(--ink-faint)}
+  .foot b{color:var(--ink-soft);font-weight:600}
+</style>
+<div class="bar"><i></i><i></i><i></i></div>
+
+<div class="pad">
+  <div class="kicker">AHA / ASA · STROKE 2026</div>
+  <h1>2026 中風復健指引</h1>
+  <div class="sub">逐章讀書筆記</div>
+</div>
+
+<div class="flow">
+  <div class="rail">
+    <div class="dot"      style="left:0%"></div>
+    <div class="dot"      style="left:15%"></div>
+    <div class="dot"      style="left:30%"></div>
+    <div class="dot g"    style="left:45%"></div>
+    <div class="dot c"    style="left:60%"></div>
+    <div class="dot c"    style="left:75%"></div>
+  </div>
+  <div class="labels">
+    <span style="left:0%;transform:none">復健計畫</span>
+    <span style="left:15%">併發症</span>
+    <span style="left:30%">評估</span>
+    <span style="left:45%">動作與吞嚥</span>
+    <span style="left:60%">認知與溝通</span>
+    <span style="left:75%">回家之後</span>
+  </div>
+</div>
+
+<div class="foot">
+  <div><b>吳俊諺醫師</b>　chunyenwu.net</div>
+  <div>復健是一個沒有明確終點的過程</div>
+</div>

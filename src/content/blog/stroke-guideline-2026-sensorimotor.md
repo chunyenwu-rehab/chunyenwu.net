@@ -4,6 +4,9 @@ description: 指引第五章條目最多，涵蓋運動、痙攣、平衡、步�
 pubDate: 2026-09-05
 category: 學習
 featured: false
+image: /og-stroke-guideline-2026.png
+imageWidth: 1200
+imageHeight: 630
 tags: [中風, 神經復健, 復健指引, 步態訓練, 吞嚥, 實證醫學]
 draft: false
 ---

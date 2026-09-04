@@ -39,6 +39,8 @@ const articleSchema = blogPostingSchema({
   description={description}
   type="article"
   image={post.data.image}
+  imageWidth={post.data.imageWidth}
+  imageHeight={post.data.imageHeight}
   jsonLd={[personSchema, articleSchema]}
 >
   <article class="container">

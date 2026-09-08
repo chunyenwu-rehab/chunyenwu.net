@@ -21,3 +21,9 @@ pnpm-debug.log*
 # editors
 .vscode/
 .idea/
+
+# 居家運動單張的圖片原稿（1536×1024 PNG，約 145MB）
+# 網站實際用的是壓好的 public/exercise-sheet/assets/，原稿只在本機保留。
+# 進版控會讓每次 CI checkout（fetch-depth: 0）都要拉這 145MB。
+tools/exercise-sheet/圖片原稿/**/*.png
+tools/exercise-sheet/圖片檢查/待整理圖片/

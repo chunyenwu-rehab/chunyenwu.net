@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700&family=IBM+Plex+Mono:wght@400;500&display=block">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1200px;height:630px;overflow:hidden}
+  body{
+    background:#FAF7F1;
+    font-family:"Noto Sans TC","PingFang TC",sans-serif;
+    color:#29302F;
+    position:relative;
+  }
+  /* 品牌三色頂條（與 chunyenwu.net 同一套） */
+  .rule{position:absolute;top:0;left:0;right:0;height:9px;display:flex}
+  .rule i{display:block;height:100%}
+  .rule i:nth-child(1){background:#1A5C5A;flex:6}
+  .rule i:nth-child(2){background:#E8735A;flex:2}
+  .rule i:nth-child(3){background:#D4A843;flex:1}
+
+  .pad{position:absolute;inset:9px 0 0 0;padding:48px 68px 42px;padding-right:452px;
+       display:flex;flex-direction:column}
+
+  .eyebrow{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:18px;letter-spacing:.2em;text-transform:uppercase;color:#8B8F8C;
+  }
+  .eyebrow b{color:#1A5C5A;font-weight:500}
+
+  h1{
+    font-family:"Noto Serif TC",serif;font-weight:700;
+    font-size:62px;line-height:1.16;letter-spacing:.01em;
+    color:#16302F;margin-top:18px;white-space:nowrap;
+  }
+  .bar{width:72px;height:7px;background:#E8735A;border-radius:4px;margin:20px 0 0}
+
+  .lead{margin-top:20px;font-size:25px;line-height:1.55;color:#3E4643;font-weight:500}
+  .lead b{color:#1A5C5A;font-weight:700}
+  .sub{margin-top:11px;font-size:19px;line-height:1.5;color:#8B8F8C;font-weight:400}
+
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:auto;max-width:600px}
+  .chip{
+    font-size:17.5px;line-height:1;padding:10px 14px;border-radius:999px;
+    background:#E7EFEE;color:#1A5C5A;font-weight:500;white-space:nowrap;
+  }
+  .chip.hot{background:#1A5C5A;color:#FAF7F1}
+
+  .foot{
+    display:flex;align-items:baseline;gap:13px;margin-top:22px;
+    border-top:1px solid #E8E1D6;padding-top:17px;
+  }
+  .brand{font-family:"Noto Serif TC",serif;font-weight:700;font-size:23px;color:#1A5C5A}
+  .dom{font-family:"IBM Plex Mono",monospace;font-size:18px;color:#8B8F8C;letter-spacing:.03em}
+
+  /* 右側：一張「印出來的單張」的局部，直接讓示意圖說話 */
+  .paper{
+    position:absolute;right:64px;top:74px;width:340px;height:452px;
+    background:#fff;border:1px solid #E8E1D6;border-radius:12px;
+    box-shadow:0 18px 40px rgba(26,92,90,.14);
+    padding:18px 18px 20px;display:flex;flex-direction:column;gap:11px;overflow:hidden;
+  }
+  .paper .ttl{
+    font-size:16px;font-weight:700;color:#1A5C5A;letter-spacing:.02em;
+    border-bottom:2px solid #1A5C5A;padding-bottom:7px;
+  }
+  /* 裁掉圖上原本燒進去的標題與說明字，只留人物，縮圖才乾淨 */
+  .shot{width:304px;border-radius:8px;overflow:hidden;position:relative;background:#fff}
+  /* 直膝抬腿：只取抬腿那一格 */
+  .shot.a{height:172px}
+  .shot.a img{position:absolute;width:640px;height:auto;left:-322px;top:-104px}
+  /* 橋式：只取抬臀那一格，動作本身比較寬，所以裁得扁一點 */
+  .shot.b{height:114px}
+  .shot.b img{position:absolute;width:474px;height:auto;left:-12px;top:-170px}
+  .dose{
+    background:#E7EFEE;border-radius:7px;padding:8px 11px;
+    font-size:15px;font-weight:700;color:#1A5C5A;
+  }
+</style>
+</head>
+<body>
+
+<div class="rule"><i></i><i></i><i></i></div>
+
+<div class="paper">
+  <div class="ttl">居家運動練習單</div>
+  <div class="shot a"><img src="../../public/exercise-sheet/assets/img/k_slr.jpg" alt=""></div>
+  <div class="dose">做多少｜10 下 × 2 組 ・ 每天</div>
+  <div class="shot b"><img src="../../public/exercise-sheet/assets/img/c_bridge.jpg" alt=""></div>
+  <div class="dose">做多少｜10 下 × 2 組 ・ 每週 3 次</div>
+</div>
+
+<div class="pad">
+  <p class="eyebrow">門診工具 &nbsp;·&nbsp; <b>復健衛教</b></p>
+
+  <h1>居家運動<br>單張產生器</h1>
+  <div class="bar"></div>
+
+  <p class="lead">依<b>部位與階段</b>挑動作，<br>一頁印給病人帶回家</p>
+  <p class="sub">每個動作都有示意圖・劑量可依病人改寫</p>
+
+  <div class="chips">
+    <span class="chip hot">膝關節退化</span>
+    <span class="chip">下背痛</span>
+    <span class="chip">核心與軀幹</span>
+    <span class="chip">肩痛</span>
+    <span class="chip">頸痛與姿勢</span>
+    <span class="chip">長者防跌</span>
+    <span class="chip">足踝</span>
+  </div>
+
+  <div class="foot">
+    <span class="brand">吳俊諺</span>
+    <span class="dom">chunyenwu.net/exercise-sheet</span>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-09-08",
+  "images": [
+    {
+      "id": "sh_er_iso",
+      "prompt": "Create an accurate physiotherapy patient illustration of ISOMETRIC SHOULDER EXTERNAL ROTATION against a door frame. Landscape white background, older East Asian man grey hair teal shirt grey shorts, clean medical watercolor line drawing. One main pose seen from FRONT, plus small overhead diagram inset of the arm showing contact. Man faces viewer. Working RIGHT elbow (image LEFT) bent90degrees and pressed against waist, small towel between upperarm and ribs. Forearm points FORWARD toward viewer, wrist straight, thumb upward, fingers loosely curled. Vertical doorjamb immediately LATERAL to working hand on imageLEFT. The DORSAL BACK of hand presses outward leftward against jamb. Palm faces inward toward man's midline, NOT toward the wall. Hand is not gripping frame, not flat palm push, not wrist extended. Doorframe located lateral alongside arm, not in front of person. Clearly show forearm and elbow, unobscured by jamb. Small force arrow outward into jamb; no movement sequence. In overhead inset show right upperarm at side, elbow90, forearmforward, backhand touches lateral jamb. Title in traditional Chinese: 肩外轉等長收縮. Caption: 手背向外抵住門框，手肘貼身、手不移動. Prioritize mechanically correct pose over decorative art.",
+      "path": "/Users/chunyenwu/.codex/generated_images/01a07c0a-c138-7c51-a12d-2b854cb8ba1e/exec-6e1eb31e-47bc-4f17-9fbd-0ea4d98f3556.png",
+      "saved": "/Users/chunyenwu/Ｍy Projects/運動處方/居家運動單張/assets/sh_er_iso-20260908.png"
+    },
+    {
+      "id": "s_piriformis",
+      "prompt": "Accurate physiotherapy illustration of SUPINE FIGURE FOUR PIRIFORMIS STRETCH, ONE main pose, landscape white background, clean medical watercolor line drawing of older EastAsian greyhaired man tealshirt greyshorts. Threequarter SIDE view showing full body head on left feet on right. Head resting on thin pillow. Both hips flexed, both feet OFF ground. The RIGHT ankle rests on the LEFT thigh immediately above left knee, right knee opened outward creating a clearly recognizable number4 shape. LEFT thigh pulled toward chest, left knee bent90 and left lowerleg suspended in air. BOTH HANDS interlocked behind LEFT THIGH (supporting lower leg), one arm reaches through the triangular opening between thighs. Do NOT hold the crossed right thigh or shin. Show both legs completely enough to trace anatomical connections: exactly2 thighs,2knees,2shins,2feet. Avoid overlapping fused shins. Feet stay airborne, head relaxed onpillow. This must look like a classic supine figure4 stretch, not single knee hug, not double knee hug. Title traditional Chinese 臀部梨狀肌伸展. Caption 腳踝跨在對側大腿，雙手抱住下方大腿往胸口靠. No other text.",
+      "path": "/Users/chunyenwu/.codex/generated_images/01a07c0a-c138-7c51-a12d-2b854cb8ba1e/exec-97277742-7049-47b2-80e2-00b0c41bbc9d.png",
+      "saved": "/Users/chunyenwu/Ｍy Projects/運動處方/居家運動單張/assets/s_piriformis-20260908.png"
+    }
+  ],
+  "edits": [
+    "Correct ONLY hand/arm placement and supporting thigh flexion in this illustration. Current hands incorrectly clasp the near upright thigh of the crossed leg (the leg whose foot is high at top). Remove hands from that thigh. BOTH HANDS must clasp the BACK of the OTHER thigh: the FAR thigh emerging from shorts on imageRIGHT, whose knee is at upperRIGHT under the crossed ankle and whose lowerleg extends down toward lowerRIGHT foot. Reach arms farther right through figure4 opening and around that FAR thigh, interlock fingers behind that thigh just below its knee. Pull this FAR knee closer toward chest, keep crossed ankle resting above that far knee. Keep near crossed knee opened outward. Exactly2legs. Preserve title, caption, colorstyle, relaxed head on pillow. Make a visually obvious classic supine figure4 piriformis stretch holding supporting thigh, not holding crossed thigh.",
+    "Edit this exercise pose: supporting LEFT foot at lower RIGHT must be clearly LIFTED HIGH OFF the ground, left knee drawn much closer to chest. Both hands currently incorrectly grasp upper SHIN below knee. Move BOTH hands to posterior THIGH ABOVE knee, between hip and knee. Hands must cradle underneath that supporting thigh, fingers interlaced under hamstring, not on shin. Keep other ankle resting across supporting thigh in figure4 and its knee flared away. Anatomical classic supine figure4 stretch. Preserve all style/text."
+  ]
+}

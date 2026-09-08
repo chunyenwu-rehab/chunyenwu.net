@@ -1,0 +1,974 @@
+{
+  "tool": "built-in image_gen",
+  "jobs": [
+    {
+      "id": "k_kneeext",
+      "n": "坐姿伸膝（全範圍）",
+      "s": [
+        "坐穩椅子、背靠椅背，雙手輕扶椅面。",
+        "慢慢把膝蓋打直，到不會痛的最高點。",
+        "停 3 秒，再用 3 秒慢慢放下。"
+      ],
+      "c": "只在不痛的角度做；哪個角度會痛就避開那段。",
+      "m": "用甩的、憋氣。",
+      "reg": [
+        "膝"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「坐姿伸膝（全範圍）」.\nExercise source steps: 坐穩椅子、背靠椅背，雙手輕扶椅面。 慢慢把膝蓋打直，到不會痛的最高點。 停 3 秒，再用 3 秒慢慢放下。\nAvoid these errors: 用甩的、憋氣。\nContext precautions (do not add paragraph text): 只在不痛的角度做；哪個角度會痛就避開那段。"
+    },
+    {
+      "id": "k_calfraise",
+      "n": "站立提踵",
+      "s": [
+        "扶著椅背或流理台站好。",
+        "慢慢把腳跟抬起來，用腳尖站。",
+        "停 2 秒，再慢慢放下。"
+      ],
+      "reg": [
+        "踝足"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「站立提踵」.\nExercise source steps: 扶著椅背或流理台站好。 慢慢把腳跟抬起來，用腳尖站。 停 2 秒，再慢慢放下。\nAvoid these errors: \nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "g_walk",
+      "n": "步行",
+      "s": [
+        "選平坦的路面，穿有支撐的鞋子。",
+        "用「還能講話、但有點喘」的速度走。",
+        "可以分成早晚各一次，每次至少 10 分鐘。"
+      ],
+      "c": "如果走完隔天更腫更痛，代表走太多了，下次把時間減半。",
+      "reg": [
+        "全身"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「步行」.\nExercise source steps: 選平坦的路面，穿有支撐的鞋子。 用「還能講話、但有點喘」的速度走。 可以分成早晚各一次，每次至少 10 分鐘。\nAvoid these errors: \nContext precautions (do not add paragraph text): 如果走完隔天更腫更痛，代表走太多了，下次把時間減半。"
+    },
+    {
+      "id": "s_hamstr_sup",
+      "n": "大腿後側伸展（仰躺）",
+      "s": [
+        "平躺，一腳屈膝踩地。",
+        "另一腳伸直抬起，雙手抱住大腿後方，慢慢把腿拉向身體。",
+        "大腿後側有拉緊感時停住，維持 30 秒，再換邊。"
+      ],
+      "c": "拉的時候如果小腿或腳底出現麻電感，請放鬆一點、不要拉到底。",
+      "reg": [
+        "下背與核心",
+        "髖與骨盆"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「大腿後側伸展（仰躺）」.\nExercise source steps: 平躺，一腳屈膝踩地。 另一腳伸直抬起，雙手抱住大腿後方，慢慢把腿拉向身體。 大腿後側有拉緊感時停住，維持 30 秒，再換邊。\nAvoid these errors: \nContext precautions (do not add paragraph text): 拉的時候如果小腿或腳底出現麻電感，請放鬆一點、不要拉到底。"
+    },
+    {
+      "id": "s_calf",
+      "n": "小腿伸展",
+      "s": [
+        "面對牆站好，雙手扶牆。",
+        "一腳往後跨一大步，後腳膝蓋打直、腳跟踩地、腳尖朝前。",
+        "身體慢慢往前靠，後小腿有拉緊感時停住，維持 30 秒。"
+      ],
+      "reg": [
+        "踝足",
+        "膝"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「小腿伸展」.\nExercise source steps: 面對牆站好，雙手扶牆。 一腳往後跨一大步，後腳膝蓋打直、腳跟踩地、腳尖朝前。 身體慢慢往前靠，後小腿有拉緊感時停住，維持 30 秒。\nAvoid these errors: \nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "s_piriformis",
+      "n": "臀部（梨狀肌）伸展",
+      "s": [
+        "平躺屈膝，把一腳的腳踝架在另一腳的膝蓋上，形成「4」字形。",
+        "雙手抱住下面那腳的大腿後方，往胸口方向拉。",
+        "臀部外側有伸展感時停住，維持 30 秒，再換邊。"
+      ],
+      "reg": [
+        "髖與骨盆",
+        "下背與核心"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「臀部（梨狀肌）伸展」.\nExercise source steps: 平躺屈膝，把一腳的腳踝架在另一腳的膝蓋上，形成「4」字形。 雙手抱住下面那腳的大腿後方，往胸口方向拉。 臀部外側有伸展感時停住，維持 30 秒，再換邊。\nAvoid these errors: \nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "s_hipflex",
+      "n": "髖屈肌伸展",
+      "s": [
+        "單膝跪地（膝蓋下墊軟墊），另一腳在前面踩地，呈弓箭步。",
+        "先做腹部輕輕收縮、臀部夾緊，避免腰往前塌。",
+        "身體慢慢往前移，後腳的大腿根部有拉緊感時停住，維持 30 秒。"
+      ],
+      "m": "腰往前凹去代替髖部伸展。",
+      "reg": [
+        "髖與骨盆",
+        "下背與核心"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「髖屈肌伸展」.\nExercise source steps: 單膝跪地（膝蓋下墊軟墊），另一腳在前面踩地，呈弓箭步。 先做腹部輕輕收縮、臀部夾緊，避免腰往前塌。 身體慢慢往前移，後腳的大腿根部有拉緊感時停住，維持 30 秒。\nAvoid these errors: 腰往前凹去代替髖部伸展。\nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "s_kneechest",
+      "n": "單膝抱胸",
+      "s": [
+        "平躺屈膝，雙腳踩地。",
+        "雙手抱住一邊的膝蓋，慢慢往胸口方向靠。",
+        "腰部有伸展感時停住，維持 20–30 秒，再換邊。"
+      ],
+      "reg": [
+        "下背與核心"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「單膝抱胸」.\nExercise source steps: 平躺屈膝，雙腳踩地。 雙手抱住一邊的膝蓋，慢慢往胸口方向靠。 腰部有伸展感時停住，維持 20–30 秒，再換邊。\nAvoid these errors: \nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "c_diaphragm",
+      "n": "腹式呼吸",
+      "s": [
+        "平躺屈膝，一手放胸口、一手放肚子上。",
+        "用鼻子慢慢吸氣，讓肚子上的手被頂起來，胸口的手盡量不動。",
+        "用嘴巴慢慢吐氣，肚子自然下沉。一次吸吐約 6 秒。"
+      ],
+      "m": "聳肩、胸口起伏比肚子大。",
+      "reg": [
+        "下背與核心"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「腹式呼吸」.\nExercise source steps: 平躺屈膝，一手放胸口、一手放肚子上。 用鼻子慢慢吸氣，讓肚子上的手被頂起來，胸口的手盡量不動。 用嘴巴慢慢吐氣，肚子自然下沉。一次吸吐約 6 秒。\nAvoid these errors: 聳肩、胸口起伏比肚子大。\nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "c_drawin",
+      "n": "腹部收縮練習（核心啟動）",
+      "s": [
+        "平躺屈膝、雙腳踩地，腰部保持自然的微小弧度。",
+        "吸氣，吐氣時肚臍輕輕往脊椎方向縮（像褲頭要拉緊一格），力道很輕就好。",
+        "維持 10 秒，過程要能正常呼吸、正常講話。"
+      ],
+      "m": "用力過猛；憋氣；屁股或大腿一起出力。",
+      "reg": [
+        "下背與核心"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「腹部收縮練習（核心啟動）」.\nExercise source steps: 平躺屈膝、雙腳踩地，腰部保持自然的微小弧度。 吸氣，吐氣時肚臍輕輕往脊椎方向縮（像褲頭要拉緊一格），力道很輕就好。 維持 10 秒，過程要能正常呼吸、正常講話。\nAvoid these errors: 用力過猛；憋氣；屁股或大腿一起出力。\nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "c_pelvictilt",
+      "n": "骨盆傾斜",
+      "s": [
+        "平躺屈膝，雙腳踩地。",
+        "慢慢把腰往床面壓平，再慢慢回到腰部微微拱起。",
+        "來回慢慢做，去感覺腰可以活動的範圍。"
+      ],
+      "reg": [
+        "下背與核心"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「骨盆傾斜」.\nExercise source steps: 平躺屈膝，雙腳踩地。 慢慢把腰往床面壓平，再慢慢回到腰部微微拱起。 來回慢慢做，去感覺腰可以活動的範圍。\nAvoid these errors: \nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "c_multifidus",
+      "n": "多裂肌啟動",
+      "s": [
+        "趴著，額頭墊在手背上，全身放鬆。",
+        "把手指放在腰椎骨頭的兩側凹陷處。",
+        "想像「讓手指下方的肌肉輕輕鼓起來」，維持 10 秒後放鬆。全程不要動到腰。"
+      ],
+      "c": "趴不下去的人可以側躺做，或直接跳過這個動作。",
+      "m": "用力到整個腰都往上拱、憋氣。",
+      "reg": [
+        "下背與核心"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「多裂肌啟動」.\nExercise source steps: 趴著，額頭墊在手背上，全身放鬆。 把手指放在腰椎骨頭的兩側凹陷處。 想像「讓手指下方的肌肉輕輕鼓起來」，維持 10 秒後放鬆。全程不要動到腰。\nAvoid these errors: 用力到整個腰都往上拱、憋氣。\nContext precautions (do not add paragraph text): 趴不下去的人可以側躺做，或直接跳過這個動作。"
+    },
+    {
+      "id": "c_heelslide",
+      "n": "仰躺滑腿",
+      "s": [
+        "平躺屈膝踩地，先做腹部輕輕收縮。",
+        "腰部維持不動，一腳的腳跟貼著床面慢慢往前滑到腿打直。",
+        "再慢慢滑回來，換另一腳。"
+      ],
+      "m": "腰部離開原本的位置、拱起來。",
+      "reg": [
+        "下背與核心"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「仰躺滑腿」.\nExercise source steps: 平躺屈膝踩地，先做腹部輕輕收縮。 腰部維持不動，一腳的腳跟貼著床面慢慢往前滑到腿打直。 再慢慢滑回來，換另一腳。\nAvoid these errors: 腰部離開原本的位置、拱起來。\nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "c_legfallout",
+      "n": "屈膝倒腿",
+      "s": [
+        "平躺屈膝踩地，先做腹部輕輕收縮。",
+        "一腳的膝蓋慢慢往外倒下去，骨盆和另一邊維持不動。",
+        "倒到骨盆快要跟著轉的前一刻停住，再慢慢收回來，換邊。"
+      ],
+      "m": "骨盆跟著一起轉過去。",
+      "reg": [
+        "下背與核心"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「屈膝倒腿」.\nExercise source steps: 平躺屈膝踩地，先做腹部輕輕收縮。 一腳的膝蓋慢慢往外倒下去，骨盆和另一邊維持不動。 倒到骨盆快要跟著轉的前一刻停住，再慢慢收回來，換邊。\nAvoid these errors: 骨盆跟著一起轉過去。\nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "c_bentlegraise",
+      "n": "仰躺屈膝抬腿",
+      "s": [
+        "平躺屈膝踩地，先做腹部輕輕收縮。",
+        "腰維持不動，把一腳整個抬起來，讓膝蓋來到髖部正上方。",
+        "停 3 秒慢慢放下，換另一腳。"
+      ],
+      "m": "腰拱起來離開床面；用大腿甩上去。",
+      "reg": [
+        "下背與核心"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「仰躺屈膝抬腿」.\nExercise source steps: 平躺屈膝踩地，先做腹部輕輕收縮。 腰維持不動，把一腳整個抬起來，讓膝蓋來到髖部正上方。 停 3 秒慢慢放下，換另一腳。\nAvoid these errors: 腰拱起來離開床面；用大腿甩上去。\nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "c_deadbug",
+      "n": "死蟲式",
+      "s": [
+        "平躺，雙腳抬起、膝蓋在髖部正上方，雙手朝向天花板。",
+        "先做腹部輕輕收縮，腰維持貼著床面。",
+        "慢慢伸直一隻腳、同時把對側的手往頭頂方向放下，回到原位再換邊。"
+      ],
+      "m": "腰離開床面拱起來；憋氣。",
+      "reg": [
+        "下背與核心"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「死蟲式」.\nExercise source steps: 平躺，雙腳抬起、膝蓋在髖部正上方，雙手朝向天花板。 先做腹部輕輕收縮，腰維持貼著床面。 慢慢伸直一隻腳、同時把對側的手往頭頂方向放下，回到原位再換邊。\nAvoid these errors: 腰離開床面拱起來；憋氣。\nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "c_quadruped_leg",
+      "n": "四足跪單腳後伸",
+      "s": [
+        "四足跪姿，手在肩膀正下方、膝蓋在髖部正下方，眼睛看著地板。",
+        "先做腹部輕輕收縮，背保持平的。",
+        "一腳沿著地面往後滑出去伸直，再抬離地面約 15 公分，停 3 秒後收回，換邊。"
+      ],
+      "m": "骨盆歪掉；腰塌下去；腿抬得比身體高。",
+      "reg": [
+        "下背與核心"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「四足跪單腳後伸」.\nExercise source steps: 四足跪姿，手在肩膀正下方、膝蓋在髖部正下方，眼睛看著地板。 先做腹部輕輕收縮，背保持平的。 一腳沿著地面往後滑出去伸直，再抬離地面約 15 公分，停 3 秒後收回，換邊。\nAvoid these errors: 骨盆歪掉；腰塌下去；腿抬得比身體高。\nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "c_birddog",
+      "n": "鳥狗式",
+      "s": [
+        "四足跪姿，手在肩膀正下方、膝蓋在髖部正下方，眼睛看著地板。",
+        "先做腹部輕輕收縮，背保持平的。",
+        "同時伸出一隻手和對側的腳，抬到與身體同高，停 3–5 秒後換邊。"
+      ],
+      "m": "骨盆歪掉；腰塌下去；手腳抬得比身體還高。",
+      "reg": [
+        "下背與核心"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「鳥狗式」.\nExercise source steps: 四足跪姿，手在肩膀正下方、膝蓋在髖部正下方，眼睛看著地板。 先做腹部輕輕收縮，背保持平的。 同時伸出一隻手和對側的腳，抬到與身體同高，停 3–5 秒後換邊。\nAvoid these errors: 骨盆歪掉；腰塌下去；手腳抬得比身體還高。\nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "c_bridge",
+      "n": "橋式",
+      "s": [
+        "平躺屈膝，兩腳與髖同寬踩地。",
+        "先做腹部輕輕收縮，再收緊臀部把屁股抬起，讓肩膀、髖、膝成一直線。",
+        "停 3–5 秒，再慢慢放下。"
+      ],
+      "m": "用腰往上頂而不是用臀部；抬起時腰塌下去。",
+      "reg": [
+        "下背與核心",
+        "髖與骨盆",
+        "膝"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「橋式」.\nExercise source steps: 平躺屈膝，兩腳與髖同寬踩地。 先做腹部輕輕收縮，再收緊臀部把屁股抬起，讓肩膀、髖、膝成一直線。 停 3–5 秒，再慢慢放下。\nAvoid these errors: 用腰往上頂而不是用臀部；抬起時腰塌下去。\nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "c_bridge_march",
+      "n": "橋式踏步",
+      "s": [
+        "先做出橋式並維持住，骨盆不要下沉也不要歪斜。",
+        "維持姿勢，慢慢把一腳抬離地面約 5 公分，停 2 秒放下。",
+        "換另一腳，左右交替像原地踏步。"
+      ],
+      "c": "骨盆一歪就先回到一般橋式，不要硬撐。",
+      "m": "抬腳那一側的骨盆掉下去。",
+      "reg": [
+        "下背與核心",
+        "髖與骨盆"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「橋式踏步」.\nExercise source steps: 先做出橋式並維持住，骨盆不要下沉也不要歪斜。 維持姿勢，慢慢把一腳抬離地面約 5 公分，停 2 秒放下。 換另一腳，左右交替像原地踏步。\nAvoid these errors: 抬腳那一側的骨盆掉下去。\nContext precautions (do not add paragraph text): 骨盆一歪就先回到一般橋式，不要硬撐。"
+    },
+    {
+      "id": "c_curlup",
+      "n": "捲腹（低腰壓版）",
+      "s": [
+        "平躺，一腳屈膝踩地、另一腳伸直（這是為了保護腰）。",
+        "雙手放在腰下方托著，維持腰部自然弧度。",
+        "只把頭和肩膀抬離地面一點點（下巴不要收到胸口），停 5–8 秒後放下。中途換腳。"
+      ],
+      "m": "把腰壓平、雙手抱頭往前拉脖子、抬太高。",
+      "reg": [
+        "下背與核心"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「捲腹（低腰壓版）」.\nExercise source steps: 平躺，一腳屈膝踩地、另一腳伸直（這是為了保護腰）。 雙手放在腰下方托著，維持腰部自然弧度。 只把頭和肩膀抬離地面一點點（下巴不要收到胸口），停 5–8 秒後放下。中途換腳。\nAvoid these errors: 把腰壓平、雙手抱頭往前拉脖子、抬太高。\nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "c_sideplank_knee",
+      "n": "屈膝側棒式",
+      "s": [
+        "側躺，手肘在肩膀正下方撐地，膝蓋彎 90 度。",
+        "用手肘和膝蓋撐起身體，讓肩膀、髖、膝成一直線。",
+        "停 10–20 秒後放下，換邊。"
+      ],
+      "c": "撐不住讓腰塌下去時就該停，寧可時間短一點。",
+      "reg": [
+        "下背與核心"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「屈膝側棒式」.\nExercise source steps: 側躺，手肘在肩膀正下方撐地，膝蓋彎 90 度。 用手肘和膝蓋撐起身體，讓肩膀、髖、膝成一直線。 停 10–20 秒後放下，換邊。\nAvoid these errors: \nContext precautions (do not add paragraph text): 撐不住讓腰塌下去時就該停，寧可時間短一點。"
+    },
+    {
+      "id": "c_sideplank",
+      "n": "側棒式（直腿）",
+      "s": [
+        "側躺，手肘在肩膀正下方撐地，兩腳伸直疊在一起。",
+        "撐起身體，讓頭、肩、髖、膝、踝成一直線。",
+        "停 15–30 秒後放下，換邊。"
+      ],
+      "c": "肩膀有問題的人請先問過醫師或治療師。",
+      "m": "骨盆往後轉、腰往下掉。",
+      "reg": [
+        "下背與核心"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「側棒式（直腿）」.\nExercise source steps: 側躺，手肘在肩膀正下方撐地，兩腳伸直疊在一起。 撐起身體，讓頭、肩、髖、膝、踝成一直線。 停 15–30 秒後放下，換邊。\nAvoid these errors: 骨盆往後轉、腰往下掉。\nContext precautions (do not add paragraph text): 肩膀有問題的人請先問過醫師或治療師。"
+    },
+    {
+      "id": "c_plank_knee",
+      "n": "跪姿棒式",
+      "s": [
+        "趴姿，手肘在肩膀正下方撐地，膝蓋著地。",
+        "先做腹部輕輕收縮、臀部夾緊，讓肩膀、髖、膝成一直線。",
+        "維持 15–30 秒，正常呼吸。"
+      ],
+      "m": "屁股翹太高或腰往下塌；憋氣。",
+      "reg": [
+        "下背與核心"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「跪姿棒式」.\nExercise source steps: 趴姿，手肘在肩膀正下方撐地，膝蓋著地。 先做腹部輕輕收縮、臀部夾緊，讓肩膀、髖、膝成一直線。 維持 15–30 秒，正常呼吸。\nAvoid these errors: 屁股翹太高或腰往下塌；憋氣。\nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "c_plank",
+      "n": "棒式",
+      "s": [
+        "趴姿，手肘在肩膀正下方撐地，用腳尖撐起身體。",
+        "腹部輕輕收縮、臀部夾緊，讓頭、肩、髖、膝、踝成一直線。",
+        "維持 20–40 秒，正常呼吸。"
+      ],
+      "c": "腰一塌下去就結束這一組，撐久不如撐好。",
+      "m": "腰往下塌、屁股翹高、脖子往前伸。",
+      "reg": [
+        "下背與核心"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「棒式」.\nExercise source steps: 趴姿，手肘在肩膀正下方撐地，用腳尖撐起身體。 腹部輕輕收縮、臀部夾緊，讓頭、肩、髖、膝、踝成一直線。 維持 20–40 秒，正常呼吸。\nAvoid these errors: 腰往下塌、屁股翹高、脖子往前伸。\nContext precautions (do not add paragraph text): 腰一塌下去就結束這一組，撐久不如撐好。"
+    },
+    {
+      "id": "c_paloff",
+      "n": "抗旋轉推撐",
+      "s": [
+        "彈力帶固定在身體側邊、與胸口同高，站姿雙腳與肩同寬，雙手在胸前握住帶子。",
+        "腹部輕輕收縮，把手往正前方推直，身體不要被帶子拉著轉過去。",
+        "停 3–5 秒，慢慢收回。做完換邊站。"
+      ],
+      "m": "身體跟著轉；聳肩；憋氣。",
+      "reg": [
+        "下背與核心"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「抗旋轉推撐」.\nExercise source steps: 彈力帶固定在身體側邊、與胸口同高，站姿雙腳與肩同寬，雙手在胸前握住帶子。 腹部輕輕收縮，把手往正前方推直，身體不要被帶子拉著轉過去。 停 3–5 秒，慢慢收回。做完換邊站。\nAvoid these errors: 身體跟著轉；聳肩；憋氣。\nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "c_standing_march",
+      "n": "站姿抬膝",
+      "s": [
+        "站在椅背旁邊，需要時手輕扶。",
+        "腹部輕輕收縮，把一腳的膝蓋抬到髖部高度。",
+        "停 3 秒慢慢放下，換另一腳，像原地踏步但放慢。"
+      ],
+      "m": "身體往後仰或往旁邊倒。",
+      "reg": [
+        "下背與核心",
+        "全身"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「站姿抬膝」.\nExercise source steps: 站在椅背旁邊，需要時手輕扶。 腹部輕輕收縮，把一腳的膝蓋抬到髖部高度。 停 3 秒慢慢放下，換另一腳，像原地踏步但放慢。\nAvoid these errors: 身體往後仰或往旁邊倒。\nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "c_suitcase",
+      "n": "單邊負重行走",
+      "s": [
+        "一手提一個有重量的東西（水壺、購物袋、啞鈴都可以），另一手空著。",
+        "腹部輕輕收縮，肩膀維持等高，不要往有重量那側傾斜。",
+        "直線走 15–20 公尺，換手再走一趟。"
+      ],
+      "m": "身體往有重量那邊歪；聳肩。",
+      "reg": [
+        "下背與核心",
+        "全身"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「單邊負重行走」.\nExercise source steps: 一手提一個有重量的東西（水壺、購物袋、啞鈴都可以），另一手空著。 腹部輕輕收縮，肩膀維持等高，不要往有重量那側傾斜。 直線走 15–20 公尺，換手再走一趟。\nAvoid these errors: 身體往有重量那邊歪；聳肩。\nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "c_catcow",
+      "n": "貓牛式",
+      "s": [
+        "四足跪姿，手在肩膀下、膝蓋在髖部下。",
+        "慢慢把背拱起來像生氣的貓，停 2 秒。",
+        "再慢慢讓背下沉、頭微微抬起，來回慢慢做。"
+      ],
+      "reg": [
+        "下背與核心",
+        "胸椎與姿勢"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「貓牛式」.\nExercise source steps: 四足跪姿，手在肩膀下、膝蓋在髖部下。 慢慢把背拱起來像生氣的貓，停 2 秒。 再慢慢讓背下沉、頭微微抬起，來回慢慢做。\nAvoid these errors: \nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "c_pressup",
+      "n": "趴姿撐起（背部伸展）",
+      "s": [
+        "趴著，兩手手掌放在肩膀旁邊。",
+        "用手把上半身慢慢撐起來，骨盆和大腿保持貼床，腰部放鬆。",
+        "停 2 秒後放下。"
+      ],
+      "c": "做的時候如果腿的痠麻痛往腳的方向延伸，請立刻停止並回診。",
+      "reg": [
+        "下背與核心"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「趴姿撐起（背部伸展）」.\nExercise source steps: 趴著，兩手手掌放在肩膀旁邊。 用手把上半身慢慢撐起來，骨盆和大腿保持貼床，腰部放鬆。 停 2 秒後放下。\nAvoid these errors: \nContext precautions (do not add paragraph text): 做的時候如果腿的痠麻痛往腳的方向延伸，請立刻停止並回診。"
+    },
+    {
+      "id": "c_lumbarroll",
+      "n": "久坐的腰部支撐（生活調整）",
+      "s": [
+        "坐著時在腰後放一條捲好的毛巾或腰靠墊。",
+        "讓腰維持自然的微微前凸，不要整個癱進椅背裡。",
+        "每坐 30–40 分鐘就起來走動 1–2 分鐘。"
+      ],
+      "reg": [
+        "下背與核心"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「久坐的腰部支撐（生活調整）」.\nExercise source steps: 坐著時在腰後放一條捲好的毛巾或腰靠墊。 讓腰維持自然的微微前凸，不要整個癱進椅背裡。 每坐 30–40 分鐘就起來走動 1–2 分鐘。\nAvoid these errors: \nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "sh_pendulum",
+      "n": "鐘擺運動",
+      "s": [
+        "站著，身體從髖部往前彎約 90 度，好手扶著桌子或椅背撐住。",
+        "讓痛的那隻手臂自然垂下、完全放鬆。",
+        "用身體輕輕前後晃動去帶動手臂畫圈，畫圈範圍由小漸漸變大。"
+      ],
+      "c": "不要在手上加任何重物。做的過程不應該會痛；起身若覺得頭暈請先坐下休息。手臂有水腫時不適合做。背痛的人可以改趴在床邊做。",
+      "m": "用手臂的肌肉去甩——這樣就失去意義了，動力要來自身體的晃動。",
+      "reg": [
+        "肩"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「鐘擺運動」.\nExercise source steps: 站著，身體從髖部往前彎約 90 度，好手扶著桌子或椅背撐住。 讓痛的那隻手臂自然垂下、完全放鬆。 用身體輕輕前後晃動去帶動手臂畫圈，畫圈範圍由小漸漸變大。\nAvoid these errors: 用手臂的肌肉去甩——這樣就失去意義了，動力要來自身體的晃動。\nContext precautions (do not add paragraph text): 不要在手上加任何重物。做的過程不應該會痛；起身若覺得頭暈請先坐下休息。手臂有水腫時不適合做。背痛的人可以改趴在床邊做。"
+    },
+    {
+      "id": "sh_wand_flex",
+      "n": "握棍輔助抬手",
+      "s": [
+        "坐著或站著，雙手握住一根棍子（雨傘、拐杖、掃把柄都可以），兩手手心朝上。",
+        "用好手推動棍子，把痛的那隻手往前、往上舉到不會痛的高度。",
+        "停 3 秒，再慢慢放下。"
+      ],
+      "reg": [
+        "肩"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「握棍輔助抬手」.\nExercise source steps: 坐著或站著，雙手握住一根棍子（雨傘、拐杖、掃把柄都可以），兩手手心朝上。 用好手推動棍子，把痛的那隻手往前、往上舉到不會痛的高度。 停 3 秒，再慢慢放下。\nAvoid these errors: \nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "sh_wand_er",
+      "n": "握棍輔助外轉",
+      "s": [
+        "坐著，兩邊手肘彎 90 度並夾在身體兩側，腋下夾一條捲起的毛巾。",
+        "雙手握住棍子，用好手把痛的那隻手的前臂往身體外側推。",
+        "推到有點緊時停 3 秒，再回到中間。"
+      ],
+      "m": "手肘離開身體、身體跟著轉過去。",
+      "reg": [
+        "肩"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「握棍輔助外轉」.\nExercise source steps: 坐著，兩邊手肘彎 90 度並夾在身體兩側，腋下夾一條捲起的毛巾。 雙手握住棍子，用好手把痛的那隻手的前臂往身體外側推。 推到有點緊時停 3 秒，再回到中間。\nAvoid these errors: 手肘離開身體、身體跟著轉過去。\nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "sh_er_iso",
+      "n": "肩外轉等長收縮",
+      "s": [
+        "站在門框旁邊，痛的那隻手的手肘彎 90 度、貼在身側。",
+        "把手背抵住門框，用力往外推，但手實際上不要移動。",
+        "維持 5–10 秒後放鬆。"
+      ],
+      "reg": [
+        "肩"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「肩外轉等長收縮」.\nExercise source steps: 站在門框旁邊，痛的那隻手的手肘彎 90 度、貼在身側。 把手背抵住門框，用力往外推，但手實際上不要移動。 維持 5–10 秒後放鬆。\nAvoid these errors: \nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "sh_er_band",
+      "n": "彈力帶肩外轉",
+      "s": [
+        "彈力帶固定在肚臍高度，側身站著，用靠外側的手握住帶子。",
+        "手肘彎 90 度夾在身側，腋下夾一條捲毛巾。",
+        "手肘不離開身體，把前臂往身體外側轉開，停 2 秒再慢慢回來。"
+      ],
+      "m": "手肘離開身體；身體跟著轉去代償。",
+      "reg": [
+        "肩"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「彈力帶肩外轉」.\nExercise source steps: 彈力帶固定在肚臍高度，側身站著，用靠外側的手握住帶子。 手肘彎 90 度夾在身側，腋下夾一條捲毛巾。 手肘不離開身體，把前臂往身體外側轉開，停 2 秒再慢慢回來。\nAvoid these errors: 手肘離開身體；身體跟著轉去代償。\nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "sh_scap_squeeze",
+      "n": "肩胛內收（夾背）",
+      "s": [
+        "坐著或站著，雙手在背後輕輕交扣——這時肩胛骨會自然靠攏，記住那個感覺。",
+        "維持肩胛骨靠攏的位置，把手放下來。",
+        "接著練習不用手交扣，只用背部把兩片肩胛骨夾向脊椎，停 5 秒放鬆。"
+      ],
+      "m": "肩膀往上聳起來（那是用上斜方肌，不是我們要練的）。",
+      "reg": [
+        "肩",
+        "胸椎與姿勢"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「肩胛內收（夾背）」.\nExercise source steps: 坐著或站著，雙手在背後輕輕交扣——這時肩胛骨會自然靠攏，記住那個感覺。 維持肩胛骨靠攏的位置，把手放下來。 接著練習不用手交扣，只用背部把兩片肩胛骨夾向脊椎，停 5 秒放鬆。\nAvoid these errors: 肩膀往上聳起來（那是用上斜方肌，不是我們要練的）。\nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "sh_wall_slide",
+      "n": "靠牆手臂上滑",
+      "s": [
+        "背靠牆站，腳跟離牆一小步，骨盆微微後傾讓下背貼平牆面。",
+        "手肘彎 90 度、手背和前臂貼著牆，手臂微微張開。",
+        "沿著牆面把手往上滑，滑到下背快要離開牆的前一刻停住，停 2 秒再滑回來。"
+      ],
+      "m": "下背拱起離開牆面（表示已經超過肩膀真正的活動範圍，改用腰去代償）；聳肩。",
+      "reg": [
+        "肩",
+        "胸椎與姿勢"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「靠牆手臂上滑」.\nExercise source steps: 背靠牆站，腳跟離牆一小步，骨盆微微後傾讓下背貼平牆面。 手肘彎 90 度、手背和前臂貼著牆，手臂微微張開。 沿著牆面把手往上滑，滑到下背快要離開牆的前一刻停住，停 2 秒再滑回來。\nAvoid these errors: 下背拱起離開牆面（表示已經超過肩膀真正的活動範圍，改用腰去代償）；聳肩。\nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "sh_row_band",
+      "n": "彈力帶划船",
+      "s": [
+        "彈力帶固定在胸口高度，面對固定點站好，雙手握住帶子。",
+        "把手肘往後拉、貼近身體兩側，同時肩胛骨往中間夾。",
+        "停 2 秒，再慢慢放回去。"
+      ],
+      "m": "聳肩；身體往後倒去借力。",
+      "reg": [
+        "肩",
+        "胸椎與姿勢"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「彈力帶划船」.\nExercise source steps: 彈力帶固定在胸口高度，面對固定點站好，雙手握住帶子。 把手肘往後拉、貼近身體兩側，同時肩胛骨往中間夾。 停 2 秒，再慢慢放回去。\nAvoid these errors: 聳肩；身體往後倒去借力。\nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "sh_serratus_push",
+      "n": "四足跪前推",
+      "s": [
+        "四足跪姿，手掌在肩膀正下方，手肘打直不要鎖死。",
+        "手肘保持打直，把上背往上「推高」，讓兩片肩胛骨往外分開。",
+        "停 3 秒，再慢慢讓上背下沉、肩胛骨靠攏。"
+      ],
+      "reg": [
+        "肩"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「四足跪前推」.\nExercise source steps: 四足跪姿，手掌在肩膀正下方，手肘打直不要鎖死。 手肘保持打直，把上背往上「推高」，讓兩片肩胛骨往外分開。 停 3 秒，再慢慢讓上背下沉、肩胛骨靠攏。\nAvoid these errors: \nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "sh_cross_stretch",
+      "n": "手臂橫過胸前伸展",
+      "s": [
+        "把痛的那隻手臂橫過胸前。",
+        "用另一手扶住手肘上方，慢慢往胸口方向壓。",
+        "感覺肩膀後側被拉開時停住，維持 30 秒。"
+      ],
+      "m": "身體跟著轉過去——這樣就拉不到了。",
+      "reg": [
+        "肩"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「手臂橫過胸前伸展」.\nExercise source steps: 把痛的那隻手臂橫過胸前。 用另一手扶住手肘上方，慢慢往胸口方向壓。 感覺肩膀後側被拉開時停住，維持 30 秒。\nAvoid these errors: 身體跟著轉過去——這樣就拉不到了。\nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "sh_corner_stretch",
+      "n": "牆角胸前伸展",
+      "s": [
+        "面對牆角站著（或站在門框中間），兩手前臂貼在兩側牆面，手肘與肩膀同高。",
+        "身體慢慢往牆角靠近。",
+        "前胸有拉開的感覺時停住，維持 30 秒。"
+      ],
+      "c": "肩膀曾經脫臼、或醫師說過有前側不穩定的人，這個動作請先問過醫師。",
+      "reg": [
+        "肩",
+        "胸椎與姿勢"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「牆角胸前伸展」.\nExercise source steps: 面對牆角站著（或站在門框中間），兩手前臂貼在兩側牆面，手肘與肩膀同高。 身體慢慢往牆角靠近。 前胸有拉開的感覺時停住，維持 30 秒。\nAvoid these errors: \nContext precautions (do not add paragraph text): 肩膀曾經脫臼、或醫師說過有前側不穩定的人，這個動作請先問過醫師。"
+    },
+    {
+      "id": "sh_posture_demo",
+      "n": "抬手前先挺胸",
+      "s": [
+        "先刻意駝背坐著，把手往前往上抬高，記住抬到哪裡開始卡住或痛。",
+        "接著坐直、胸口打開、肩胛骨微微往後下沉，再抬一次手。",
+        "比較兩次的差別。以後日常要抬手拿東西前，先做第二種姿勢。"
+      ],
+      "reg": [
+        "肩",
+        "胸椎與姿勢"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「抬手前先挺胸」.\nExercise source steps: 先刻意駝背坐著，把手往前往上抬高，記住抬到哪裡開始卡住或痛。 接著坐直、胸口打開、肩胛骨微微往後下沉，再抬一次手。 比較兩次的差別。以後日常要抬手拿東西前，先做第二種姿勢。\nAvoid these errors: \nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "n_axial",
+      "n": "縮下巴（頭往上拉長）",
+      "s": [
+        "坐正，肩膀放鬆。",
+        "想像頭頂有一條線把你的頭「往上拉長」，下巴會自然往內收一點。",
+        "維持 5 秒後放鬆。"
+      ],
+      "m": "用力把頭往後仰或往後壓——方向是「往上長高」，不是「往後推」。",
+      "reg": [
+        "頸"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「縮下巴（頭往上拉長）」.\nExercise source steps: 坐正，肩膀放鬆。 想像頭頂有一條線把你的頭「往上拉長」，下巴會自然往內收一點。 維持 5 秒後放鬆。\nAvoid these errors: 用力把頭往後仰或往後壓——方向是「往上長高」，不是「往後推」。\nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "n_nod",
+      "n": "點頭（深層頸屈肌）",
+      "s": [
+        "平躺，頭下墊一條摺薄的毛巾。",
+        "下巴輕輕往內點頭（像在說「是」的小動作），後頸會有微微被拉長的感覺。",
+        "維持 10 秒，全程肩膀和脖子外側的肌肉都要放鬆。"
+      ],
+      "m": "把整個頭抬離枕頭——那是在用脖子外側的大肌肉，正好是我們要它放鬆的那條。",
+      "reg": [
+        "頸"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「點頭（深層頸屈肌）」.\nExercise source steps: 平躺，頭下墊一條摺薄的毛巾。 下巴輕輕往內點頭（像在說「是」的小動作），後頸會有微微被拉長的感覺。 維持 10 秒，全程肩膀和脖子外側的肌肉都要放鬆。\nAvoid these errors: 把整個頭抬離枕頭——那是在用脖子外側的大肌肉，正好是我們要它放鬆的那條。\nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "n_levator",
+      "n": "提肩胛肌伸展",
+      "s": [
+        "坐好，緊的那一側的手抓住椅子邊緣，把該側肩膀往下固定住。",
+        "頭先轉向另一側約 45 度，再低頭看向另一側的膝蓋。",
+        "另一手輕輕扶著後腦加一點點力，維持 30 秒後換邊。"
+      ],
+      "reg": [
+        "頸",
+        "肩"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「提肩胛肌伸展」.\nExercise source steps: 坐好，緊的那一側的手抓住椅子邊緣，把該側肩膀往下固定住。 頭先轉向另一側約 45 度，再低頭看向另一側的膝蓋。 另一手輕輕扶著後腦加一點點力，維持 30 秒後換邊。\nAvoid these errors: \nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "n_scalene",
+      "n": "斜角肌伸展",
+      "s": [
+        "坐好，先做一次縮下巴。",
+        "頭往另一側側彎（耳朵靠向肩膀），再輕輕轉向緊繃的那一側。",
+        "維持 30 秒後換邊。"
+      ],
+      "c": "做的時候如果手麻加重，請立刻停止並回診。",
+      "reg": [
+        "頸"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「斜角肌伸展」.\nExercise source steps: 坐好，先做一次縮下巴。 頭往另一側側彎（耳朵靠向肩膀），再輕輕轉向緊繃的那一側。 維持 30 秒後換邊。\nAvoid these errors: \nContext precautions (do not add paragraph text): 做的時候如果手麻加重，請立刻停止並回診。"
+    },
+    {
+      "id": "n_suboccipital",
+      "n": "枕下肌群伸展",
+      "s": [
+        "坐好，雙手十指交扣放在後腦最下方（頭骨和脖子的交界處）。",
+        "下巴輕輕往內點，同時雙手給一點點往前上方的力道。",
+        "維持 20–30 秒，力道要很輕。"
+      ],
+      "m": "用力把頭往下壓。",
+      "reg": [
+        "頸"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「枕下肌群伸展」.\nExercise source steps: 坐好，雙手十指交扣放在後腦最下方（頭骨和脖子的交界處）。 下巴輕輕往內點，同時雙手給一點點往前上方的力道。 維持 20–30 秒，力道要很輕。\nAvoid these errors: 用力把頭往下壓。\nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "n_break",
+      "n": "每半小時的姿勢休息",
+      "s": [
+        "在手機或電腦設一個每 30–40 分鐘的提醒。",
+        "起身站直，做 5 次縮下巴、5 次肩膀往後繞圈。",
+        "眼睛看遠處 20 秒，再回去工作。"
+      ],
+      "reg": [
+        "頸",
+        "胸椎與姿勢"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「每半小時的姿勢休息」.\nExercise source steps: 在手機或電腦設一個每 30–40 分鐘的提醒。 起身站直，做 5 次縮下巴、5 次肩膀往後繞圈。 眼睛看遠處 20 秒，再回去工作。\nAvoid these errors: \nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "o_warm",
+      "n": "坐姿暖身",
+      "s": [
+        "坐在硬的、有直靠背的椅子上。",
+        "依序活動：抬頭低頭、左右轉頭、聳肩繞圈、身體左右轉、腳踝上下勾。",
+        "每個動作做 5–10 次，全部大約 5 分鐘。"
+      ],
+      "reg": [
+        "全身"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「坐姿暖身」.\nExercise source steps: 坐在硬的、有直靠背的椅子上。 依序活動：抬頭低頭、左右轉頭、聳肩繞圈、身體左右轉、腳踝上下勾。 每個動作做 5–10 次，全部大約 5 分鐘。\nAvoid these errors: \nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "o_knee_ext",
+      "n": "坐姿伸膝（加沙包）",
+      "s": [
+        "坐在硬的直靠背椅子上，腳踝綁上沙包。",
+        "用 2–3 秒慢慢把膝蓋打直。",
+        "再用 4–6 秒更慢地放下來，然後換邊。"
+      ],
+      "reg": [
+        "膝",
+        "全身"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「坐姿伸膝（加沙包）」.\nExercise source steps: 坐在硬的直靠背椅子上，腳踝綁上沙包。 用 2–3 秒慢慢把膝蓋打直。 再用 4–6 秒更慢地放下來，然後換邊。\nAvoid these errors: \nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "o_knee_flex",
+      "n": "站姿屈膝（加沙包）",
+      "s": [
+        "扶著流理台或穩固家具站好，腳踝綁沙包。",
+        "用 2–3 秒把腳跟往屁股方向勾起來。",
+        "再用 4–6 秒慢慢放下，然後換邊。"
+      ],
+      "m": "身體往前傾去借力。",
+      "reg": [
+        "膝",
+        "全身"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「站姿屈膝（加沙包）」.\nExercise source steps: 扶著流理台或穩固家具站好，腳踝綁沙包。 用 2–3 秒把腳跟往屁股方向勾起來。 再用 4–6 秒慢慢放下，然後換邊。\nAvoid these errors: 身體往前傾去借力。\nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "o_hip_abd",
+      "n": "站姿髖外展（加沙包）",
+      "s": [
+        "扶著流理台站好，腳踝綁沙包。",
+        "一腳往正側邊慢慢抬起（不要往前也不要往後），身體保持直的。",
+        "慢慢放下，然後換邊。"
+      ],
+      "m": "身體往另一邊倒過去；腳往前踢。",
+      "reg": [
+        "髖與骨盆",
+        "全身"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「站姿髖外展（加沙包）」.\nExercise source steps: 扶著流理台站好，腳踝綁沙包。 一腳往正側邊慢慢抬起（不要往前也不要往後），身體保持直的。 慢慢放下，然後換邊。\nAvoid these errors: 身體往另一邊倒過去；腳往前踢。\nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "o_heel_toe_raise",
+      "n": "提踵與勾腳尖",
+      "s": [
+        "扶著流理台或椅背站好。",
+        "慢慢踮起腳尖，停 2 秒再放下。",
+        "接著把腳尖翹起來、用腳跟站住，停 2 秒再放下。"
+      ],
+      "reg": [
+        "踝足",
+        "全身"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「提踵與勾腳尖」.\nExercise source steps: 扶著流理台或椅背站好。 慢慢踮起腳尖，停 2 秒再放下。 接著把腳尖翹起來、用腳跟站住，停 2 秒再放下。\nAvoid these errors: \nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "o_knee_bend",
+      "n": "扶著微蹲",
+      "s": [
+        "扶著流理台站好，雙腳與肩同寬。",
+        "慢慢彎膝蓋往下蹲一點點，膝蓋不要超過腳尖太多。",
+        "停 2 秒再站直。"
+      ],
+      "reg": [
+        "膝",
+        "全身"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「扶著微蹲」.\nExercise source steps: 扶著流理台站好，雙腳與肩同寬。 慢慢彎膝蓋往下蹲一點點，膝蓋不要超過腳尖太多。 停 2 秒再站直。\nAvoid these errors: \nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "o_backward_walk",
+      "n": "倒退走",
+      "s": [
+        "沿著牆邊或走廊，一手可以扶著牆。",
+        "慢慢往後走 10 步，再往前走回原位。",
+        "來回 4 趟。"
+      ],
+      "c": "一定要在沒有雜物的走道做，後方要淨空。剛開始請有人在旁邊陪。",
+      "reg": [
+        "全身"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「倒退走」.\nExercise source steps: 沿著牆邊或走廊，一手可以扶著牆。 慢慢往後走 10 步，再往前走回原位。 來回 4 趟。\nAvoid these errors: \nContext precautions (do not add paragraph text): 一定要在沒有雜物的走道做，後方要淨空。剛開始請有人在旁邊陪。"
+    },
+    {
+      "id": "o_side_walk",
+      "n": "側走",
+      "s": [
+        "扶著牆或流理台，身體朝正前方。",
+        "往側邊跨 10 步，再往回跨 10 步。",
+        "來回 4 趟。"
+      ],
+      "reg": [
+        "全身",
+        "髖與骨盆"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「側走」.\nExercise source steps: 扶著牆或流理台，身體朝正前方。 往側邊跨 10 步，再往回跨 10 步。 來回 4 趟。\nAvoid these errors: \nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "o_fig8",
+      "n": "走 8 字（練轉身）",
+      "s": [
+        "在地上想像兩個圈，走出「8」字形的路線。",
+        "轉彎的時候放慢速度，眼睛看前方而不是看地板。",
+        "來回走 2 趟。"
+      ],
+      "reg": [
+        "全身"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「走 8 字（練轉身）」.\nExercise source steps: 在地上想像兩個圈，走出「8」字形的路線。 轉彎的時候放慢速度，眼睛看前方而不是看地板。 來回走 2 趟。\nAvoid these errors: \nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "o_tandem_stand",
+      "n": "前後腳站",
+      "s": [
+        "扶著流理台或穩固椅背站好。",
+        "一腳的腳跟接著另一腳的腳尖，站成一直線。",
+        "維持 10 秒，然後換另一腳在前。"
+      ],
+      "reg": [
+        "全身"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「前後腳站」.\nExercise source steps: 扶著流理台或穩固椅背站好。 一腳的腳跟接著另一腳的腳尖，站成一直線。 維持 10 秒，然後換另一腳在前。\nAvoid these errors: \nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "o_tandem_walk",
+      "n": "前後腳走直線",
+      "s": [
+        "沿著牆邊，一手可以扶著。",
+        "像走平衡木一樣，一腳的腳跟接著另一腳的腳尖往前走 10 步。",
+        "來回 2 趟。"
+      ],
+      "c": "一定要在有東西可以扶的地方做。",
+      "reg": [
+        "全身"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「前後腳走直線」.\nExercise source steps: 沿著牆邊，一手可以扶著。 像走平衡木一樣，一腳的腳跟接著另一腳的腳尖往前走 10 步。 來回 2 趟。\nAvoid these errors: \nContext precautions (do not add paragraph text): 一定要在有東西可以扶的地方做。"
+    },
+    {
+      "id": "o_heel_toe_walk",
+      "n": "腳跟走與腳尖走",
+      "s": [
+        "扶著牆，把腳尖翹起來、只用腳跟往前走 10 步。",
+        "再換成踮腳尖走 10 步。",
+        "各來回 4 趟。"
+      ],
+      "reg": [
+        "全身",
+        "踝足"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「腳跟走與腳尖走」.\nExercise source steps: 扶著牆，把腳尖翹起來、只用腳跟往前走 10 步。 再換成踮腳尖走 10 步。 各來回 4 趟。\nAvoid these errors: \nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "f_plantar_stretch",
+      "n": "足底筋膜伸展（扳腳趾）",
+      "s": [
+        "坐著，把痛的那隻腳跨到另一腳的膝蓋上。",
+        "一手抓住腳趾往腳背方向扳，會感覺整片腳底被拉開。",
+        "另一手可以摸到腳底繃緊的那條筋，維持 30 秒。"
+      ],
+      "reg": [
+        "踝足"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「足底筋膜伸展（扳腳趾）」.\nExercise source steps: 坐著，把痛的那隻腳跨到另一腳的膝蓋上。 一手抓住腳趾往腳背方向扳，會感覺整片腳底被拉開。 另一手可以摸到腳底繃緊的那條筋，維持 30 秒。\nAvoid these errors: \nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "f_plantar_roll",
+      "n": "足底滾球按摩",
+      "s": [
+        "坐著，腳下踩一顆球（網球、按摩球）或一瓶裝水的寶特瓶。",
+        "腳前後滾動，把整個腳底都滾過，從腳跟到腳掌前方。",
+        "力道以「有點痠但舒服」為原則；想加壓可以用手輕壓自己的膝蓋。"
+      ],
+      "reg": [
+        "踝足"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「足底滾球按摩」.\nExercise source steps: 坐著，腳下踩一顆球（網球、按摩球）或一瓶裝水的寶特瓶。 腳前後滾動，把整個腳底都滾過，從腳跟到腳掌前方。 力道以「有點痠但舒服」為原則；想加壓可以用手輕壓自己的膝蓋。\nAvoid these errors: \nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "f_towel_curl",
+      "n": "腳趾抓毛巾",
+      "s": [
+        "坐著，腳掌平放在一條攤開的毛巾上。",
+        "只用腳趾把毛巾一點一點抓向自己。",
+        "抓完把毛巾攤平，再來一次。"
+      ],
+      "reg": [
+        "踝足"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「腳趾抓毛巾」.\nExercise source steps: 坐著，腳掌平放在一條攤開的毛巾上。 只用腳趾把毛巾一點一點抓向自己。 抓完把毛巾攤平，再來一次。\nAvoid these errors: \nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "f_short_foot",
+      "n": "足弓訓練（短足運動）",
+      "s": [
+        "坐著，整個腳掌平踩在地上。",
+        "腳趾不要往下扣、腳跟也不離地，試著把腳掌前後「縮短」，讓足弓微微拱起來。",
+        "維持 5 秒後放鬆。"
+      ],
+      "m": "用腳趾往下抓地——那是抓毛巾，不是這個動作。這個動作外觀上幾乎看不出來。",
+      "reg": [
+        "踝足"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「足弓訓練（短足運動）」.\nExercise source steps: 坐著，整個腳掌平踩在地上。 腳趾不要往下扣、腳跟也不離地，試著把腳掌前後「縮短」，讓足弓微微拱起來。 維持 5 秒後放鬆。\nAvoid these errors: 用腳趾往下抓地——那是抓毛巾，不是這個動作。這個動作外觀上幾乎看不出來。\nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "f_ankle_abc",
+      "n": "腳踝畫字",
+      "s": [
+        "坐著或躺著，把腳抬離地面。",
+        "用大腳趾當筆，在空中慢慢寫出英文字母 A 到 Z。",
+        "只動腳踝，膝蓋和大腿不要跟著轉。"
+      ],
+      "reg": [
+        "踝足"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「腳踝畫字」.\nExercise source steps: 坐著或躺著，把腳抬離地面。 用大腳趾當筆，在空中慢慢寫出英文字母 A 到 Z。 只動腳踝，膝蓋和大腿不要跟著轉。\nAvoid these errors: \nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "f_ankle_evert",
+      "n": "彈力帶腳踝外翻",
+      "s": [
+        "坐著把腿伸直，彈力帶套在腳掌外側，另一端固定或用手拉住。",
+        "腳掌慢慢往外翻（小趾往外推），停 2 秒再慢慢回來。",
+        "只動腳踝，膝蓋和大腿不要跟著轉。"
+      ],
+      "reg": [
+        "踝足"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「彈力帶腳踝外翻」.\nExercise source steps: 坐著把腿伸直，彈力帶套在腳掌外側，另一端固定或用手拉住。 腳掌慢慢往外翻（小趾往外推），停 2 秒再慢慢回來。 只動腳踝，膝蓋和大腿不要跟著轉。\nAvoid these errors: \nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "f_ankle_invert",
+      "n": "彈力帶腳踝內翻",
+      "s": [
+        "坐著把腿伸直，彈力帶套在腳掌內側，另一端固定在對側或用手拉住。",
+        "腳掌慢慢往內翻（大腳趾往內推），停 2 秒再慢慢回來。",
+        "只動腳踝，膝蓋不要跟著轉。"
+      ],
+      "reg": [
+        "踝足"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「彈力帶腳踝內翻」.\nExercise source steps: 坐著把腿伸直，彈力帶套在腳掌內側，另一端固定在對側或用手拉住。 腳掌慢慢往內翻（大腳趾往內推），停 2 秒再慢慢回來。 只動腳踝，膝蓋不要跟著轉。\nAvoid these errors: \nContext precautions (do not add paragraph text): "
+    },
+    {
+      "id": "f_calf_ecc",
+      "n": "離心提踵（階梯版）",
+      "s": [
+        "站在階梯上，前腳掌踩在階梯邊緣、腳跟懸空，兩手扶好扶手。",
+        "用兩腳一起踮起腳尖。",
+        "改成只用患側腳，非常慢地（3–5 秒）把腳跟往下放到低於階梯的位置。"
+      ],
+      "c": "阿基里斯腱紅腫熱痛的急性期不要做。做完隔天疼痛應回到原本的程度，若更痛請減量。",
+      "reg": [
+        "踝足"
+      ],
+      "prompt": "Use case: scientific-educational. Create ONE standalone Traditional Chinese patient exercise illustration, landscape 3:2, white background, clean detailed medical editorial line drawing with light watercolor shading. Consistent older East Asian man with gray hair, teal #0f766e shirt, gray shorts, natural proportions. Barefoot on bed/mat or for foot detail; nonslip sneakers for standing/walking. Teal large title, orange small movement arrows, dark gray outlines. Show 1–2 clearly separated poses (not ghost limbs), choose camera view best showing essential motion, full relevant anatomy visible. No logo/watermark. Exactly two arms two legs per person. Each illustration shows ONLY this exercise. Use the supplied steps as visual source, not extra medical claims. Keep text sparse: exact title plus 2 concise Traditional Chinese action captions derived from steps, no detailed repetitions/frequency, no invented words. Tiny motions must be shown subtly not exaggerated. Equipment must support/contact correctly. Title: 「離心提踵（階梯版）」.\nExercise source steps: 站在階梯上，前腳掌踩在階梯邊緣、腳跟懸空，兩手扶好扶手。 用兩腳一起踮起腳尖。 改成只用患側腳，非常慢地（3–5 秒）把腳跟往下放到低於階梯的位置。\nAvoid these errors: \nContext precautions (do not add paragraph text): 阿基里斯腱紅腫熱痛的急性期不要做。做完隔天疼痛應回到原本的程度，若更痛請減量。"
+    }
+  ]
+}

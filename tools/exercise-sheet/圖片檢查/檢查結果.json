@@ -1,0 +1,1328 @@
+{
+  "date": "2026-09-07",
+  "scope": "已比對79個動作的79張初稿，以及10張最新修正版。以現有 exercises.js 的動作步驟、常見錯誤與使用者指定修正為比對基準，這是圖文一致性檢查，未另行審核整套處方的臨床適用性。",
+  "counts": {
+    "未見明顯衝突": 51,
+    "需釐清／補強": 10,
+    "需修正": 18
+  },
+  "rows": [
+    {
+      "id": "k_quadset",
+      "name": "股四頭肌等長收縮（壓膝）",
+      "path": "居家運動單張/圖片原稿/k_quadset.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/k_quadset.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "坐著或躺著把腿伸直，膝蓋下方墊一條捲好的小毛巾。",
+        "腳踝往身體方向勾起，同時用力收緊大腿前側，把膝蓋往下壓毛巾（會感覺膝蓋骨被往上拉）。",
+        "數到 10 再放鬆，休息一下再做下一次。"
+      ]
+    },
+    {
+      "id": "k_heelslide",
+      "name": "腳跟滑動（練彎曲角度）",
+      "path": "居家運動單張/圖片原稿/k_heelslide.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/k_heelslide.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "平躺，兩腳伸直。",
+        "腳跟貼著床面，慢慢往屁股的方向滑，滑到有點緊、但還不會痛的位置。",
+        "停 5 秒，再慢慢滑回原位。"
+      ]
+    },
+    {
+      "id": "k_slr",
+      "name": "直膝抬腿",
+      "path": "居家運動單張/圖片原稿/k_slr.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/k_slr.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "平躺，一腳彎起來踩在床上（用來穩住骨盆和腰）。",
+        "另一腳打直，先收緊大腿前側。",
+        "把整條腿抬起約 45 度，停 10 秒，再慢慢放下。"
+      ]
+    },
+    {
+      "id": "k_sake",
+      "name": "短弧伸膝",
+      "path": "居家運動單張/圖片原稿/k_sake.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/k_sake.png",
+      "status": "需釐清／補強",
+      "finding": "第二圖非訓練側腿被完全遮住，與第一圖屈膝側的連續性不清楚；主要短弧伸膝動作可辨。",
+      "action": "保留非訓練腿的位置並略微錯開，避免看似缺腿。",
+      "steps": [
+        "平躺或半坐，膝蓋下方墊一個枕頭或捲起的大浴巾。",
+        "大腿不離開枕頭，慢慢把小腿抬起來、把膝蓋打直。",
+        "停 3 秒，再用 3 秒慢慢放下。"
+      ]
+    },
+    {
+      "id": "k_kneeext",
+      "name": "坐姿伸膝（全範圍）",
+      "path": "居家運動單張/圖片原稿/k_kneeext.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/k_kneeext.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "坐穩椅子、背靠椅背，雙手輕扶椅面。",
+        "慢慢把膝蓋打直，到不會痛的最高點。",
+        "停 3 秒，再用 3 秒慢慢放下。"
+      ]
+    },
+    {
+      "id": "k_hipabd",
+      "name": "側躺髖外展抬腿",
+      "path": "居家運動單張/圖片原稿/k_hipabd.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/k_hipabd.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "側躺，下面那隻腳彎曲穩住身體。",
+        "上面那隻腳打直，腳尖朝正前方（不要轉向天花板）。",
+        "把腿往上抬約 30 度，停 3 秒，再慢慢放下。"
+      ]
+    },
+    {
+      "id": "k_sitstand",
+      "name": "坐站訓練",
+      "path": "居家運動單張/圖片原稿/k_sitstand.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/k_sitstand.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "坐在穩固、有靠背的椅子前三分之一，雙手抱胸。",
+        "身體微微前傾，用大腿出力站起來。",
+        "用 3 秒慢慢坐下，不要用摔的。"
+      ]
+    },
+    {
+      "id": "k_wallsquat",
+      "name": "靠牆微蹲",
+      "path": "居家運動單張/圖片原稿/k_wallsquat.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/k_wallsquat.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "背靠牆站好，雙腳往前踏約一步、與肩同寬。",
+        "背貼著牆慢慢往下滑，膝蓋彎約 30–45 度。",
+        "停 5–10 秒，再撐回站直。"
+      ]
+    },
+    {
+      "id": "k_stepup",
+      "name": "上階訓練",
+      "path": "居家運動單張/圖片原稿/k_stepup.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/k_stepup.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "站在一階台階前，手扶著扶手。",
+        "要練的那隻腳先踏上台階，用這隻腳出力把身體帶上去。",
+        "再慢慢退下來，然後換邊。"
+      ]
+    },
+    {
+      "id": "k_calfraise",
+      "name": "站立提踵",
+      "path": "居家運動單張/圖片原稿/k_calfraise.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/k_calfraise.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "扶著椅背或流理台站好。",
+        "慢慢把腳跟抬起來，用腳尖站。",
+        "停 2 秒，再慢慢放下。"
+      ]
+    },
+    {
+      "id": "g_balance",
+      "name": "單腳站平衡",
+      "path": "居家運動單張/圖片原稿/g_balance.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/g_balance.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "站在流理台或穩固椅背旁邊，手輕輕扶著。",
+        "抬起一腳，單腳站 10–20 秒。",
+        "放下，換另一腳。"
+      ]
+    },
+    {
+      "id": "g_walk",
+      "name": "步行",
+      "path": "居家運動單張/圖片原稿/g_walk.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/g_walk.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "選平坦的路面，穿有支撐的鞋子。",
+        "用「還能講話、但有點喘」的速度走。",
+        "可以分成早晚各一次，每次至少 10 分鐘。"
+      ]
+    },
+    {
+      "id": "s_hamstr_sit",
+      "name": "大腿後側伸展（坐姿）",
+      "path": "居家運動單張/圖片原稿/s_hamstr_sit.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/s_hamstr_sit.png",
+      "status": "需釐清／補強",
+      "finding": "第二圖上背有圓背傾向，箭頭沿背部彎曲，可能引導成駝背而非從髖部前傾。",
+      "action": "將軀幹畫得更直，動作箭頭放在髖部附近。",
+      "steps": [
+        "坐在椅子邊緣，一腳往前伸直、腳跟著地、腳尖朝上。",
+        "背打直，從髖部往前傾（不是駝背去碰腳尖）。",
+        "感覺大腿後側緊繃時停住，維持 30 秒。"
+      ]
+    },
+    {
+      "id": "s_hamstr_sup",
+      "name": "大腿後側伸展（仰躺）",
+      "path": "居家運動單張/圖片原稿/被取代的初稿/s_hamstr_sup-初稿.png",
+      "in_assets": true,
+      "revision": "/Users/chunyenwu/.codex/generated_images/01a07c0a-c138-7c51-a12d-2b854cb8ba1e/exec-9c552bbe-dd3d-42e9-887f-5b2b295ba21a.png",
+      "local": "../圖片原稿/被取代的初稿/s_hamstr_sup-初稿.png",
+      "revision_local": "待整理圖片/s_hamstr_sup-修正版待審.png",
+      "status": "需修正",
+      "finding": "下方第二圖變成雙膝抱胸，失去一腳踩地、另一腳伸直及只抱單側大腿的要求。",
+      "action": "修正版已呈現單側直腿及另一腳踩地，可作替換候選；短句改為『抱住大腿後方，將直腿拉向身體』會更貼近原步驟。",
+      "steps": [
+        "平躺，一腳屈膝踩地。",
+        "另一腳伸直抬起，雙手抱住大腿後方，慢慢把腿拉向身體。",
+        "大腿後側有拉緊感時停住，維持 30 秒，再換邊。"
+      ]
+    },
+    {
+      "id": "s_calf",
+      "name": "小腿伸展",
+      "path": "居家運動單張/圖片原稿/s_calf.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/s_calf.png",
+      "status": "需修正",
+      "finding": "第二图胸前箭頭指向離牆方向，與身體往牆靠近相反。",
+      "action": "保留姿勢，反轉或移除胸前箭頭。",
+      "steps": [
+        "面對牆站好，雙手扶牆。",
+        "一腳往後跨一大步，後腳膝蓋打直、腳跟踩地、腳尖朝前。",
+        "身體慢慢往前靠，後小腿有拉緊感時停住，維持 30 秒。"
+      ]
+    },
+    {
+      "id": "s_piriformis",
+      "name": "臀部（梨狀肌）伸展",
+      "path": "居家運動單張/圖片原稿/s_piriformis.png",
+      "in_assets": true,
+      "revision": "/Users/chunyenwu/.codex/generated_images/01a07c0a-c138-7c51-a12d-2b854cb8ba1e/exec-3c292946-221d-4a51-819f-7d3023f569b0.png",
+      "local": "../圖片原稿/s_piriformis.png",
+      "revision_local": "待整理圖片/s_piriformis-修正版待審.png",
+      "status": "需修正",
+      "finding": "第二圖抱的是交叉在上方的腿，下方支撐腳仍踩地；未呈現雙手抱下方大腿往胸口拉。",
+      "action": "修正版兩腿交叉、手抱位置及腳踝搭放關係仍難辨識，不宜視為完成；改用斜側視角顯示完整4字形。",
+      "steps": [
+        "平躺屈膝，把一腳的腳踝架在另一腳的膝蓋上，形成「4」字形。",
+        "雙手抱住下面那腳的大腿後方，往胸口方向拉。",
+        "臀部外側有伸展感時停住，維持 30 秒，再換邊。"
+      ]
+    },
+    {
+      "id": "s_hipflex",
+      "name": "髖屈肌伸展",
+      "path": "居家運動單張/圖片原稿/s_hipflex.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/s_hipflex.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "單膝跪地（膝蓋下墊軟墊），另一腳在前面踩地，呈弓箭步。",
+        "先做腹部輕輕收縮、臀部夾緊，避免腰往前塌。",
+        "身體慢慢往前移，後腳的大腿根部有拉緊感時停住，維持 30 秒。"
+      ]
+    },
+    {
+      "id": "s_kneechest",
+      "name": "單膝抱胸",
+      "path": "居家運動單張/圖片原稿/s_kneechest.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/s_kneechest.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "平躺屈膝，雙腳踩地。",
+        "雙手抱住一邊的膝蓋，慢慢往胸口方向靠。",
+        "腰部有伸展感時停住，維持 20–30 秒，再換邊。"
+      ]
+    },
+    {
+      "id": "c_diaphragm",
+      "name": "腹式呼吸",
+      "path": "居家運動單張/圖片原稿/c_diaphragm.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/c_diaphragm.png",
+      "status": "需修正",
+      "finding": "吐氣圖的藍色箭頭仍朝向口鼻，與吐氣方向相反。",
+      "action": "吐氣箭頭應離開嘴巴；腹部下沉箭頭可保留。",
+      "steps": [
+        "平躺屈膝，一手放胸口、一手放肚子上。",
+        "用鼻子慢慢吸氣，讓肚子上的手被頂起來，胸口的手盡量不動。",
+        "用嘴巴慢慢吐氣，肚子自然下沉。一次吸吐約 6 秒。"
+      ]
+    },
+    {
+      "id": "c_drawin",
+      "name": "腹部收縮練習（核心啟動）",
+      "path": "居家運動單張/圖片原稿/c_drawin.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/c_drawin.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "平躺屈膝、雙腳踩地，腰部保持自然的微小弧度。",
+        "吸氣，吐氣時肚臍輕輕往脊椎方向縮（像褲頭要拉緊一格），力道很輕就好。",
+        "維持 10 秒，過程要能正常呼吸、正常講話。"
+      ]
+    },
+    {
+      "id": "c_pelvictilt",
+      "name": "骨盆傾斜",
+      "path": "居家運動單張/圖片原稿/c_pelvictilt.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/c_pelvictilt.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "平躺屈膝，雙腳踩地。",
+        "慢慢把腰往床面壓平，再慢慢回到腰部微微拱起。",
+        "來回慢慢做，去感覺腰可以活動的範圍。"
+      ]
+    },
+    {
+      "id": "c_multifidus",
+      "name": "多裂肌啟動",
+      "path": "居家運動單張/圖片原稿/c_multifidus.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/c_multifidus.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "趴著，額頭墊在手背上，全身放鬆。",
+        "把手指放在腰椎骨頭的兩側凹陷處。",
+        "想像「讓手指下方的肌肉輕輕鼓起來」，維持 10 秒後放鬆。全程不要動到腰。"
+      ]
+    },
+    {
+      "id": "c_heelslide",
+      "name": "仰躺滑腿",
+      "path": "居家運動單張/圖片原稿/c_heelslide.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/c_heelslide.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "平躺屈膝踩地，先做腹部輕輕收縮。",
+        "腰部維持不動，一腳的腳跟貼著床面慢慢往前滑到腿打直。",
+        "再慢慢滑回來，換另一腳。"
+      ]
+    },
+    {
+      "id": "c_legfallout",
+      "name": "屈膝倒腿",
+      "path": "居家運動單張/圖片原稿/被取代的初稿/c_legfallout-初稿.png",
+      "in_assets": true,
+      "revision": "/Users/chunyenwu/.codex/generated_images/01a07c0a-c138-7c51-a12d-2b854cb8ba1e/exec-e3a97c44-86f7-436c-92cb-c6ee68980a98.png",
+      "local": "../圖片原稿/被取代的初稿/c_legfallout-初稿.png",
+      "revision_local": "待整理圖片/c_legfallout-修正版待審.png",
+      "status": "需修正",
+      "finding": "第二圖同時出現兩隻踩地腳與一隻外倒腳，形成三條腿。",
+      "action": "修正版已消除多腿，可作替換候選；宜補原步驟『骨盆要跟著轉前就停』。",
+      "steps": [
+        "平躺屈膝踩地，先做腹部輕輕收縮。",
+        "一腳的膝蓋慢慢往外倒下去，骨盆和另一邊維持不動。",
+        "倒到骨盆快要跟著轉的前一刻停住，再慢慢收回來，換邊。"
+      ]
+    },
+    {
+      "id": "c_bentlegraise",
+      "name": "仰躺屈膝抬腿",
+      "path": "居家運動單張/圖片原稿/c_bentlegraise.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/c_bentlegraise.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "平躺屈膝踩地，先做腹部輕輕收縮。",
+        "腰維持不動，把一腳整個抬起來，讓膝蓋來到髖部正上方。",
+        "停 3 秒慢慢放下，換另一腳。"
+      ]
+    },
+    {
+      "id": "c_deadbug",
+      "name": "死蟲式",
+      "path": "居家運動單張/圖片原稿/c_deadbug.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/c_deadbug.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "平躺，雙腳抬起、膝蓋在髖部正上方，雙手朝向天花板。",
+        "先做腹部輕輕收縮，腰維持貼著床面。",
+        "慢慢伸直一隻腳、同時把對側的手往頭頂方向放下，回到原位再換邊。"
+      ]
+    },
+    {
+      "id": "c_quadruped_leg",
+      "name": "四足跪單腳後伸",
+      "path": "居家運動單張/圖片原稿/被取代的初稿/c_quadruped_leg-初稿.png",
+      "in_assets": true,
+      "revision": "/Users/chunyenwu/.codex/generated_images/01a07c0a-c138-7c51-a12d-2b854cb8ba1e/exec-e63ffc69-2cba-4fe9-a7c4-ad84f7f57a5e.png",
+      "local": "../圖片原稿/被取代的初稿/c_quadruped_leg-初稿.png",
+      "revision_local": "待整理圖片/c_quadruped_leg-修正版待審.png",
+      "status": "需修正",
+      "finding": "抬腿畫到接近髖部高度，與離地約15公分的文字及尺寸標示不一致。",
+      "action": "修正版腿已降低，但尺寸線上端對到腳踝附近、脚尖幾乎碰墊，仍需統一測量端點與實際離地高度。",
+      "steps": [
+        "四足跪姿，手在肩膀正下方、膝蓋在髖部正下方，眼睛看著地板。",
+        "先做腹部輕輕收縮，背保持平的。",
+        "一腳沿著地面往後滑出去伸直，再抬離地面約 15 公分，停 3 秒後收回，換邊。"
+      ]
+    },
+    {
+      "id": "c_birddog",
+      "name": "鳥狗式",
+      "path": "居家運動單張/圖片原稿/c_birddog.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/c_birddog.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "四足跪姿，手在肩膀正下方、膝蓋在髖部正下方，眼睛看著地板。",
+        "先做腹部輕輕收縮，背保持平的。",
+        "同時伸出一隻手和對側的腳，抬到與身體同高，停 3–5 秒後換邊。"
+      ]
+    },
+    {
+      "id": "c_bridge",
+      "name": "橋式",
+      "path": "居家運動單張/圖片原稿/c_bridge.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/c_bridge.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "平躺屈膝，兩腳與髖同寬踩地。",
+        "先做腹部輕輕收縮，再收緊臀部把屁股抬起，讓肩膀、髖、膝成一直線。",
+        "停 3–5 秒，再慢慢放下。"
+      ]
+    },
+    {
+      "id": "c_bridge_march",
+      "name": "橋式踏步",
+      "path": "居家運動單張/圖片原稿/c_bridge_march.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/c_bridge_march.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "先做出橋式並維持住，骨盆不要下沉也不要歪斜。",
+        "維持姿勢，慢慢把一腳抬離地面約 5 公分，停 2 秒放下。",
+        "換另一腳，左右交替像原地踏步。"
+      ]
+    },
+    {
+      "id": "c_curlup",
+      "name": "捲腹（低腰壓版）",
+      "path": "居家運動單張/圖片原稿/c_curlup.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/c_curlup.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "平躺，一腳屈膝踩地、另一腳伸直（這是為了保護腰）。",
+        "雙手放在腰下方托著，維持腰部自然弧度。",
+        "只把頭和肩膀抬離地面一點點（下巴不要收到胸口），停 5–8 秒後放下。中途換腳。"
+      ]
+    },
+    {
+      "id": "c_sideplank_knee",
+      "name": "屈膝側棒式",
+      "path": "居家運動單張/圖片原稿/c_sideplank_knee.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/c_sideplank_knee.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "側躺，手肘在肩膀正下方撐地，膝蓋彎 90 度。",
+        "用手肘和膝蓋撐起身體，讓肩膀、髖、膝成一直線。",
+        "停 10–20 秒後放下，換邊。"
+      ]
+    },
+    {
+      "id": "c_sideplank",
+      "name": "側棒式（直腿）",
+      "path": "居家運動單張/圖片原稿/c_sideplank.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/c_sideplank.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "側躺，手肘在肩膀正下方撐地，兩腳伸直疊在一起。",
+        "撐起身體，讓頭、肩、髖、膝、踝成一直線。",
+        "停 15–30 秒後放下，換邊。"
+      ]
+    },
+    {
+      "id": "c_plank_knee",
+      "name": "跪姿棒式",
+      "path": "居家運動單張/圖片原稿/被取代的初稿/c_plank_knee-初稿.png",
+      "in_assets": true,
+      "revision": "/Users/chunyenwu/.codex/generated_images/01a07c0a-c138-7c51-a12d-2b854cb8ba1e/exec-8b7dd984-c7bb-4765-a0f7-201a4ed0d7ea.png",
+      "local": "../圖片原稿/被取代的初稿/c_plank_knee-初稿.png",
+      "revision_local": "待整理圖片/c_plank_knee-修正版待審.png",
+      "status": "需修正",
+      "finding": "髖部明顯折起，肩、髖、膝沒有成一直線；虛線亦隨身體折彎。",
+      "action": "修正版身體排列已改善，可作替換候選。",
+      "steps": [
+        "趴姿，手肘在肩膀正下方撐地，膝蓋著地。",
+        "先做腹部輕輕收縮、臀部夾緊，讓肩膀、髖、膝成一直線。",
+        "維持 15–30 秒，正常呼吸。"
+      ]
+    },
+    {
+      "id": "c_plank",
+      "name": "棒式",
+      "path": "居家運動單張/圖片原稿/c_plank.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/c_plank.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "趴姿，手肘在肩膀正下方撐地，用腳尖撐起身體。",
+        "腹部輕輕收縮、臀部夾緊，讓頭、肩、髖、膝、踝成一直線。",
+        "維持 20–40 秒，正常呼吸。"
+      ]
+    },
+    {
+      "id": "c_paloff",
+      "name": "抗旋轉推撐",
+      "path": "居家運動單張/圖片原稿/c_paloff.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/c_paloff.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "彈力帶固定在身體側邊、與胸口同高，站姿雙腳與肩同寬，雙手在胸前握住帶子。",
+        "腹部輕輕收縮，把手往正前方推直，身體不要被帶子拉著轉過去。",
+        "停 3–5 秒，慢慢收回。做完換邊站。"
+      ]
+    },
+    {
+      "id": "c_standing_march",
+      "name": "站姿抬膝",
+      "path": "居家運動單張/圖片原稿/c_standing_march.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/c_standing_march.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "站在椅背旁邊，需要時手輕扶。",
+        "腹部輕輕收縮，把一腳的膝蓋抬到髖部高度。",
+        "停 3 秒慢慢放下，換另一腳，像原地踏步但放慢。"
+      ]
+    },
+    {
+      "id": "c_suitcase",
+      "name": "單邊負重行走",
+      "path": "居家運動單張/圖片原稿/c_suitcase.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/c_suitcase.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "一手提一個有重量的東西（水壺、購物袋、啞鈴都可以），另一手空著。",
+        "腹部輕輕收縮，肩膀維持等高，不要往有重量那側傾斜。",
+        "直線走 15–20 公尺，換手再走一趟。"
+      ]
+    },
+    {
+      "id": "c_catcow",
+      "name": "貓牛式",
+      "path": "居家運動單張/圖片原稿/c_catcow.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/c_catcow.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "四足跪姿，手在肩膀下、膝蓋在髖部下。",
+        "慢慢把背拱起來像生氣的貓，停 2 秒。",
+        "再慢慢讓背下沉、頭微微抬起，來回慢慢做。"
+      ]
+    },
+    {
+      "id": "c_pressup",
+      "name": "趴姿撐起（背部伸展）",
+      "path": "居家運動單張/圖片原稿/c_pressup.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/c_pressup.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "趴著，兩手手掌放在肩膀旁邊。",
+        "用手把上半身慢慢撐起來，骨盆和大腿保持貼床，腰部放鬆。",
+        "停 2 秒後放下。"
+      ]
+    },
+    {
+      "id": "c_lumbarroll",
+      "name": "久坐的腰部支撐（生活調整）",
+      "path": "居家運動單張/圖片原稿/c_lumbarroll.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/c_lumbarroll.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "坐著時在腰後放一條捲好的毛巾或腰靠墊。",
+        "讓腰維持自然的微微前凸，不要整個癱進椅背裡。",
+        "每坐 30–40 分鐘就起來走動 1–2 分鐘。"
+      ]
+    },
+    {
+      "id": "sh_pendulum",
+      "name": "鐘擺運動",
+      "path": "居家運動單張/圖片原稿/sh_pendulum.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/sh_pendulum.png",
+      "status": "需釐清／補強",
+      "finding": "軀幹前傾程度小於文字的約90度；畫圈看得見，但由身體帶動不明顯。",
+      "action": "調整髖部前彎程度，補身體輕晃、手臂放鬆的提示。",
+      "steps": [
+        "站著，身體從髖部往前彎約 90 度，好手扶著桌子或椅背撐住。",
+        "讓痛的那隻手臂自然垂下、完全放鬆。",
+        "用身體輕輕前後晃動去帶動手臂畫圈，畫圈範圍由小漸漸變大。"
+      ]
+    },
+    {
+      "id": "sh_wand_flex",
+      "name": "握棍輔助抬手",
+      "path": "居家運動單張/圖片原稿/sh_wand_flex.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/sh_wand_flex.png",
+      "status": "需釐清／補強",
+      "finding": "第一姿勢的手心朝上不清楚；由坐姿突然切換站姿，容易被當作動作中的必要起立。",
+      "action": "統一坐或站姿，清楚畫雙手掌心朝上、由好手輔助抬起。",
+      "steps": [
+        "坐著或站著，雙手握住一根棍子（雨傘、拐杖、掃把柄都可以），兩手手心朝上。",
+        "用好手推動棍子，把痛的那隻手往前、往上舉到不會痛的高度。",
+        "停 3 秒，再慢慢放下。"
+      ]
+    },
+    {
+      "id": "sh_wand_er",
+      "name": "握棍輔助外轉",
+      "path": "居家運動單張/圖片原稿/sh_wand_er.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/sh_wand_er.png",
+      "status": "需釐清／補強",
+      "finding": "第二姿勢的外側手肘與身側距離不清楚，可能被讀成整個上臂外展、棍子平移。",
+      "action": "強化肘貼身的接觸點，分辨上臂固定與前臂外轉。",
+      "steps": [
+        "坐著，兩邊手肘彎 90 度並夾在身體兩側，腋下夾一條捲起的毛巾。",
+        "雙手握住棍子，用好手把痛的那隻手的前臂往身體外側推。",
+        "推到有點緊時停 3 秒，再回到中間。"
+      ]
+    },
+    {
+      "id": "sh_er_iso",
+      "name": "肩外轉等長收縮",
+      "path": "居家運動單張/圖片原稿/sh_er_iso.png",
+      "in_assets": true,
+      "revision": "/Users/chunyenwu/.codex/generated_images/01a07c0a-c138-7c51-a12d-2b854cb8ba1e/exec-49b884eb-ff33-41d3-bf1e-99905d87163d.png",
+      "local": "../圖片原稿/sh_er_iso.png",
+      "revision_local": "待整理圖片/sh_er_iso-修正版待審.png",
+      "status": "需修正",
+      "finding": "原圖出現掌面前推及手臂移到身後，並非手肘貼身、手背抵門框的等長外轉。",
+      "action": "最新修正版仍是掌面往前推牆，尚未修好。需讓手背接觸身側門框，手腕中立、手肘90度貼身。",
+      "steps": [
+        "站在門框旁邊，痛的那隻手的手肘彎 90 度、貼在身側。",
+        "把手背抵住門框，用力往外推，但手實際上不要移動。",
+        "維持 5–10 秒後放鬆。"
+      ]
+    },
+    {
+      "id": "sh_er_band",
+      "name": "彈力帶肩外轉",
+      "path": "居家運動單張/圖片原稿/被取代的初稿/sh_er_band-初稿.png",
+      "in_assets": true,
+      "revision": "/Users/chunyenwu/.codex/generated_images/01a07c0a-c138-7c51-a12d-2b854cb8ba1e/exec-206b5130-a988-4f64-aae5-75163ddb55ae.png",
+      "local": "../圖片原稿/被取代的初稿/sh_er_band-初稿.png",
+      "revision_local": "待整理圖片/sh_er_band-修正版待審.png",
+      "status": "需修正",
+      "finding": "固定點在身後，兩姿勢幾乎相同，無法辨別肩外轉與阻力方向。",
+      "action": "修正版改為正面視角及跨身前的側向阻力，較清楚，可作替換候選。",
+      "steps": [
+        "彈力帶固定在肚臍高度，側身站著，用靠外側的手握住帶子。",
+        "手肘彎 90 度夾在身側，腋下夾一條捲毛巾。",
+        "手肘不離開身體，把前臂往身體外側轉開，停 2 秒再慢慢回來。"
+      ]
+    },
+    {
+      "id": "sh_scap_squeeze",
+      "name": "肩胛內收（夾背）",
+      "path": "居家運動單張/圖片原稿/sh_scap_squeeze.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/sh_scap_squeeze.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "坐著或站著，雙手在背後輕輕交扣——這時肩胛骨會自然靠攏，記住那個感覺。",
+        "維持肩胛骨靠攏的位置，把手放下來。",
+        "接著練習不用手交扣，只用背部把兩片肩胛骨夾向脊椎，停 5 秒放鬆。"
+      ]
+    },
+    {
+      "id": "sh_wall_slide",
+      "name": "靠牆手臂上滑",
+      "path": "居家運動單張/圖片原稿/sh_wall_slide.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/sh_wall_slide.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "背靠牆站，腳跟離牆一小步，骨盆微微後傾讓下背貼平牆面。",
+        "手肘彎 90 度、手背和前臂貼著牆，手臂微微張開。",
+        "沿著牆面把手往上滑，滑到下背快要離開牆的前一刻停住，停 2 秒再滑回來。"
+      ]
+    },
+    {
+      "id": "sh_row_band",
+      "name": "彈力帶划船",
+      "path": "居家運動單張/圖片原稿/sh_row_band.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/sh_row_band.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "彈力帶固定在胸口高度，面對固定點站好，雙手握住帶子。",
+        "把手肘往後拉、貼近身體兩側，同時肩胛骨往中間夾。",
+        "停 2 秒，再慢慢放回去。"
+      ]
+    },
+    {
+      "id": "sh_serratus_push",
+      "name": "四足跪前推",
+      "path": "居家運動單張/圖片原稿/sh_serratus_push.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/sh_serratus_push.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "四足跪姿，手掌在肩膀正下方，手肘打直不要鎖死。",
+        "手肘保持打直，把上背往上「推高」，讓兩片肩胛骨往外分開。",
+        "停 3 秒，再慢慢讓上背下沉、肩胛骨靠攏。"
+      ]
+    },
+    {
+      "id": "sh_cross_stretch",
+      "name": "手臂橫過胸前伸展",
+      "path": "居家運動單張/圖片原稿/sh_cross_stretch.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/sh_cross_stretch.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "把痛的那隻手臂橫過胸前。",
+        "用另一手扶住手肘上方，慢慢往胸口方向壓。",
+        "感覺肩膀後側被拉開時停住，維持 30 秒。"
+      ]
+    },
+    {
+      "id": "sh_corner_stretch",
+      "name": "牆角胸前伸展",
+      "path": "居家運動單張/圖片原稿/被取代的初稿/sh_corner_stretch-初稿.png",
+      "in_assets": true,
+      "revision": "/Users/chunyenwu/.codex/generated_images/01a07c0a-c138-7c51-a12d-2b854cb8ba1e/exec-8a11d5b9-c608-4133-b125-2bf6b5fd8512.png",
+      "local": "../圖片原稿/被取代的初稿/sh_corner_stretch-初稿.png",
+      "revision_local": "待整理圖片/sh_corner_stretch-修正版待審.png",
+      "status": "需修正",
+      "finding": "人物背向牆角，與面對牆角、前臂貼兩側牆面不一致。",
+      "action": "修正版已面向牆角，可作替換候選。",
+      "steps": [
+        "面對牆角站著（或站在門框中間），兩手前臂貼在兩側牆面，手肘與肩膀同高。",
+        "身體慢慢往牆角靠近。",
+        "前胸有拉開的感覺時停住，維持 30 秒。"
+      ]
+    },
+    {
+      "id": "sh_posture_demo",
+      "name": "抬手前先挺胸",
+      "path": "居家運動單張/圖片原稿/sh_posture_demo.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/sh_posture_demo.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "先刻意駝背坐著，把手往前往上抬高，記住抬到哪裡開始卡住或痛。",
+        "接著坐直、胸口打開、肩胛骨微微往後下沉，再抬一次手。",
+        "比較兩次的差別。以後日常要抬手拿東西前，先做第二種姿勢。"
+      ]
+    },
+    {
+      "id": "n_axial",
+      "name": "縮下巴（頭往上拉長）",
+      "path": "居家運動單張/圖片原稿/n_axial.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/n_axial.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "坐正，肩膀放鬆。",
+        "想像頭頂有一條線把你的頭「往上拉長」，下巴會自然往內收一點。",
+        "維持 5 秒後放鬆。"
+      ]
+    },
+    {
+      "id": "n_nod",
+      "name": "點頭（深層頸屈肌）",
+      "path": "居家運動單張/圖片原稿/被取代的初稿/n_nod-初稿.png",
+      "in_assets": true,
+      "revision": "/Users/chunyenwu/.codex/generated_images/01a07c0a-c138-7c51-a12d-2b854cb8ba1e/exec-05b31296-02fa-4c79-b798-9d961304745e.png",
+      "local": "../圖片原稿/被取代的初稿/n_nod-初稿.png",
+      "revision_local": "待整理圖片/n_nod-修正版待審.png",
+      "status": "需修正",
+      "finding": "第二圖後腦離開毛巾，變成抬頭，並非輕微點頭。",
+      "action": "修正版後腦留在毛巾上，可作替換候選。",
+      "steps": [
+        "平躺，頭下墊一條摺薄的毛巾。",
+        "下巴輕輕往內點頭（像在說「是」的小動作），後頸會有微微被拉長的感覺。",
+        "維持 10 秒，全程肩膀和脖子外側的肌肉都要放鬆。"
+      ]
+    },
+    {
+      "id": "n_levator",
+      "name": "提肩胛肌伸展",
+      "path": "居家運動單張/圖片原稿/n_levator.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/n_levator.png",
+      "status": "需修正",
+      "finding": "抓椅固定肩膀的一側，與頭低向的一側相同；文字要求頭轉向另一側並看對側膝蓋。",
+      "action": "固定肩側與轉頭、低頭側需明確相反，扶頭手也需隨之調整。",
+      "steps": [
+        "坐好，緊的那一側的手抓住椅子邊緣，把該側肩膀往下固定住。",
+        "頭先轉向另一側約 45 度，再低頭看向另一側的膝蓋。",
+        "另一手輕輕扶著後腦加一點點力，維持 30 秒後換邊。"
+      ]
+    },
+    {
+      "id": "n_scalene",
+      "name": "斜角肌伸展",
+      "path": "居家運動單張/圖片原稿/n_scalene.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/n_scalene.png",
+      "status": "需釐清／補強",
+      "finding": "侧彎可見，但轉頭是否朝緊繃側不清楚；正面圖可能被理解成側彎與轉頭同側。",
+      "action": "標明伸展側，分開顯示側彎與輕微轉頭，讓左右關係可判讀。",
+      "steps": [
+        "坐好，先做一次縮下巴。",
+        "頭往另一側側彎（耳朵靠向肩膀），再輕輕轉向緊繃的那一側。",
+        "維持 30 秒後換邊。"
+      ]
+    },
+    {
+      "id": "n_suboccipital",
+      "name": "枕下肌群伸展",
+      "path": "居家運動單張/圖片原稿/n_suboccipital.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/n_suboccipital.png",
+      "status": "需釐清／補強",
+      "finding": "正面低頭幅度偏大，手的往前上方輕推方向難以由現有箭頭判讀。",
+      "action": "改斜側近圖，強調微小點頭及手放頭骨與頸部交界。",
+      "steps": [
+        "坐好，雙手十指交扣放在後腦最下方（頭骨和脖子的交界處）。",
+        "下巴輕輕往內點，同時雙手給一點點往前上方的力道。",
+        "維持 20–30 秒，力道要很輕。"
+      ]
+    },
+    {
+      "id": "n_break",
+      "name": "每半小時的姿勢休息",
+      "path": "居家運動單張/圖片原稿/n_break.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/n_break.png",
+      "status": "需修正",
+      "finding": "縮下巴圖的箭頭朝臉前方，會引導成伸下巴。",
+      "action": "反轉成往後收的箭頭，或移除箭頭。",
+      "steps": [
+        "在手機或電腦設一個每 30–40 分鐘的提醒。",
+        "起身站直，做 5 次縮下巴、5 次肩膀往後繞圈。",
+        "眼睛看遠處 20 秒，再回去工作。"
+      ]
+    },
+    {
+      "id": "o_warm",
+      "name": "坐姿暖身",
+      "path": "居家運動單張/圖片原稿/o_warm.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/o_warm.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "坐在硬的、有直靠背的椅子上。",
+        "依序活動：抬頭低頭、左右轉頭、聳肩繞圈、身體左右轉、腳踝上下勾。",
+        "每個動作做 5–10 次，全部大約 5 分鐘。"
+      ]
+    },
+    {
+      "id": "o_knee_ext",
+      "name": "坐姿伸膝（加沙包）",
+      "path": "居家運動單張/圖片原稿/o_knee_ext.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/o_knee_ext.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "坐在硬的直靠背椅子上，腳踝綁上沙包。",
+        "用 2–3 秒慢慢把膝蓋打直。",
+        "再用 4–6 秒更慢地放下來，然後換邊。"
+      ]
+    },
+    {
+      "id": "o_knee_flex",
+      "name": "站姿屈膝（加沙包）",
+      "path": "居家運動單張/圖片原稿/o_knee_flex.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/o_knee_flex.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "扶著流理台或穩固家具站好，腳踝綁沙包。",
+        "用 2–3 秒把腳跟往屁股方向勾起來。",
+        "再用 4–6 秒慢慢放下，然後換邊。"
+      ]
+    },
+    {
+      "id": "o_hip_abd",
+      "name": "站姿髖外展（加沙包）",
+      "path": "居家運動單張/圖片原稿/o_hip_abd.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/o_hip_abd.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "扶著流理台站好，腳踝綁沙包。",
+        "一腳往正側邊慢慢抬起（不要往前也不要往後），身體保持直的。",
+        "慢慢放下，然後換邊。"
+      ]
+    },
+    {
+      "id": "o_heel_toe_raise",
+      "name": "提踵與勾腳尖",
+      "path": "居家運動單張/圖片原稿/o_heel_toe_raise.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/o_heel_toe_raise.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "扶著流理台或椅背站好。",
+        "慢慢踮起腳尖，停 2 秒再放下。",
+        "接著把腳尖翹起來、用腳跟站住，停 2 秒再放下。"
+      ]
+    },
+    {
+      "id": "o_knee_bend",
+      "name": "扶著微蹲",
+      "path": "居家運動單張/圖片原稿/o_knee_bend.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/o_knee_bend.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "扶著流理台站好，雙腳與肩同寬。",
+        "慢慢彎膝蓋往下蹲一點點，膝蓋不要超過腳尖太多。",
+        "停 2 秒再站直。"
+      ]
+    },
+    {
+      "id": "o_backward_walk",
+      "name": "倒退走",
+      "path": "居家運動單張/圖片原稿/o_backward_walk.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/o_backward_walk.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "沿著牆邊或走廊，一手可以扶著牆。",
+        "慢慢往後走 10 步，再往前走回原位。",
+        "來回 4 趟。"
+      ]
+    },
+    {
+      "id": "o_side_walk",
+      "name": "側走",
+      "path": "居家運動單張/圖片原稿/o_side_walk.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/o_side_walk.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "扶著牆或流理台，身體朝正前方。",
+        "往側邊跨 10 步，再往回跨 10 步。",
+        "來回 4 趟。"
+      ]
+    },
+    {
+      "id": "o_fig8",
+      "name": "走 8 字（練轉身）",
+      "path": "居家運動單張/圖片原稿/o_fig8.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/o_fig8.png",
+      "status": "需修正",
+      "finding": "同一個圈內的多個箭頭方向互相衝突，無法沿箭頭連續走完8字。",
+      "action": "改成一條連續8字路徑及方向一致的少量箭頭。",
+      "steps": [
+        "在地上想像兩個圈，走出「8」字形的路線。",
+        "轉彎的時候放慢速度，眼睛看前方而不是看地板。",
+        "來回走 2 趟。"
+      ]
+    },
+    {
+      "id": "o_tandem_stand",
+      "name": "前後腳站",
+      "path": "居家運動單張/圖片原稿/o_tandem_stand.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/o_tandem_stand.png",
+      "status": "需修正",
+      "finding": "主圖前後腳之間有空隙、未腳跟接腳尖，放大圖與主圖亦不一致。",
+      "action": "前腳腳跟貼後腳腳尖，兩腳同一直線，扶手放在可自然扶到的側邊。",
+      "steps": [
+        "扶著流理台或穩固椅背站好。",
+        "一腳的腳跟接著另一腳的腳尖，站成一直線。",
+        "維持 10 秒，然後換另一腳在前。"
+      ]
+    },
+    {
+      "id": "o_tandem_walk",
+      "name": "前後腳走直線",
+      "path": "居家運動單張/圖片原稿/o_tandem_walk.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/o_tandem_walk.png",
+      "status": "需修正",
+      "finding": "地面箭頭朝人物後方，與『往前走』相反。",
+      "action": "前進箭頭需與人物面向一致，維持腳跟接腳尖。",
+      "steps": [
+        "沿著牆邊，一手可以扶著。",
+        "像走平衡木一樣，一腳的腳跟接著另一腳的腳尖往前走 10 步。",
+        "來回 2 趟。"
+      ]
+    },
+    {
+      "id": "o_heel_toe_walk",
+      "name": "腳跟走與腳尖走",
+      "path": "居家運動單張/圖片原稿/o_heel_toe_walk.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/o_heel_toe_walk.png",
+      "status": "需修正",
+      "finding": "腳跟走圖後腳仍以前腳掌著地；兩圖箭頭又朝人物後方。",
+      "action": "腳跟走時腳尖均抬起；腳尖走時腳跟離地。前進箭頭應與面向一致。",
+      "steps": [
+        "扶著牆，把腳尖翹起來、只用腳跟往前走 10 步。",
+        "再換成踮腳尖走 10 步。",
+        "各來回 4 趟。"
+      ]
+    },
+    {
+      "id": "f_plantar_stretch",
+      "name": "足底筋膜伸展（扳腳趾）",
+      "path": "居家運動單張/圖片原稿/被取代的初稿/f_plantar_stretch-初稿.png",
+      "in_assets": true,
+      "revision": "/Users/chunyenwu/.codex/generated_images/01a07c0a-c138-7c51-a12d-2b854cb8ba1e/exec-3a2a6e31-353a-468a-9f19-b326f87ec055.png",
+      "local": "../圖片原稿/被取代的初稿/f_plantar_stretch-初稿.png",
+      "revision_local": "待整理圖片/f_plantar_stretch-修正版待審.png",
+      "status": "需修正",
+      "finding": "第二主圖除了跨膝的腿，又出現兩條向下的腿，形成多腿；觸摸足弓未清楚呈現。",
+      "action": "修正版已消除多腿並補足底細節，可作替換候選。",
+      "steps": [
+        "坐著，把痛的那隻腳跨到另一腳的膝蓋上。",
+        "一手抓住腳趾往腳背方向扳，會感覺整片腳底被拉開。",
+        "另一手可以摸到腳底繃緊的那條筋，維持 30 秒。"
+      ]
+    },
+    {
+      "id": "f_plantar_roll",
+      "name": "足底滾球按摩",
+      "path": "居家運動單張/圖片原稿/f_plantar_roll.png",
+      "in_assets": true,
+      "revision": null,
+      "local": "../圖片原稿/f_plantar_roll.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "坐著，腳下踩一顆球（網球、按摩球）或一瓶裝水的寶特瓶。",
+        "腳前後滾動，把整個腳底都滾過，從腳跟到腳掌前方。",
+        "力道以「有點痠但舒服」為原則；想加壓可以用手輕壓自己的膝蓋。"
+      ]
+    },
+    {
+      "id": "f_towel_curl",
+      "name": "腳趾抓毛巾",
+      "path": "/Users/chunyenwu/.codex/generated_images/01a07c0a-c138-7c51-a12d-2b854cb8ba1e/exec-deaf7b52-f142-476d-a87b-164e5ba05aba.png",
+      "in_assets": false,
+      "revision": null,
+      "local": "待整理圖片/f_towel_curl-初稿.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "坐著，腳掌平放在一條攤開的毛巾上。",
+        "只用腳趾把毛巾一點一點抓向自己。",
+        "抓完把毛巾攤平，再來一次。"
+      ]
+    },
+    {
+      "id": "f_short_foot",
+      "name": "足弓訓練（短足運動）",
+      "path": "/Users/chunyenwu/.codex/generated_images/01a07c0a-c138-7c51-a12d-2b854cb8ba1e/exec-29a6eb1d-fe1a-4b05-bee9-0cccae1df0c6.png",
+      "in_assets": false,
+      "revision": null,
+      "local": "待整理圖片/f_short_foot-初稿.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "坐著，整個腳掌平踩在地上。",
+        "腳趾不要往下扣、腳跟也不離地，試著把腳掌前後「縮短」，讓足弓微微拱起來。",
+        "維持 5 秒後放鬆。"
+      ]
+    },
+    {
+      "id": "f_ankle_abc",
+      "name": "腳踝畫字",
+      "path": "/Users/chunyenwu/.codex/generated_images/01a07c0a-c138-7c51-a12d-2b854cb8ba1e/exec-6c7cff2b-cb60-4303-872d-a78da16a4053.png",
+      "in_assets": false,
+      "revision": null,
+      "local": "待整理圖片/f_ankle_abc-初稿.png",
+      "status": "需釐清／補強",
+      "finding": "第二圖兩腳同時抬起且腿部姿勢改變，未清楚表達只有腳踝動、膝與大腿不轉。",
+      "action": "固定支撐腿與大腿位置，以單側腳踝近圖畫字。",
+      "steps": [
+        "坐著或躺著，把腳抬離地面。",
+        "用大腳趾當筆，在空中慢慢寫出英文字母 A 到 Z。",
+        "只動腳踝，膝蓋和大腿不要跟著轉。"
+      ]
+    },
+    {
+      "id": "f_ankle_evert",
+      "name": "彈力帶腳踝外翻",
+      "path": "/Users/chunyenwu/.codex/generated_images/01a07c0a-c138-7c51-a12d-2b854cb8ba1e/exec-1f45f637-af95-41f0-b289-1a1592698cb1.png",
+      "in_assets": false,
+      "revision": null,
+      "local": "待整理圖片/f_ankle_evert-初稿.png",
+      "status": "需釐清／補強",
+      "finding": "帶子主要沿小腿縱向拉回身體，外翻的側向阻力與足底翻轉不清楚。",
+      "action": "用足部俯視／斜視近圖顯示足部外翻、固定端及相反方向的阻力；膝部保持穩定。",
+      "steps": [
+        "坐著把腿伸直，彈力帶套在腳掌外側，另一端固定或用手拉住。",
+        "腳掌慢慢往外翻（小趾往外推），停 2 秒再慢慢回來。",
+        "只動腳踝，膝蓋和大腿不要跟著轉。"
+      ]
+    },
+    {
+      "id": "f_ankle_invert",
+      "name": "彈力帶腳踝內翻",
+      "path": "/Users/chunyenwu/.codex/generated_images/01a07c0a-c138-7c51-a12d-2b854cb8ba1e/exec-e71986ea-8138-450d-b1d2-5f07aa24ab5d.png",
+      "in_assets": false,
+      "revision": null,
+      "local": "待整理圖片/f_ankle_invert-初稿.png",
+      "status": "需釐清／補強",
+      "finding": "帶子主要沿小腿縱向拉回身體，與外翻圖相似，無法清楚區分內翻的阻力和翻轉方向。",
+      "action": "顯示內翻的足部近圖及側向固定端，讓它與外翻圖可明確區分。",
+      "steps": [
+        "坐著把腿伸直，彈力帶套在腳掌內側，另一端固定在對側或用手拉住。",
+        "腳掌慢慢往內翻（大腳趾往內推），停 2 秒再慢慢回來。",
+        "只動腳踝，膝蓋不要跟著轉。"
+      ]
+    },
+    {
+      "id": "f_calf_ecc",
+      "name": "離心提踵（階梯版）",
+      "path": "/Users/chunyenwu/.codex/generated_images/01a07c0a-c138-7c51-a12d-2b854cb8ba1e/exec-c7ad9c99-745a-4cd1-8e33-ca3fb851ac9f.png",
+      "in_assets": false,
+      "revision": null,
+      "local": "待整理圖片/f_calf_ecc-初稿.png",
+      "status": "未見明顯衝突",
+      "finding": "主要姿勢與動作方向未見明顯違反現有步驟。",
+      "action": "搭配原步驟使用；靜態圖無法驗證速度、力道或肌肉是否正確出力。",
+      "steps": [
+        "站在階梯上，前腳掌踩在階梯邊緣、腳跟懸空，兩手扶好扶手。",
+        "用兩腳一起踮起腳尖。",
+        "改成只用患側腳，非常慢地（3–5 秒）把腳跟往下放到低於階梯的位置。"
+      ]
+    }
+  ],
+  "revision_prompts": [
+    {
+      "id": "s_hamstr_sup",
+      "prompt": "Use case scientific-educational. Create corrected exercise illustration, landscape1536x1024 white background. Older East Asian man gray hair teal shirt gray shorts barefoot, refined teal medical line watercolor illustration consistent rehab leaflet. ONE anatomically precise main pose, exactly2arms2legs. Large traditional Chinese title 「大腿後側伸展（仰躺）」. Side view SINGLE person lying supine head supported thin pillow. Left knee bent with left foot planted mat. RIGHT thigh raised toward chest and RIGHT knee nearly straight, right foot high. BOTH hands clasp ONLY behind RIGHT raised thigh. Clear separation two legs, never hold both thighs. Caption 雙手抱住單側大腿後方，慢慢伸直膝蓋. Generous whitespace. No step sequences. Prioritize exact anatomy and specified hand placement. No additional text."
+    },
+    {
+      "id": "s_piriformis",
+      "prompt": "Create fresh accurate medical illustration supine figure-four piriformis stretch. Older Asian grayhaired man tealshirt grayshorts whitebackground landscape. View from above feet looking toward head to clearly see two thighs. BOTH FEET OFF FLOOR. Left thigh pulled up toward belly, LEFT shin horizontal suspended in air. RIGHT ankle rests across LEFT distal thigh, RIGHT knee points outward. Both hands interlace BEHIND LEFT thigh (the supporting thigh), not around right thigh. Figurefour leg crossing MUST unmistakable. Exactly two legs. Title 臀部梨狀肌伸展. Caption 抱住下方大腿，往胸口靠. Draw only one correct pose."
+    },
+    {
+      "id": "c_legfallout",
+      "prompt": "Scientific educational exercise illustration1536x1024 landscape whiteBG older EastAsian grayhair man tealshirt grayshorts. Clean editorial line watercolor. Single anatomically clear pose only, natural proportions. Title 「屈膝倒腿」. ONE overhead threequarter person supine both knees bent soles on mat. Only right knee lowered outward sideways, right foot stays planted pivot. Left knee remains upright. Two legs total, no ghost limbs. Caption 單側膝蓋慢慢向外，骨盆保持穩定. No additional text. Exactly2arms2legs."
+    },
+    {
+      "id": "c_quadruped_leg",
+      "prompt": "Scientific educational exercise illustration1536x1024 landscape whiteBG older EastAsian grayhair man tealshirt grayshorts. Clean editorial line watercolor. Single anatomically clear pose only, natural proportions. Title 「四足跪單腳後伸」. ONE SIDE VIEW hands under shoulders left knee under hip, right leg straightened BACK AND DOWN diagonally so right toes ONLY15cm above mat, lower than pelvis. Torso horizontal neutral. Not leg at hip height. Caption 脚尖離地約15公分，腰部保持穩定 (use 腳 not 脚). No additional text. Exactly2arms2legs."
+    },
+    {
+      "id": "c_plank_knee",
+      "prompt": "Scientific educational exercise illustration1536x1024 landscape whiteBG older EastAsian grayhair man tealshirt grayshorts. Clean editorial line watercolor. Single anatomically clear pose only, natural proportions. Title 「跪姿棒式」. ONE exact SIDE VIEW forearm kneeling plank: elbows on mat directlyunder shoulders, forearms forward; knees on mat FAR BEHIND hips, body shoulders hips knees ONE straight diagonal line descending toward knees. No flexion at hip. Shins onmat. Caption 肩膀、髖部與膝蓋成一直線. No additional text. Exactly2arms2legs."
+    },
+    {
+      "id": "sh_er_iso",
+      "prompt": "Scientific educational exercise illustration1536x1024 landscape whiteBG older EastAsian grayhair man tealshirt grayshorts. Clean editorial line watercolor. Single anatomically clear pose only, natural proportions. Title 「肩外轉等長收縮」. ONE waist-up SIDE THREEQUARTER view person standing alongside wall: working elbow atwaist90, forearm horizontal pointing straightFORWARD, thumbup. BACK of hand FLAT presses SIDE wall. Wallplane parallel to forearm and lateral to hand. Hand staysrelaxed and OPEN fingers straight together thumbup. Do not grip frame. Small force arrow sideways towardwall, not along forearm. Smalltowel elbowwaist. Caption 手背向外抵牆，手肘貼身不移動. No additional text. Exactly2arms2legs."
+    },
+    {
+      "id": "sh_er_band",
+      "prompt": "Scientific educational exercise illustration1536x1024 landscape whiteBG older EastAsian grayhair man tealshirt grayshorts. Clean editorial line watercolor. Single anatomically clear pose only, natural proportions. Title 「彈力帶肩外轉」. ONE frontal view man rightelbow90 tightly at waist towel. Resistance band anchored to solid fixture on IMAGE RIGHT (personleft) at elbowheight crosses horizontally infront waist to RIGHT hand on IMAGE LEFT. Right forearm rotated outward at shoulder right hand laterally of right elbow. Otherarm relaxed. Band tension pulls workinghand inward across body. Caption 手肘貼身，前臂向外轉. No additional text. Exactly2arms2legs."
+    },
+    {
+      "id": "sh_corner_stretch",
+      "prompt": "Use case scientific-educational. Create corrected exercise illustration, landscape1536x1024 white background. Older East Asian man gray hair teal shirt gray shorts barefoot, refined teal medical line watercolor illustration consistent rehab leaflet. ONE anatomically precise main pose, exactly2arms2legs. Large traditional Chinese title 「牆角胸前伸展」. Single REAR view person FACING INTO concave interior90degree CORNER, two perpendicular pale walls meet in vertical seam DIRECTLY AHEAD OF FACE. Show BACK of gray head, BACK of teal shirt. Left forearm flat on left wall, right forearm flat on right wall, elbows at shoulderlevel90degrees. Lean chest toward corner seam. Feet staggered. Not doorway, not backagainst wall, no front view. Caption 面向牆角，前臂貼牆，身體微微向前. Generous whitespace. No step sequences. Prioritize exact anatomy and specified hand placement. No additional text."
+    },
+    {
+      "id": "n_nod",
+      "prompt": "Scientific educational exercise illustration1536x1024 landscape whiteBG older EastAsian grayhair man tealshirt grayshorts. Clean editorial line watercolor. Single anatomically clear pose only, natural proportions. Title 「點頭（深層頸屈肌）」. ONE side closeup head neck shoulder lying supine headback RESTING on thin folded towel. Gently tiny chin nod toward throat, occiput REMAINS CONTACT towel. No headlifting. Caption 後腦勺不離開毛巾，輕輕點頭. No additional text. Exactly2arms2legs."
+    },
+    {
+      "id": "f_plantar_stretch",
+      "prompt": "Use case scientific-educational. Create corrected exercise illustration, landscape1536x1024 white background. Older East Asian man gray hair teal shirt gray shorts barefoot, refined teal medical line watercolor illustration consistent rehab leaflet. ONE anatomically precise main pose, exactly2arms2legs. Large traditional Chinese title 「足底筋膜伸展（扳腳趾）」. Single seated person, LEFT foot planted floor, RIGHT ankle rests on LEFT thigh and right knee opens outward. Exactly two legs. One hand grasps RIGHT toes and bends toes BACK toward shin/dorsum, other hand touches sole arch. Clearly show right sole facing viewer obliquely. Large inset of same foot demonstrates toe extension and taut medial plantar arch, no extra legs. Caption 一腳跨膝，將腳趾往腳背方向扳. Generous whitespace. No step sequences. Prioritize exact anatomy and specified hand placement. No additional text."
+    }
+  ],
+  "generation_tool": "built-in image_gen（既有圖片；本次未生成或修改圖片）"
+}

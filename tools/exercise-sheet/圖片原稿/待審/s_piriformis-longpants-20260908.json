@@ -1,0 +1,5 @@
+{
+  "tool": "built-in image_gen",
+  "prompt": "Precise clothing-only edit of this illustration. Make BOTH legs wear matching full-length GRAY TROUSERS from hips all the way to ankles. The presently skin-colored raised knee and horizontal shin leading to rightmost foot MUST be covered in grey trouser fabric, with cuff immediately above ankle. Other diagonal crossed leg remains grey fabric with cuff at ankle. Both FEET remain barefoot, both HANDS remain skin. Preserve EXACT limb geometry, hand placement, figure4 crossing, pose, face, teal shirt, mat, background, Chinese title and caption, composition, resolution and watercolor style. Change only pants coverage, no anatomy or text changes.",
+  "source": "/Users/chunyenwu/.codex/generated_images/01a07c0a-c138-7c51-a12d-2b854cb8ba1e/exec-bd9a8ab8-44ee-4cae-bc10-8841c4756cdb.png"
+}

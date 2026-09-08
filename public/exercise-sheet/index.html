@@ -1,0 +1,836 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>居家運動單張產生器｜動作庫</title>
+<meta name="description" content="門診用的居家運動衛教單張產生器：依部位與階段挑動作，每個動作都有示意圖，劑量可依病人改寫，一頁印給病人帶回家。">
+<meta name="author" content="吳俊諺">
+<meta name="theme-color" content="#0f766e">
+<!-- 分享縮圖。上線網址若改，這四行的絕對網址要一起改：canonical、og:url、og:image、twitter:image -->
+<link rel="canonical" href="https://chunyenwu.net/exercise-sheet/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="吳俊諺 chunyenwu.net">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:title" content="居家運動單張產生器">
+<meta property="og:description" content="依部位與階段挑動作，每個動作都有示意圖，劑量可依病人改寫，一頁印給病人帶回家。">
+<meta property="og:url" content="https://chunyenwu.net/exercise-sheet/">
+<meta property="og:image" content="https://chunyenwu.net/exercise-sheet/og.png">
+<meta property="og:image:secure_url" content="https://chunyenwu.net/exercise-sheet/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="居家運動單張產生器：左側標題與部位標籤，右側是一張印好的練習單，上面有直膝抬腿與橋式的示意圖">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="居家運動單張產生器">
+<meta name="twitter:description" content="依部位與階段挑動作，每個動作都有示意圖，劑量可依病人改寫，一頁印給病人帶回家。">
+<meta name="twitter:image" content="https://chunyenwu.net/exercise-sheet/og.png">
+<style>
+  :root{
+    --bg:#f4f7f6; --card:#ffffff; --ink:#1f2d2b; --muted:#5f716e;
+    --line:#e2ebe8; --teal:#0f766e; --teal-d:#0b5a54; --teal-soft:#e6f2f0;
+    --amber:#b45309; --amber-soft:#fef3e2; --red:#b91c1c; --red-soft:#fdecec;
+    --green:#15803d; --green-soft:#e7f5ec; --blue:#1d4ed8; --blue-soft:#e8eefc;
+    --shadow:0 1px 3px rgba(15,60,55,.08),0 6px 24px rgba(15,60,55,.06);
+    --radius:16px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0f1615; --card:#182220; --ink:#e8efed; --muted:#9fb2ae;
+      --line:#26332f; --teal:#4fd1c5; --teal-d:#67e0d5; --teal-soft:#153330;
+      --amber:#f0b45a; --amber-soft:#33270f; --red:#f79a9a; --red-soft:#331414;
+      --green:#7fd39a; --green-soft:#13291b; --blue:#8fb4ff; --blue-soft:#141f38;
+      --shadow:0 1px 3px rgba(0,0,0,.3),0 6px 24px rgba(0,0,0,.25);
+    }
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--bg); color:var(--ink);
+    font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,-apple-system,sans-serif;
+    line-height:1.6; -webkit-text-size-adjust:100%}
+  .wrap{max-width:1060px; margin:0 auto; padding:22px 16px 60px}
+  header.top{display:flex; flex-wrap:wrap; gap:14px; align-items:flex-start; justify-content:space-between}
+  h1{font-size:1.5rem; margin:.1em 0 .15em; letter-spacing:.2px}
+  .sub{color:var(--muted); font-size:.92rem; margin:0}
+  .modeswitch{display:inline-flex; background:var(--teal-soft); border:1px solid var(--line);
+    border-radius:999px; padding:3px; font-size:.85rem; flex:none}
+  .modeswitch button{border:0; background:transparent; color:var(--muted); padding:6px 14px;
+    border-radius:999px; cursor:pointer; font:inherit; font-weight:600}
+  .modeswitch button.on{background:var(--teal); color:#fff; box-shadow:0 1px 4px rgba(15,118,110,.4)}
+
+  .disclaimer{margin:16px 0 20px; background:var(--amber-soft); border:1px solid var(--line);
+    border-left:4px solid var(--amber); border-radius:12px; padding:12px 14px; font-size:.86rem}
+  .disclaimer b{color:var(--amber)}
+
+  .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:18px 18px 20px; margin-bottom:16px}
+  .card h2{font-size:1.05rem; margin:0 0 4px; display:flex; align-items:center; gap:9px; flex-wrap:wrap}
+  .card h2 .n{background:var(--teal); color:#fff; width:24px; height:24px; border-radius:8px;
+    display:inline-grid; place-items:center; font-size:.85rem; flex:none}
+  .card h2 .cnt{margin-left:auto; font-size:.8rem; font-weight:600; color:var(--muted)}
+  .card .hint{color:var(--muted); font-size:.82rem; margin:0 0 14px}
+
+  .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px 14px}
+  .field{display:flex; flex-direction:column; gap:5px}
+  .field label{font-size:.85rem; font-weight:600}
+  input,select,textarea{font:inherit; padding:9px 11px; border:1px solid var(--line); border-radius:10px;
+    background:var(--bg); color:var(--ink); width:100%}
+  textarea{resize:vertical; min-height:56px; line-height:1.5}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--teal); outline-offset:1px; border-color:var(--teal)}
+  .seg{display:flex; gap:6px; flex-wrap:wrap}
+  .seg input{position:absolute; opacity:0; pointer-events:none}
+  .seg label{flex:1 1 auto; min-width:110px; text-align:center; border:1px solid var(--line); border-radius:10px;
+    padding:9px 10px; cursor:pointer; font-weight:600; font-size:.9rem; background:var(--bg); color:var(--muted)}
+  .seg input:checked + label{background:var(--teal-soft); border-color:var(--teal); color:var(--teal-d)}
+  .seg label small{display:block; font-weight:400; font-size:.76rem; opacity:.8; margin-top:2px}
+  .fnote{font-size:.78rem; color:var(--muted); margin-top:8px}
+  .check{display:flex; align-items:flex-start; gap:8px; font-size:.88rem; font-weight:600; line-height:1.4}
+  .check input{margin-top:.18em; flex:none}
+  .check input{width:auto; margin:0}
+
+  /* 分頁切換 */
+  .tabs{display:flex; gap:6px; border-bottom:2px solid var(--line); margin:2px 0 16px}
+  .tabs button{font:inherit; font-weight:700; font-size:.92rem; border:0; background:transparent;
+    color:var(--muted); padding:10px 16px; cursor:pointer; border-bottom:3px solid transparent; margin-bottom:-2px}
+  .tabs button.on{color:var(--teal-d); border-bottom-color:var(--teal)}
+  .panel{display:none} .panel.on{display:block}
+
+  /* 分面篩選 */
+  .facet{margin-bottom:11px}
+  .facet .fl{font-size:.8rem; font-weight:700; color:var(--muted); margin:0 0 5px}
+  .chips{display:flex; gap:6px; flex-wrap:wrap}
+  .chip{font:inherit; font-size:.82rem; font-weight:600; border:1px solid var(--line); background:var(--bg);
+    color:var(--muted); border-radius:999px; padding:5px 12px; cursor:pointer}
+  .chip.on{background:var(--teal); border-color:var(--teal); color:#fff}
+  .fbar{display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin:14px 0 4px}
+  .fbar .res{font-size:.86rem; font-weight:700; color:var(--teal-d)}
+  .fbar .sp{flex:1}
+
+  /* 動作卡（瀏覽） */
+  .bgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(232px,1fr)); gap:11px; margin-top:12px}
+  .bcard{border:1px solid var(--line); border-radius:13px; background:var(--bg); padding:11px 12px 12px;
+    display:flex; flex-direction:column; gap:6px}
+  .bcard.sel{border-color:var(--teal); background:var(--teal-soft)}
+  .bcard .thumb{display:block; width:calc(100% + 24px); aspect-ratio:3/2; object-fit:cover;
+    margin:-11px -12px 3px; border-radius:12px 12px 0 0; background:#fff}
+  .bcard.sel .thumb{opacity:.92}
+  .bcard .bh{display:flex; align-items:flex-start; gap:8px}
+  .bcard .bn{font-weight:700; font-size:.95rem; line-height:1.35; flex:1}
+  .bcard .aim{font-size:.82rem; color:var(--muted); margin:0; line-height:1.45}
+  .bcard .bm{display:flex; gap:5px; flex-wrap:wrap; margin-top:2px}
+  .mi{font-size:.72rem; font-weight:600; border-radius:6px; padding:2px 7px;
+    background:var(--card); border:1px solid var(--line); color:var(--muted)}
+  .mi.ty{background:var(--blue-soft); border-color:var(--blue); color:var(--blue)}
+  .mi.l1{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+  .mi.l2{background:var(--amber-soft); border-color:var(--amber); color:var(--amber)}
+  .mi.l3{background:var(--red-soft); border-color:var(--red); color:var(--red)}
+  .mi.fl{background:var(--red-soft); border-color:var(--red); color:var(--red)}
+  .addb{font:inherit; font-size:.8rem; font-weight:700; border:1px solid var(--teal); background:var(--card);
+    color:var(--teal-d); border-radius:9px; padding:4px 10px; cursor:pointer; flex:none}
+  .addb.rm{border-color:var(--red); color:var(--red)}
+  .bcard details{margin-top:2px}
+  .bcard summary{font-size:.78rem; color:var(--teal-d); cursor:pointer; font-weight:600}
+  .bcard .det{font-size:.82rem; color:var(--muted); padding:6px 0 0}
+  .bcard .det ol{margin:3px 0 5px; padding-left:19px}
+
+  /* 已選清單 */
+  .exlist{display:flex; flex-direction:column; gap:10px; margin-top:4px}
+  .exrow{border:1px solid var(--line); border-radius:12px; background:var(--bg); padding:11px 12px}
+  .exrow .rtop{display:flex; align-items:flex-start; gap:11px}
+  .exrow .rmain{flex:1; min-width:0}
+  .exrow .th{flex:none; width:124px; aspect-ratio:3/2; object-fit:cover; border-radius:9px;
+    border:1px solid var(--line); background:#fff}
+  .exrow .r1{display:flex; align-items:center; gap:9px; flex-wrap:wrap}
+  .exrow .num{background:var(--teal-soft); color:var(--teal-d); border:1px solid var(--teal);
+    width:22px; height:22px; border-radius:7px; display:inline-grid; place-items:center;
+    font-size:.78rem; font-weight:700; flex:none}
+  .exrow .nm{font-weight:700; font-size:.98rem}
+  .exrow .aim{font-size:.8rem; color:var(--muted); margin:4px 0 0}
+  .exrow .sp{flex:1}
+  .iconbtn{border:1px solid var(--line); background:var(--card); color:var(--muted);
+    border-radius:9px; width:30px; height:30px; cursor:pointer; font:inherit; font-size:.9rem; flex:none; padding:0}
+  .iconbtn:hover{border-color:var(--red); color:var(--red)}
+  .iconbtn.mv:hover{border-color:var(--teal); color:var(--teal)}
+  .exrow .r2{display:flex; align-items:center; gap:8px; margin-top:9px}
+  .exrow .r2 label{font-size:.8rem; font-weight:600; color:var(--muted); flex:none}
+  .exrow .r2 input{padding:7px 10px}
+  .exrow details{margin-top:8px}
+  .exrow summary{font-size:.8rem; color:var(--teal-d); cursor:pointer; font-weight:600}
+  .exrow .det{font-size:.85rem; color:var(--muted); padding:8px 0 2px}
+  .exrow .det ol{margin:4px 0 6px; padding-left:20px}
+  .warn{background:var(--red-soft); border:1px solid var(--red); border-left:4px solid var(--red);
+    border-radius:10px; padding:10px 12px; font-size:.85rem; margin-top:12px}
+
+  .pro-only{display:none}
+  body.pro .pro-only{display:block}
+  body.pro li.pro-only{display:list-item}
+  .refs{font-size:.84rem; color:var(--muted)}
+  .refs p{margin:.5em 0}
+  .refs b{color:var(--teal-d)}
+
+  .actions{display:flex; gap:10px; flex-wrap:wrap; margin:18px 0 8px; position:sticky; bottom:0;
+    background:linear-gradient(to top,var(--bg) 70%,transparent); padding:10px 0 4px; z-index:5}
+  .btn{font:inherit; font-weight:700; border:0; border-radius:12px; padding:13px 22px; cursor:pointer}
+  .btn.primary{background:var(--teal); color:#fff; box-shadow:0 2px 10px rgba(15,118,110,.35); flex:1; min-width:200px}
+  .btn.primary:hover{background:var(--teal-d)}
+  .btn.ghost{background:transparent; color:var(--muted); border:1px solid var(--line)}
+
+  /* ============ 單張（紙）============ */
+  .paperbar{display:flex; align-items:baseline; gap:10px; margin:26px 0 10px; flex-wrap:wrap}
+  .paperbar h2{font-size:1.05rem; margin:0}
+  .paperbar span{font-size:.82rem; color:var(--muted)}
+  .sheetwrap{display:flex; flex-direction:column; align-items:center; gap:14px}
+  .sheet{--fs:11.5pt; width:210mm; min-height:297mm; padding:14mm 15mm; position:relative;
+    background:#fff; color:#1a1a1a; border:1px solid var(--line);
+    box-shadow:0 4px 24px rgba(0,0,0,.12); font-size:var(--fs); line-height:1.55; color-scheme:light}
+  .sheet.big{--fs:13.5pt}
+  .sheet *{color:inherit}
+  .pgcount{font-weight:700; color:var(--teal-d); background:var(--teal-soft);
+    border:1px solid var(--teal); border-radius:999px; padding:2px 10px; font-size:.8rem}
+  .pgmark{position:absolute; left:0; right:0; pointer-events:none;
+    border-top:2px dashed #b9cbc7; height:0}
+  .pgmark span{position:absolute; right:6mm; top:-.72em; background:#fff; padding:0 8px;
+    font-size:9pt; color:#6b7f7b; letter-spacing:.5px; white-space:nowrap}
+  .sh-head, .sh-meta, .sh-goal{break-inside:avoid; page-break-inside:avoid}
+  .sh-head{display:flex; justify-content:space-between; align-items:flex-end;
+    border-bottom:2.5px solid #0f766e; padding-bottom:7px; gap:12px}
+  .sh-head h1{font-size:1.38em; margin:0; color:#0b5a54; letter-spacing:.5px}
+  .sh-head .clinic{font-size:.8em; color:#555; text-align:right; line-height:1.4; white-space:pre-line}
+  .sh-meta{display:flex; gap:22px; flex-wrap:wrap; font-size:.85em; color:#333; margin:9px 0 0}
+  .sh-meta b{color:#0b5a54; font-weight:700}
+  .sh-goal{background:#e6f2f0; border-left:4px solid #0f766e; border-radius:0 8px 8px 0;
+    padding:7px 12px; margin:8px 0 3px; font-size:.92em}
+  .sh-goal b{color:#0b5a54}
+  .sh-sec{font-size:1.02em; font-weight:700; color:#0b5a54; margin:11px 0 6px;
+    border-bottom:1px solid #cfe0dd; padding-bottom:3px}
+  .ex{border:1px solid #d7e3e0; border-radius:9px; padding:7px 11px 7px; margin-bottom:5px;
+    line-height:1.4; break-inside:avoid; page-break-inside:avoid}
+  /* 圖＋文字：圖浮右、文字繞著圖排下來。
+     用左右兩欄的話，文字欄 86mm 而圖只有 50mm，圖底下那 36mm 是純浪費；
+     改成繞排之後同樣的內容少掉約三分之一的高度，圖的尺寸完全沒有變小。 */
+  .ex .ib{display:block}
+  .ex .ib::after{content:''; display:block; clear:both}
+  .ex .fig{float:right; width:40%; margin:1px 0 6px 11px}
+  /* 有底色或需要完整方框的段落自成一個排版區塊，才不會鋪到圖底下 */
+  .ex .dose{overflow:hidden}
+  .ex .fig.solo{float:none; width:58%; margin:7px auto 2px}   /* 只有圖：不浮動，置中放大 */
+  .sheet.big .ex .fig.solo{width:70%}
+  /* 只有圖：兩欄排版。一欄一張圖時三張圖就要 273mm，超過一頁的 269mm；
+     排成兩欄後三～四個動作只佔兩列，加上紅框仍在同一頁。
+     用 inline-block 而不是 grid／flex 包一層，是因為列印分頁對 inline-block 最可靠，
+     而且動作卡維持在 #sheet 的頂層，markPages 才算得出正確的分頁。 */
+  .sheet.imgmode .ex{display:inline-block; vertical-align:top; box-sizing:border-box;
+    width:calc(50% - 8px); margin-right:8px}
+  /* 圖留 4% 餘裕：抬頭或注意事項多一行時才不會整頁被擠掉，圖仍有 79mm 寬 */
+  .sheet.imgmode .ex .fig.solo{width:96%; margin:0 auto 3px}
+  .sheet.imgmode .ex .dose{margin-top:0; padding:4px 8px; font-size:.86em}
+  /* 只有圖的時候把周邊的留白收緊，讓三個圖＋紅框確實落在同一頁。
+     省的是版面裝飾，不是圖——圖是這個模式唯一的重點。 */
+  .sheet.imgmode .ex{padding:7px 9px 8px}
+  .sheet.imgmode .sh-goal{margin:8px 0 2px; padding:7px 11px}
+  .sheet.imgmode .sh-sec{margin:10px 0 5px}
+  .sheet.imgmode .box{padding:8px 11px; margin-top:8px}
+  .sheet.imgmode .box li{margin:1px 0}
+  .sheet.imgmode .sh-foot{margin-top:8px; padding-top:5px}
+  .ex .dose .i{background:#0f766e; color:#fff; width:1.5em; height:1.5em; border-radius:6px;
+    display:inline-grid; place-items:center; font-size:.85em; font-weight:700;
+    margin-right:6px; vertical-align:-.3em}
+  .ex .fig img{display:block; width:100%; aspect-ratio:3/2; border:1px solid #e2eae8; border-radius:7px; background:#fff}
+  .sheet.big .ex .fig{width:48%}
+  .ex .h{display:flex; align-items:baseline; gap:8px; flex-wrap:wrap}
+  .ex .h .i{background:#0f766e; color:#fff; width:1.5em; height:1.5em; border-radius:6px;
+    display:inline-grid; place-items:center; font-size:.8em; font-weight:700; flex:none}
+  .ex .h .n{font-weight:700; font-size:1.02em}
+  .ex .h .g{font-size:.74em; color:#0b5a54; background:#e6f2f0; border:1px solid #9ec8c3;
+    border-radius:999px; padding:1px 8px; font-weight:700}
+  .ex ol{margin:4px 0 5px; padding-left:1.45em}
+  .ex ol li{margin:0}
+  .ex .line{font-size:.88em; margin:2px 0 0; padding-left:.1em}
+  .ex .line .k{font-weight:700; color:#0b5a54}
+  .ex .dose{background:#f2f7f6; border-radius:6px; padding:4px 9px; margin:5px 0 1px;
+    font-size:.92em; font-weight:700; color:#0b5a54}
+  .ex .caut{color:#a03c12; font-weight:600}
+  .box{border-radius:9px; padding:10px 13px; margin:10px 0 0; break-inside:avoid; page-break-inside:avoid}
+  .box .bt{font-weight:700; margin:0 0 5px; font-size:1em}
+  .box ul{margin:0; padding-left:1.35em}
+  .box li{margin:2px 0}
+  .box.pain{background:#fdf5e7; border:1px solid #e0b877}
+  .box.pain .bt{color:#8a5a12}
+  .box.stop{background:#fdecec; border:2px solid #b91c1c}
+  .box.stop .bt{color:#b91c1c}
+  .box.note{background:#f4f7f6; border:1px solid #d7e3e0}
+  .box.note .bt{color:#0b5a54}
+  .box .q{margin:9px 0 3px; font-size:.95em}
+  .box .q:first-of-type{margin-top:4px}
+  .blankline{border-bottom:1px solid #9fb3af; height:1.7em}
+  .sh-foot{margin-top:10px; padding-top:6px; border-top:1px solid #d7e3e0;
+    font-size:.74em; color:#666; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+  table.log{width:100%; border-collapse:collapse; font-size:.82em; margin-top:6px}
+  table.log th,table.log td{border:1px solid #b9cbc7; padding:4px 3px; text-align:center}
+  table.log th{background:#e6f2f0; color:#0b5a54; font-weight:700}
+  table.log th.wk{width:15%}
+  table.log td.lab{background:#f4f7f6; font-weight:600; color:#0b5a54; font-size:.92em; width:15%}
+  table.log td.cell{height:2.1em}
+  .empty{color:var(--muted); text-align:center; padding:34px 10px; font-size:.9rem}
+  .pagebreak{margin-top:26px; padding-top:22px; border-top:2px dashed #b9cbc7; position:relative}
+  .pagebreak::before{content:attr(data-lab); position:absolute; top:-.72em; left:50%;
+    transform:translateX(-50%); background:#fff; padding:0 10px; font-size:.72em; color:#6b7f7b; letter-spacing:.5px}
+
+  /* 視窗變窄時不重排單張，改用 fitSheet() 等比縮小，
+     這樣預覽永遠維持 A4 的真實版面（180mm 內容寬），才對得起「看到的就是印出來的樣子」。 */
+  .sheetwrap{overflow:hidden}
+  .sheet{transform-origin:top center}
+  @media screen and (max-width:640px){ .exrow .th{display:none} }
+
+  /* 頁面邊界＝預覽 .sheet 的 padding，兩邊內容寬度都是 180mm、可用高度都是 269mm。
+     字級也不要在列印時覆寫，否則斷行位置會跟預覽對不起來。 */
+  @page{ size:A4; margin:14mm 15mm }
+  @media print{
+    body{background:#fff}
+    .wrap{max-width:none; padding:0}
+    .noprint{display:none !important}
+    .sheetwrap{gap:0}
+    .sheet{width:auto; min-height:0; padding:0; border:0; box-shadow:none; transform:none !important}
+    .sheetwrap{overflow:visible; height:auto !important}
+    .pgmark{display:none !important}
+    .pagebreak{break-before:page; page-break-before:always; margin-top:0; padding-top:0; border-top:0}
+    .pagebreak::before{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top noprint">
+    <div>
+      <h1>居家運動單張產生器</h1>
+      <p class="sub">門診用：套用建議組合或從動作庫挑選 → 微調劑量 → 列印給病人帶回家</p>
+    </div>
+    <div class="modeswitch" role="group" aria-label="顯示模式">
+      <button type="button" id="mLay" class="on">一般民眾</button>
+      <button type="button" id="mPro">專業人員</button>
+    </div>
+  </header>
+
+  <div class="disclaimer noprint">
+    <b>使用前請閱讀：</b>本工具產出的是<strong>衛教參考單張</strong>，動作與劑量依現行實證準則（OARSI／ACR 膝關節退化、NICE NG59／ACP 下背痛、ACSM 運動指引、Kisner &amp; Colby 治療性運動）彙整，<u>不能取代個別化評估</u>。請由醫師或物理治療師依病人狀況調整後再交付；所有資料僅存在本機瀏覽器，不會上傳。
+  </div>
+
+  <div class="card noprint">
+    <h2><span class="n">1</span>病人與抬頭</h2>
+    <p class="hint">姓名只印在紙上，不會被儲存。院所／醫師會記在這台電腦，下次自動帶入；<b>單張上只會印出醫師／治療師，院所／科別不會印</b>。</p>
+    <div class="grid">
+      <div class="field"><label for="pName">病人姓名</label><input id="pName" placeholder="（選填）"></div>
+      <div class="field"><label for="pDate">日期</label><input id="pDate" type="date"></div>
+      <div class="field"><label for="pClinic">院所／科別</label><input id="pClinic" placeholder="例：常春醫院 復健科"></div>
+      <div class="field"><label for="pDoc">醫師／治療師</label><input id="pDoc" placeholder="例：吳俊諺 醫師"></div>
+    </div>
+    <div class="field" style="margin-top:12px"><label for="fTitle">單張標題</label><input id="fTitle"></div>
+  </div>
+
+  <div class="card noprint">
+    <h2><span class="n">2</span>挑選動作</h2>
+    <div class="tabs">
+      <button type="button" id="tabPlan" class="on">依部位階段帶入</button>
+      <button type="button" id="tabLib">瀏覽動作庫</button>
+    </div>
+
+    <div class="panel on" id="panelPlan">
+      <p class="hint">選好之後會直接取代目前的清單。這些組合是依指引整理的起手式，帶入後仍可自行增刪。</p>
+      <div class="field" style="margin-bottom:14px"><label>部位／主題</label><div class="seg" id="segRegion"></div></div>
+      <div class="field"><label>階段</label><div class="seg" id="segStage"></div></div>
+      <div id="stageWarn"></div>
+    </div>
+
+    <div class="panel" id="panelLib">
+      <p class="hint">篩選條件可以複選；同一欄內任選其一即符合。點「＋ 加入」把動作加進下方清單。</p>
+      <div id="facets"></div>
+      <div class="facet">
+        <p class="fl">關鍵字</p>
+        <input id="fKw" placeholder="搜尋動作名稱、目的或步驟文字">
+      </div>
+      <div class="fbar">
+        <label class="check"><input type="checkbox" id="fNoFloor"> 只看不用上下地板的動作</label>
+        <span class="sp"></span>
+        <span class="res" id="libCount"></span>
+        <button type="button" class="btn ghost" id="clearFacets" style="padding:7px 14px">清除篩選</button>
+      </div>
+      <div class="bgrid" id="bgrid"></div>
+    </div>
+  </div>
+
+  <div class="card noprint">
+    <h2><span class="n">3</span>已選動作<span class="cnt" id="selCnt"></span></h2>
+    <p class="hint">建議控制在 5 個動作以內——給太多，病人一個都不會做。劑量欄可直接改成你要的寫法。</p>
+    <div class="exlist" id="exList"></div>
+  </div>
+
+  <div class="card noprint">
+    <h2><span class="n">4</span>疼痛規則與叮嚀</h2>
+    <div class="field" style="margin-bottom:14px">
+      <label>可接受的疼痛範圍</label>
+      <div class="seg" id="segPain">
+        <input type="radio" name="pain" id="painStd" value="std" checked><label for="painStd">標準　運動中 ≤ 5 分<small>多數慢性疼痛／退化適用</small></label>
+        <input type="radio" name="pain" id="painCon" value="con"><label for="painCon">保守　運動中 ≤ 3 分<small>急性期、術後、易緊張者</small></label>
+      </div>
+    </div>
+    <div class="field" style="margin-bottom:14px">
+      <label for="fGoal">這次的目標（會印在單張最上面）</label><textarea id="fGoal"></textarea>
+    </div>
+    <div class="field">
+      <label for="fExtra">給這位病人的補充叮嚀（選填）</label>
+      <textarea id="fExtra" placeholder="例：先減少爬樓梯，兩週後回診看膝蓋腫的情形"></textarea>
+    </div>
+  </div>
+
+  <div class="card noprint">
+    <h2><span class="n">5</span>版面設定</h2>
+    <div class="field" style="margin-bottom:14px"><label>動作卡怎麼呈現</label>
+      <div class="seg" id="segCard">
+        <input type="radio" name="cardmode" id="cm_both" value="both" checked>
+        <label for="cm_both">圖＋文字<small>預設，最完整</small></label>
+        <input type="radio" name="cardmode" id="cm_img" value="img">
+        <label for="cm_img">只有圖<small>圖片放大，只留劑量與注意</small></label>
+        <input type="radio" name="cardmode" id="cm_text" value="text">
+        <label for="cm_text">只有文字<small>省碳粉、黑白印表機</small></label>
+      </div>
+    </div>
+    <div class="grid">
+      <label class="check"><input type="checkbox" id="optBig"> 放大字級（給長者）</label>
+      <label class="check"><input type="checkbox" id="optProg" checked> 印出進階建議（部分動作才有）</label>
+      <label class="check"><input type="checkbox" id="optAim" checked> 印出每個動作的目的</label>
+      <label class="check"><input type="checkbox" id="optLog" checked> 附兩週練習紀錄表</label>
+      <label class="check"><input type="checkbox" id="optPain" checked> 印出「可以接受的痠痛」</label>
+      <label class="check"><input type="checkbox" id="optSafety" checked> 印出「做的時候請記得」</label>
+      <label class="check"><input type="checkbox" id="optStop" checked> 印出「停止運動並就醫」（有慢性病建議保留）</label>
+    </div>
+    <p class="fnote">紀錄表會另起一頁，建議雙面列印，回診時請病人帶回來。「只有圖」是給不會讀文字說明的病人用的——圖上本來就有動作名稱和分解說明，所以只保留劑量和注意事項。<b>紅框的就醫時機是這張單子的安全網，建議保留</b>；已經另外給過衛教資料時才取消——而且取消<b>只影響這一次</b>，重新開啟會自動回到勾選。</p>
+  </div>
+
+  <div class="card noprint pro-only">
+    <h2><span class="n">＊</span>專業依據</h2>
+    <div class="refs" id="refs"></div>
+  </div>
+
+  <div class="actions noprint">
+    <button type="button" class="btn primary" id="printBtn">列印單張</button>
+    <button type="button" class="btn ghost" id="resetBtn">重設</button>
+  </div>
+
+  <div class="paperbar noprint"><h2>單張預覽</h2><span>下面看到的就是印出來的樣子</span><span id="pgCount" class="pgcount"></span></div>
+  <div class="sheetwrap"><div class="sheet" id="sheet"></div></div>
+</div>
+
+<script src="exercises.js"></script>
+<script>
+const D = window.RXDATA;
+const { TAX, EX, PLANS, PAIN, COMMON_STOP, SAFETY, REFS } = D;
+const $ = s => document.querySelector(s);
+const esc = s => String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const LS = { get:k=>{try{return localStorage.getItem('rx2_'+k)}catch(e){return null}},
+             set:(k,v)=>{try{localStorage.setItem('rx2_'+k,v)}catch(e){}} };
+
+const GENERIC_STOP = ['運動後出現新的麻、無力，或麻的範圍變大。','疼痛持續加重超過三天，休息也不會緩解。'];
+
+const state = {
+  planId:'knee', stageId:'basic',      // null = 自訂（純從動作庫挑）
+  items:[], pain:'std',
+  f:{ reg:[], ty:[], pos:[], lv:[], eq:[] }, kw:'', noFloor:false
+};
+const plan  = () => PLANS.find(p=>p.id===state.planId) || null;
+const stage = () => { const p=plan(); return p ? p.stages.find(s=>s.id===state.stageId) : null; };
+
+/* ===================== 模板 ===================== */
+function loadStage(){
+  const st = stage(); if(!st) return;
+  state.items = st.items.map(id=>({ id, dose:EX[id].d }));
+  $('#fGoal').value = st.goal;
+  $('#fTitle').value = plan().sheet;
+}
+function renderRegions(){
+  $('#segRegion').innerHTML = PLANS.map(p=>
+    `<input type="radio" name="region" id="rg_${p.id}" value="${p.id}"${p.id===state.planId?' checked':''}>
+     <label for="rg_${p.id}">${esc(p.name)}</label>`).join('');
+  $('#segRegion').querySelectorAll('input').forEach(el=>el.onchange=()=>{
+    state.planId = el.value; state.stageId = plan().stages[0].id;
+    renderStages(); loadStage(); renderAll();
+  });
+}
+function renderStages(){
+  const p = plan(); if(!p) return;
+  $('#segStage').innerHTML = p.stages.map(s=>
+    `<input type="radio" name="stage" id="st_${s.id}" value="${s.id}"${s.id===state.stageId?' checked':''}>
+     <label for="st_${s.id}">${esc(s.name)}<small>${esc(s.desc)}</small></label>`).join('');
+  $('#segStage').querySelectorAll('input').forEach(el=>el.onchange=()=>{
+    state.stageId = el.value; loadStage(); renderAll();
+  });
+  const w = stage() && stage().warn;
+  $('#stageWarn').innerHTML = w ? `<div class="warn"><b>注意｜</b>${esc(w)}</div>` : '';
+}
+
+/* ===================== 動作庫瀏覽 ===================== */
+const FACETS = [
+  {k:'reg', label:'部位',     vals:()=>TAX.reg},
+  {k:'ty',  label:'訓練目標', vals:()=>TAX.ty},
+  {k:'pos', label:'姿勢',     vals:()=>TAX.pos},
+  {k:'lv',  label:'難度',     vals:()=>['1','2','3'], text:v=>TAX.lv[v]},
+  {k:'eq',  label:'器材',     vals:()=>TAX.eq}
+];
+// 只列出動作庫裡實際存在的分類值，之後新增動作會自動出現
+function facetHas(k,v){
+  return Object.keys(EX).some(id=>{
+    const e = EX[id];
+    return k==='pos' ? e.pos===v : k==='lv' ? String(e.lv)===v : e[k].includes(v);
+  });
+}
+function renderFacets(){
+  $('#facets').innerHTML = FACETS.map(f=>{
+    const vals = f.vals().filter(v=>facetHas(f.k,v) || state.f[f.k].includes(v));
+    if(!vals.length) return '';
+    return `<div class="facet"><p class="fl">${f.label}</p><div class="chips" data-k="${f.k}">${
+      vals.map(v=>`<button type="button" class="chip${state.f[f.k].includes(v)?' on':''}" data-v="${esc(v)}">${esc(f.text?f.text(v):v)}</button>`).join('')
+    }</div></div>`;
+  }).join('');
+  $('#facets').querySelectorAll('.chip').forEach(b=>b.onclick=()=>{
+    const k = b.parentElement.dataset.k, v = b.dataset.v, arr = state.f[k];
+    const i = arr.indexOf(v); i<0 ? arr.push(v) : arr.splice(i,1);
+    renderFacets(); renderLib();
+  });
+}
+function matches(id){
+  const e = EX[id], f = state.f;
+  if(f.reg.length && !e.reg.some(r=>f.reg.includes(r))) return false;
+  if(f.ty.length  && !e.ty.some(t=>f.ty.includes(t)))   return false;
+  if(f.pos.length && !f.pos.includes(e.pos))            return false;
+  if(f.lv.length  && !f.lv.includes(String(e.lv)))      return false;
+  if(f.eq.length  && !e.eq.some(q=>f.eq.includes(q)))   return false;
+  if(state.noFloor && e.floor)                          return false;
+  if(state.kw){
+    const hay = (e.n+' '+e.aim+' '+e.s.join(' ')+' '+e.ty.join(' ')+' '+e.reg.join(' ')).toLowerCase();
+    if(!hay.includes(state.kw.toLowerCase())) return false;
+  }
+  return true;
+}
+/* ===================== 示意圖 ===================== */
+const CARD_MODES = ['both','img','text'];
+function cardMode(){
+  const r = document.querySelector('#segCard input:checked');
+  return r ? r.value : 'both';
+}
+const IMG_DIR = 'assets/img/', THUMB_DIR = 'assets/thumb/';
+const imgSrc   = e => e.img ? IMG_DIR   + e.img + '.jpg' : '';
+const thumbSrc = e => e.img ? THUMB_DIR + e.img + '.jpg' : '';
+/* 圖片載不到就整個藏起來，版面不會留一塊破圖 */
+const IMG_FALLBACK = ' onerror="this.closest(\'figure\')?.remove(); this.remove()"';
+
+function renderLib(){
+  const ids = Object.keys(EX).filter(matches);
+  const used = new Set(state.items.map(x=>x.id));
+  $('#libCount').textContent = `符合 ${ids.length} / ${Object.keys(EX).length} 個動作`;
+  $('#bgrid').innerHTML = ids.length ? ids.map(id=>{
+    const e = EX[id], on = used.has(id);
+    return `<div class="bcard${on?' sel':''}" data-id="${id}">
+      ${e.img?`<img class="thumb" src="${thumbSrc(e)}" alt="${esc(e.n)}示意圖" loading="lazy" decoding="async"${IMG_FALLBACK}>`:''}
+      <div class="bh"><span class="bn">${esc(e.n)}</span>
+        <button type="button" class="addb${on?' rm':''}">${on?'✓ 已選':'＋ 加入'}</button></div>
+      <p class="aim">${esc(e.aim)}</p>
+      <div class="bm">
+        ${e.ty.map(t=>`<span class="mi ty">${esc(t)}</span>`).join('')}
+        <span class="mi">${esc(e.pos)}</span>
+        <span class="mi l${e.lv}">${esc(TAX.lv[e.lv])}</span>
+        ${e.eq.filter(q=>q!=='無需器材').map(q=>`<span class="mi">${esc(q)}</span>`).join('')}
+        ${e.floor?'<span class="mi fl">需上下地板</span>':''}
+      </div>
+      <details><summary>看步驟</summary><div class="det">
+        <ol>${e.s.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>
+        <div>建議劑量：${esc(e.d)}</div>
+        ${e.c?`<div>注意：${esc(e.c)}</div>`:''}
+        ${e.p?`<div class="pro-only" style="margin-top:5px">〔專業〕${esc(e.p)}</div>`:''}
+      </div></details></div>`;
+  }).join('') : '<p class="empty">沒有符合的動作，放寬一點條件試試。</p>';
+
+  $('#bgrid').querySelectorAll('.addb').forEach(b=>b.onclick=()=>{
+    const id = b.closest('.bcard').dataset.id;
+    const i = state.items.findIndex(x=>x.id===id);
+    i<0 ? state.items.push({id, dose:EX[id].d}) : state.items.splice(i,1);
+    renderLib(); renderList(); renderSheet();
+  });
+}
+
+/* ===================== 已選清單 ===================== */
+function renderList(){
+  const box = $('#exList');
+  $('#selCnt').textContent = state.items.length ? `共 ${state.items.length} 個` : '';
+  if(!state.items.length){
+    box.innerHTML = '<p class="empty">還沒有選動作。用上面的「依部位階段帶入」套一組，或到「瀏覽動作庫」自己挑。</p>';
+    return;
+  }
+  box.innerHTML = state.items.map((it,i)=>{
+    const e = EX[it.id];
+    return `<div class="exrow" data-i="${i}">
+      <div class="rtop">
+      ${e.img?`<img class="th" src="${thumbSrc(e)}" alt="${esc(e.n)}示意圖" loading="lazy" decoding="async"${IMG_FALLBACK}>`:''}
+      <div class="rmain">
+      <div class="r1">
+        <span class="num">${i+1}</span><span class="nm">${esc(e.n)}</span>
+        <span class="mi ty">${esc(e.ty[0])}</span><span class="mi">${esc(e.pos)}</span>
+        <span class="mi l${e.lv}">${esc(TAX.lv[e.lv])}</span>
+        <span class="sp"></span>
+        <button type="button" class="iconbtn mv" data-act="up" title="上移">↑</button>
+        <button type="button" class="iconbtn mv" data-act="down" title="下移">↓</button>
+        <button type="button" class="iconbtn" data-act="del" title="移除">✕</button>
+      </div>
+      <p class="aim">${esc(e.aim)}</p>
+      <div class="r2"><label>劑量</label><input data-act="dose" value="${esc(it.dose)}"></div>
+      </div></div>
+      <details><summary>看步驟與注意事項</summary><div class="det">
+        <ol>${e.s.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>
+        ${e.m?`<div>常見錯誤：${esc(e.m)}</div>`:''}
+        ${e.c?`<div>注意：${esc(e.c)}</div>`:''}
+        ${e.x?`<div>進階：${esc(e.x)}</div>`:''}
+        ${e.t?`<div>小提醒：${esc(e.t)}</div>`:''}
+        ${e.p?`<div class="pro-only" style="margin-top:6px">〔專業〕${esc(e.p)}</div>`:''}
+      </div></details></div>`;
+  }).join('');
+
+  box.querySelectorAll('.exrow').forEach(row=>{
+    const i = +row.dataset.i;
+    row.querySelectorAll('[data-act]').forEach(el=>{
+      const a = el.dataset.act;
+      if(a==='dose'){ el.oninput = ()=>{ state.items[i].dose = el.value; renderSheet(); }; return; }
+      el.onclick = ()=>{
+        if(a==='del') state.items.splice(i,1);
+        if(a==='up' && i>0) state.items.splice(i-1,0,state.items.splice(i,1)[0]);
+        if(a==='down' && i<state.items.length-1) state.items.splice(i+1,0,state.items.splice(i,1)[0]);
+        renderList(); renderLib(); renderSheet();
+      };
+    });
+  });
+  if(state.items.length>5) box.insertAdjacentHTML('beforeend',
+    `<div class="warn">目前有 ${state.items.length} 個動作。<b>建議刪到 5 個以內</b>——動作太多，病人通常一個都不會做。</div>`);
+}
+
+/* ===================== 單張 ===================== */
+function exCard(it,i,opt){
+  const e = EX[it.id];
+  const line = (k,v,cls)=>`<p class="line${cls?' '+cls:''}"><span class="k">${k}｜</span>${esc(v)}</p>`;
+  const body = `${opt.aim?line('這是為了',e.aim):''}
+    <ol>${e.s.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>
+    <p class="dose">做多少｜${esc(it.dose)}</p>
+    ${e.m?line('常見錯誤',e.m):''}
+    ${e.c?line('注意',e.c,'caut'):''}
+    ${e.t?line('小提醒',e.t):''}
+    ${opt.prog&&e.x?line('進步了怎麼調整',e.x):''}`;
+  const head = `<div class="h"><span class="i">${i+1}</span><span class="n">${esc(e.n)}</span><span class="g">${esc(e.ty[0])}</span></div>`;
+  const fig  = c => `<figure class="fig${c}"><img src="${imgSrc(e)}" alt="${esc(e.n)}示意圖"${IMG_FALLBACK}></figure>`;
+  /* 沒有示意圖的動作在「只有圖」模式下自動退回圖文並排，卡片才不會變空的 */
+  const mode = (opt.card !== 'text' && !e.img) ? 'text' : opt.card;
+
+  if(mode === 'img')
+    /* 圖上已經有動作名稱與分解說明，所以連標題列都不印，編號併進劑量那一行；
+       只留下劑量和「注意」——注意是安全訊息，任何模式都要印。 */
+    return `<div class="ex">${fig(' solo')}
+      <p class="dose"><span class="i">${i+1}</span>做多少｜${esc(it.dose)}</p>
+      ${e.c?line('注意',e.c,'caut'):''}
+    </div>`;
+
+  if(mode === 'both')
+    /* 圖必須排在文字之前，float 才會讓後面的文字繞排 */
+    return `<div class="ex">${head}
+      <div class="ib">${fig('')}${body}</div>
+    </div>`;
+
+  return `<div class="ex">${head}${body}</div>`;
+}
+function logTable(){
+  const days = ['一','二','三','四','五','六','日'];
+  return `<table class="log"><tr><th class="wk">週次</th>${days.map(d=>`<th>${d}</th>`).join('')}</tr>${
+    [1,2].map(w=>
+      `<tr><td class="lab">第 ${w} 週<br>做了打 ✓</td>${days.map(()=>'<td class="cell"></td>').join('')}</tr>
+       <tr><td class="lab">第 ${w} 週<br>今天最痛幾分</td>${days.map(()=>'<td class="cell"></td>').join('')}</tr>`).join('')
+  }</table>`;
+}
+function renderSheet(){
+  const p = plan(), st = stage(), pn = PAIN[state.pain];
+  const opt = { prog:$('#optProg').checked, aim:$('#optAim').checked, log:$('#optLog').checked,
+                card:cardMode(), pain:$('#optPain').checked,
+                safety:$('#optSafety').checked, stop:$('#optStop').checked };
+  /* pClinic 仍會存在這台電腦、下次自動帶入，但不進單張，所以這裡不取用 */
+  const name=$('#pName').value.trim(), date=$('#pDate').value,
+        doc=$('#pDoc').value.trim(),
+        title=$('#fTitle').value.trim()||'居家運動練習單',
+        goal=$('#fGoal').value.trim(), extra=$('#fExtra').value.trim();
+  const stops = COMMON_STOP.concat(p ? p.redflags : GENERIC_STOP);
+
+  /* 院所／科別不印在單張上；醫師／治療師併到姓名那一列 */
+  let h = `<div class="sh-head"><h1>${esc(title)}</h1></div>
+    <div class="sh-meta">
+      <span><b>姓名</b>　${name?esc(name):'＿＿＿＿＿＿＿'}</span>
+      <span><b>日期</b>　${date?esc(date):'＿＿＿＿＿＿＿'}</span>
+      ${st?`<span><b>目前階段</b>　${esc(st.name)}</span>`:''}
+      ${doc?`<span><b>醫師／治療師</b>　${esc(doc)}</span>`:''}
+    </div>`;
+  if(goal) h += `<div class="sh-goal"><b>這次的目標｜</b>${esc(goal)}</div>`;
+  h += `<div class="sh-sec">回家要做的動作（共 ${state.items.length} 個）</div>`;
+  h += state.items.length ? state.items.map((it,i)=>exCard(it,i,opt)).join('')
+                          : '<p style="color:#888">（尚未選擇動作）</p>';
+  if(opt.pain)
+    h += `<div class="box pain"><p class="bt">${esc(pn.label)}</p><ul>${pn.lines.map(x=>`<li>${x}</li>`).join('')}</ul></div>`;
+  if(opt.safety)
+    h += `<div class="box note"><p class="bt">做的時候請記得</p><ul>${SAFETY.map(x=>`<li>${x}</li>`).join('')}</ul></div>`;
+  if(opt.stop)
+    h += `<div class="box stop"><p class="bt">⚠ 出現以下情況，請立刻停止運動並就醫</p><ul>${
+        stops.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>${
+        p&&p.rfnote?`<p style="margin:6px 0 0;font-weight:700;color:#b91c1c">${esc(p.rfnote)}</p>`:''}</div>`;
+  if(extra) h += `<div class="box note"><p class="bt">給您的補充叮嚀</p><div>${esc(extra).replace(/\n/g,'<br>')}</div></div>`;
+  /* 院所與醫師只印在右上角抬頭，頁尾不重複，只留免責聲明 */
+  h += `<div class="sh-foot">
+      <span>本單張為個別化衛教參考，請依醫師或治療師的指示執行；有任何不適請停止並回診。</span></div>`;
+
+  if(opt.log){
+    h += `<div class="pagebreak" data-lab="下一頁">
+      <div class="sh-head"><h1>兩週練習紀錄表</h1>
+        <div class="clinic">${esc(name||'')}${name?'\n':''}${esc(date||'')}</div></div>
+      <p style="margin:10px 0 2px;font-size:.9em">每做完一次就在格子裡打勾，並寫下當天最痛的分數（0＝不痛，10＝最痛）。<b>回診時請把這張帶回來。</b></p>
+      ${logTable()}
+      <div class="box note" style="margin-top:14px">
+        <p class="bt">回診前先想一想（可以直接寫在這裡）</p>
+        <p class="q">哪一個動作做起來最困難或最不舒服？</p><div class="blankline"></div>
+        <p class="q">這兩週跟之前比，日常生活有哪裡變好或變差？</p><div class="blankline"></div>
+        <p class="q">有沒有哪一天完全沒做？原因是什麼？</p><div class="blankline"></div>
+      </div></div>`;
+  }
+  const sh = $('#sheet');
+  sh.className = 'sheet' + ($('#optBig').checked ? ' big' : '')
+                        + (opt.card === 'img' ? ' imgmode' : '');
+  sh.innerHTML = h;
+  markPages(sh);
+  fitSheet();
+}
+
+/* 視窗放不下 A4 時整張等比縮小，不重排；縮放後把外框高度補回來，頁面才不會疊到 */
+function fitSheet(){
+  const wrap = $('#sheet').parentElement, sh = $('#sheet');
+  sh.style.transform = 'none';
+  wrap.style.height = '';
+  const avail = wrap.clientWidth, w = sh.offsetWidth;
+  if(!avail || !w) return;
+  const k = Math.min(1, avail / w);
+  if(k < 1){
+    sh.style.transform = `scale(${k})`;
+    wrap.style.height = (sh.offsetHeight * k) + 'px';
+  }
+}
+addEventListener('resize', fitSheet);
+/* 視窗事件在某些情境不會觸發（例如側欄開合只改容器寬度），用 ResizeObserver 補上。
+   只在寬度真的變了才重算，避免 fitSheet 改高度又觸發自己。 */
+if(window.ResizeObserver){
+  let lastW = 0;
+  new ResizeObserver(es=>{
+    const w = es[0].contentRect.width;
+    if(Math.abs(w - lastW) < 1) return;
+    lastW = w; fitSheet();
+  }).observe($('#sheet').parentElement.parentElement);
+}
+
+/* ===================== 預覽的分頁線 =====================
+   列印時每頁可放 269mm（A4 297mm 減掉上下各 14mm 邊界），
+   而單張裡每個頂層區塊都是 break-inside:avoid 的原子單位，
+   所以照順序貪婪裝箱就等於瀏覽器實際的分頁結果。          */
+const PAGE_MM = 269;
+function mmToPx(){
+  const d = document.createElement('div');
+  d.style.cssText = 'position:absolute;width:100mm;height:0;visibility:hidden';
+  document.body.appendChild(d);
+  const v = d.getBoundingClientRect().width / 100;
+  d.remove();
+  return v;
+}
+function markPages(sh){
+  sh.querySelectorAll('.pgmark').forEach(el=>el.remove());
+  sh.style.transform = 'none';          // 量測要用未縮放的尺寸，縮放交給 fitSheet
+  const page = PAGE_MM * mmToPx();
+  if(!(page > 0)) return;
+  const pad = parseFloat(getComputedStyle(sh).paddingTop) || 0;
+  const top0 = sh.getBoundingClientRect().top + pad;
+  /* 「只有圖」是兩欄排版，並排的卡片要當成同一列算，否則會多算一頁 */
+  const rows = [];
+  [...sh.children].forEach(el=>{
+    if(el.classList.contains('pgmark')) return;
+    const r = el.getBoundingClientRect();
+    const forced = el.classList.contains('pagebreak');
+    const last = rows[rows.length-1];
+    if(last && !forced && !last.forced && r.top < last.bottom - 1){
+      last.top = Math.min(last.top, r.top);
+      last.bottom = Math.max(last.bottom, r.bottom);
+    } else {
+      rows.push({ top:r.top, bottom:r.bottom, forced, el });
+    }
+  });
+
+  let start = 0, pages = 1;
+  const marks = [];
+  rows.forEach(row=>{
+    const t = row.top - top0, b = row.bottom - top0;
+    if(row.forced || b - start > page){
+      if(t > 0){ marks.push(t); start = t; pages++; }
+    }
+    if(row.forced) row.el.dataset.lab = `第 ${pages} 頁`;
+  });
+  marks.forEach((y,i)=>{
+    const d = document.createElement('div');
+    d.className = 'pgmark';
+    d.style.top = (y + pad) + 'px';
+    d.innerHTML = `<span>第 ${i+2} 頁從這裡開始</span>`;
+    sh.appendChild(d);
+  });
+  $('#pgCount').textContent = pages > 1 ? `會印成 ${pages} 頁` : '會印成 1 頁';
+}
+function renderAll(){ renderStages(); renderList(); renderLib(); renderSheet(); }
+
+/* ===================== 事件 ===================== */
+$('#mLay').onclick = ()=>{ document.body.classList.remove('pro'); $('#mLay').classList.add('on'); $('#mPro').classList.remove('on'); };
+$('#mPro').onclick = ()=>{ document.body.classList.add('pro');    $('#mPro').classList.add('on'); $('#mLay').classList.remove('on'); };
+$('#tabPlan').onclick = ()=>{ $('#tabPlan').classList.add('on'); $('#tabLib').classList.remove('on');
+  $('#panelPlan').classList.add('on'); $('#panelLib').classList.remove('on'); };
+$('#tabLib').onclick  = ()=>{ $('#tabLib').classList.add('on'); $('#tabPlan').classList.remove('on');
+  $('#panelLib').classList.add('on'); $('#panelPlan').classList.remove('on'); };
+
+$('#fKw').addEventListener('input', ()=>{ state.kw = $('#fKw').value.trim(); renderLib(); });
+$('#fNoFloor').addEventListener('change', ()=>{ state.noFloor = $('#fNoFloor').checked; renderLib(); });
+$('#clearFacets').onclick = ()=>{
+  Object.keys(state.f).forEach(k=>state.f[k]=[]);
+  state.kw=''; state.noFloor=false; $('#fKw').value=''; $('#fNoFloor').checked=false;
+  renderFacets(); renderLib();
+};
+document.querySelectorAll('#segPain input').forEach(el=>el.onchange=()=>{ state.pain = el.value; renderSheet(); });
+['#pName','#pDate','#pClinic','#pDoc','#fTitle','#fGoal','#fExtra'].forEach(s=>$(s).addEventListener('input', renderSheet));
+['#pClinic','#pDoc'].forEach(s=>$(s).addEventListener('input', ()=>LS.set(s.slice(1), $(s).value)));
+['#optBig','#optProg','#optAim','#optLog','#optPain','#optSafety'].forEach(s=>$(s).addEventListener('change', ()=>{
+  LS.set(s.slice(1), $(s).checked?'1':'0'); renderSheet(); }));
+$('#segCard').addEventListener('change', ()=>{ LS.set('cardMode', cardMode()); renderSheet(); });
+/* 紅框（停止運動並就醫）刻意不記住設定：它是這張單子的安全網，
+   取消只影響當次，重新開啟一律回到勾選。 */
+$('#optStop').addEventListener('change', renderSheet);
+$('#printBtn').onclick = ()=>window.print();
+$('#resetBtn').onclick = ()=>{
+  if(!confirm('清空病人姓名與補充叮嚀，並回到這個階段的預設動作組合？')) return;
+  $('#pName').value=''; $('#fExtra').value='';
+  $('#painStd').checked = true; state.pain='std';
+  loadStage(); renderAll();
+};
+
+/* ===================== 起始 ===================== */
+$('#pDate').value   = new Date().toLocaleDateString('sv');
+$('#pClinic').value = LS.get('pClinic') || '';
+$('#pDoc').value    = LS.get('pDoc')    || '';
+$('#optBig').checked = LS.get('optBig')==='1';
+['optProg','optAim','optLog','optPain','optSafety']
+  .forEach(k=>{ if(LS.get(k)==='0') $('#'+k).checked = false; });
+{ const m = LS.get('cardMode');
+  if(CARD_MODES.includes(m)) $('#segCard input[value="'+m+'"]').checked = true; }
+$('#optStop').checked = true;   // 每次開啟一律回到勾選
+$('#refs').innerHTML = REFS;
+renderRegions(); loadStage(); renderFacets(); renderAll();
+</script>
+</body>
+</html>

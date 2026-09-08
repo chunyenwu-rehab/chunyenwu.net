@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { NAV } from '../consts';
+
+// 這一頁會被建置成 dist/404.html。GitHub Pages 與 Cloudflare Pages 都會在
+// 找不到路徑時回傳這個檔案，並且帶正確的 HTTP 404 狀態碼。
+// noindex 是必要的：這頁會對應到無數不存在的網址，不該被索引。
+const description = '找不到這個頁面。可能是網址打錯了，或是文章搬過家。';
+---
+
+<BaseLayout title="找不到這個頁面" description={description} noindex>
+  <main class="notfound">
+    <p class="code">404</p>
+    <h1>找不到這個頁面</h1>
+    <p class="lead">
+      可能是網址打錯了，或是這篇文章搬過家。
+      從下面幾個地方繼續逛，應該找得到你要的東西。
+    </p>
+
+    <ul class="links">
+      <li><a href="/">回首頁</a></li>
+      {NAV.map((item) => (
+        <li><a href={item.href}>{item.label}</a></li>
+      ))}
+    </ul>
+  </main>
+</BaseLayout>
+
+<style>
+  .notfound {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 4rem 1.25rem 5rem;
+  }
+  .code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.95rem;
+    letter-spacing: 0.22em;
+    color: var(--ink-faint);
+    margin: 0 0 0.6rem;
+  }
+  .notfound h1 {
+    font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+    line-height: 1.25;
+    margin: 0 0 1rem;
+  }
+  .lead {
+    color: var(--ink-soft);
+    line-height: 1.85;
+    margin: 0 0 2rem;
+    max-width: 34rem;
+  }
+  .links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+  .links a {
+    display: inline-block;
+    padding: 0.55rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--paper-2);
+    color: var(--teal);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+  }
+  .links a:hover {
+    border-color: var(--teal);
+    background: var(--teal-soft);
+  }
+</style>

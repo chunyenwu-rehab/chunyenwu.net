@@ -161,6 +161,29 @@
   .warn{background:var(--red-soft); border:1px solid var(--red); border-left:4px solid var(--red);
     border-radius:10px; padding:10px 12px; font-size:.85rem; margin-top:12px}
 
+  /* 我的模板 */
+  .myl{display:flex; flex-direction:column; gap:8px}
+  .myrow{display:flex; align-items:center; gap:9px; border:1px solid var(--line);
+    border-radius:12px; background:var(--bg); padding:10px 12px}
+  .myrow .mn{font-weight:700; font-size:.95rem; flex:1; min-width:0;
+    overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+  .myrow .ms{font-size:.78rem; color:var(--muted); flex:none}
+  .myempty{font-size:.86rem; color:var(--muted); line-height:1.7;
+    border:1px dashed var(--line); border-radius:12px; padding:15px; text-align:center}
+  .savebar{display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top:12px}
+  .savebar .hint{margin:0; flex:1; min-width:200px}
+  .btn.small{padding:9px 16px; font-size:.88rem; border-radius:10px; font-weight:600; white-space:nowrap}
+  /* 窄螢幕時模板名稱會被擠到看不見，改成名稱自己一行 */
+  @media screen and (max-width:640px){
+    .myrow{flex-wrap:wrap}
+    .myrow .mn{flex:1 0 100%; white-space:normal}
+    .myrow .ms{flex:1}
+  }
+  .lastnote{display:flex; align-items:center; gap:10px; background:var(--teal-soft);
+    border:1px solid var(--teal); border-radius:10px; padding:9px 12px;
+    font-size:.84rem; color:var(--teal-d); margin-bottom:12px}
+  .lastnote span{flex:1}
+
   .pro-only{display:none}
   body.pro .pro-only{display:block}
   body.pro li.pro-only{display:list-item}
@@ -332,6 +355,7 @@
     <div class="tabs">
       <button type="button" id="tabPlan" class="on">依部位階段帶入</button>
       <button type="button" id="tabLib">瀏覽動作庫</button>
+      <button type="button" id="tabMine">我的模板<span id="mineCnt"></span></button>
     </div>
 
     <div class="panel on" id="panelPlan">
@@ -339,6 +363,12 @@
       <div class="field" style="margin-bottom:14px"><label>部位／主題</label><div class="seg" id="segRegion"></div></div>
       <div class="field"><label>階段</label><div class="seg" id="segStage"></div></div>
       <div id="stageWarn"></div>
+    </div>
+
+    <div class="panel" id="panelMine">
+      <p class="hint">存下來的是<b>動作清單、你改過的劑量、單張標題、這次的目標與疼痛規則</b>；病人姓名與補充叮嚀不會存。
+        資料只留在這台電腦的瀏覽器裡，清除瀏覽資料就會消失。</p>
+      <div class="myl" id="myList"></div>
     </div>
 
     <div class="panel" id="panelLib">
@@ -361,7 +391,12 @@
   <div class="card noprint">
     <h2><span class="n">3</span>已選動作<span class="cnt" id="selCnt"></span></h2>
     <p class="hint">建議控制在 5 個動作以內——給太多，病人一個都不會做。劑量欄可直接改成你要的寫法。</p>
+    <div id="lastNote"></div>
     <div class="exlist" id="exList"></div>
+    <div class="savebar">
+      <button type="button" class="btn ghost small" id="saveMineBtn">＋ 存成我的模板</button>
+      <p class="hint">把這組動作與劑量存起來，下次在「我的模板」分頁一鍵帶回。</p>
+    </div>
   </div>
 
   <div class="card noprint">
@@ -465,6 +500,119 @@ function renderStages(){
   });
   const w = stage() && stage().warn;
   $('#stageWarn').innerHTML = w ? `<div class="warn"><b>注意｜</b>${esc(w)}</div>` : '';
+}
+
+/* ===================== 我的模板 ===================== */
+/* 存在這台電腦的瀏覽器裡（localStorage），內容是動作清單、醫師改過的劑量、
+   單張標題、目標與疼痛規則，外加存檔當時的部位／階段——階段要一起存，
+   單張上的紅旗才會跟著對。刻意不存病人姓名與補充叮嚀：那是單次看診的東西。 */
+const MY = {
+  all(){ try{ const a = JSON.parse(LS.get('myplans')||'[]'); return Array.isArray(a)?a:[] }catch(e){ return [] } },
+  save(a){ LS.set('myplans', JSON.stringify(a)) }
+};
+
+function renderMine(){
+  const list = MY.all(), box = $('#myList');
+  $('#mineCnt').textContent = list.length ? `（${list.length}）` : '';
+  if(!list.length){
+    box.innerHTML = `<div class="myempty">還沒有存過模板。<br>
+      在下面「已選動作」挑好動作、把劑量改成你要的寫法，<br>
+      再按 <b>「＋ 存成我的模板」</b>，就會出現在這裡。</div>`;
+    return;
+  }
+  box.innerHTML = list.map((m,i)=>`<div class="myrow">
+      <span class="mn">${esc(m.name)}</span>
+      <span class="ms">${m.items.length} 個動作${m.ts?'・'+esc(m.ts):''}</span>
+      <button type="button" class="btn ghost small" data-a="load" data-i="${i}">帶入</button>
+      <button type="button" class="iconbtn mv" data-a="rename" data-i="${i}" title="改名">✎</button>
+      <button type="button" class="iconbtn" data-a="del" data-i="${i}" title="刪除">✕</button>
+    </div>`).join('');
+  box.querySelectorAll('button').forEach(b=>b.onclick=()=>{
+    const list = MY.all(), i = +b.dataset.i, m = list[i];
+    if(!m) return;                       // 另一個分頁剛好刪掉了，重畫就好
+    if(b.dataset.a === 'del'){
+      if(!confirm(`刪除模板「${m.name}」？這個動作無法復原。`)) return;
+      list.splice(i,1); MY.save(list); renderMine(); return;
+    }
+    if(b.dataset.a === 'rename'){
+      const n = prompt('模板名稱', m.name);
+      if(n === null) return;
+      const t = n.trim(); if(!t) return;
+      m.name = t.slice(0,40); MY.save(list); renderMine(); return;
+    }
+    applyMine(m);
+  });
+}
+
+/* 帶入模板。動作庫日後可能會換掉某些 id，先濾掉查不到的，
+   不然一個壞掉的 key 會讓整組帶不進來。 */
+function applyMine(m, quiet){
+  const raw   = Array.isArray(m.items) ? m.items : [];
+  const items = raw.filter(it => it && EX[it.id])
+                   .map(it => ({ id:it.id, dose: it.dose || EX[it.id].d }));
+  const lost  = raw.length - items.length;
+  if(PLANS.some(p=>p.id===m.planId)){
+    state.planId = m.planId;
+    const p = PLANS.find(p=>p.id===m.planId);
+    state.stageId = p.stages.some(st=>st.id===m.stageId) ? m.stageId : p.stages[0].id;
+    const rb = $('#rg_'+state.planId); if(rb) rb.checked = true;
+  }
+  state.items = items;
+  $('#fTitle').value = m.title || '';
+  $('#fGoal').value  = m.goal  || '';
+  if(PAIN[m.pain]){
+    state.pain = m.pain;
+    const el = $('#segPain input[value="'+m.pain+'"]'); if(el) el.checked = true;
+  }
+  dismissLastNote();
+  renderAll();
+  /* 自動帶回上次清單時不跳提示——開頁面就彈視窗很擾人，而且那不是使用者要求的動作 */
+  if(lost && !quiet) alert(`已帶入「${m.name}」。其中 ${lost} 個動作在目前的動作庫裡找不到，已略過。`);
+}
+
+function saveMine(){
+  if(!state.items.length){ alert('目前還沒有選任何動作。'); return; }
+  const suggest = ($('#fTitle').value.trim() || (plan() ? plan().name : '')).slice(0,40);
+  const n = prompt('幫這個模板取個名字，方便下次認出來：', suggest);
+  if(n === null) return;
+  const name = n.trim(); if(!name) return;
+  const list = MY.all();
+  const rec = {
+    name: name.slice(0,40),
+    planId: state.planId, stageId: state.stageId, pain: state.pain,
+    title: $('#fTitle').value.trim(), goal: $('#fGoal').value.trim(),
+    items: state.items.map(it=>({ id:it.id, dose:it.dose })),
+    ts: new Date().toLocaleDateString('sv')
+  };
+  const at = list.findIndex(m=>m.name === rec.name);
+  if(at >= 0){
+    if(!confirm(`已經有一個叫「${rec.name}」的模板，要覆蓋嗎？`)) return;
+    list[at] = rec;
+  } else list.push(rec);
+  MY.save(list);
+  renderMine(); showMinePanel();
+}
+
+/* ===================== 上次未印完的清單 ===================== */
+/* 分頁不小心關掉、或看診看到一半瀏覽器掛了，重開時把動作清單帶回來。
+   一樣不含病人姓名與補充叮嚀。 */
+function saveLast(){
+  LS.set('last', JSON.stringify({
+    planId: state.planId, stageId: state.stageId, pain: state.pain,
+    title: $('#fTitle').value.trim(), goal: $('#fGoal').value.trim(),
+    items: state.items.map(it=>({ id:it.id, dose:it.dose }))
+  }));
+}
+function dismissLastNote(){ const n = $('#lastNote'); if(n) n.innerHTML = ''; }
+function restoreLast(){
+  let d; try{ d = JSON.parse(LS.get('last')||'null') }catch(e){ return false }
+  if(!d || !Array.isArray(d.items) || !d.items.length) return false;
+  applyMine({ ...d, name:'上次的清單' }, true);
+  $('#lastNote').innerHTML =
+    `<div class="lastnote"><span>這是<b>上次離開時</b>的清單，已經幫你帶回來。</span>
+     <button type="button" class="btn ghost small" id="lastReset">回到預設組合</button></div>`;
+  $('#lastReset').onclick = ()=>{ dismissLastNote(); loadStage(); renderAll(); };
+  return true;
 }
 
 /* ===================== 動作庫瀏覽 ===================== */
@@ -705,6 +853,7 @@ function renderSheet(){
   sh.innerHTML = h;
   markPages(sh);
   fitSheet();
+  saveLast();
 }
 
 /* 視窗放不下 A4 時整張等比縮小，不重排；縮放後把外框高度補回來，頁面才不會疊到 */
@@ -790,10 +939,13 @@ function renderAll(){ renderStages(); renderList(); renderLib(); renderSheet(); 
 /* ===================== 事件 ===================== */
 $('#mLay').onclick = ()=>{ document.body.classList.remove('pro'); $('#mLay').classList.add('on'); $('#mPro').classList.remove('on'); };
 $('#mPro').onclick = ()=>{ document.body.classList.add('pro');    $('#mPro').classList.add('on'); $('#mLay').classList.remove('on'); };
-$('#tabPlan').onclick = ()=>{ $('#tabPlan').classList.add('on'); $('#tabLib').classList.remove('on');
-  $('#panelPlan').classList.add('on'); $('#panelLib').classList.remove('on'); };
-$('#tabLib').onclick  = ()=>{ $('#tabLib').classList.add('on'); $('#tabPlan').classList.remove('on');
-  $('#panelLib').classList.add('on'); $('#panelPlan').classList.remove('on'); };
+const TABS = [['#tabPlan','#panelPlan'], ['#tabLib','#panelLib'], ['#tabMine','#panelMine']];
+function showTab(sel){
+  TABS.forEach(([t,pn])=>{ $(t).classList.toggle('on', t===sel); $(pn).classList.toggle('on', t===sel); });
+}
+TABS.forEach(([t])=>$(t).onclick = ()=>showTab(t));
+function showMinePanel(){ showTab('#tabMine'); }
+$('#saveMineBtn').onclick = saveMine;
 
 $('#fKw').addEventListener('input', ()=>{ state.kw = $('#fKw').value.trim(); renderLib(); });
 $('#fNoFloor').addEventListener('change', ()=>{ state.noFloor = $('#fNoFloor').checked; renderLib(); });
@@ -816,6 +968,7 @@ $('#resetBtn').onclick = ()=>{
   if(!confirm('清空病人姓名與補充叮嚀，並回到這個階段的預設動作組合？')) return;
   $('#pName').value=''; $('#fExtra').value='';
   $('#painStd').checked = true; state.pain='std';
+  dismissLastNote();
   loadStage(); renderAll();
 };
 
@@ -830,7 +983,9 @@ $('#optBig').checked = LS.get('optBig')==='1';
   if(CARD_MODES.includes(m)) $('#segCard input[value="'+m+'"]').checked = true; }
 $('#optStop').checked = true;   // 每次開啟一律回到勾選
 $('#refs').innerHTML = REFS;
-renderRegions(); loadStage(); renderFacets(); renderAll();
+renderRegions(); loadStage(); renderFacets(); renderMine();
+/* 有上次的清單就帶回來（restoreLast 內部會 renderAll），否則照預設組合起始 */
+if(!restoreLast()) renderAll();
 </script>
 </body>
 </html>

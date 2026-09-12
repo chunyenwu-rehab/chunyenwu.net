@@ -27,3 +27,11 @@ pnpm-debug.log*
 # 進版控會讓每次 CI checkout（fetch-depth: 0）都要拉這 145MB。
 tools/exercise-sheet/圖片原稿/**/*.png
 tools/exercise-sheet/圖片檢查/待整理圖片/
+
+# 教科書與指引原文（epub / PDF）
+# 這些是寫內容時查證用的參考書，放在 repo 裡方便查，但一律不進版控：
+#   ① 有版權，放進 public/ 會被 Astro 原樣複製到網站上變成公開下載
+#   ② 動輒 100–160MB，部署工作流用 fetch-depth: 0，進版控每次建置都要拉
+# 真的要放可公開下載的 PDF 時，用 git add -f 個別加。
+*.epub
+*.pdf

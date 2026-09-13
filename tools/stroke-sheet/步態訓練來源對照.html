@@ -1,0 +1,318 @@
+<title>中風步態訓練的分歧與共識</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&family=Noto+Serif+TC:wght@600;700&display=swap">
+<style>
+  :root{
+    --ground:#edf0f3; --surface:#ffffff; --surface-2:#f5f7f9;
+    --ink:#172029; --muted:#5b6b7b; --rule:#d5dce3;
+    --accent:#0b6e68; --accent-soft:#dfeeec; --accent-line:#8cc2bd;
+    --warn:#8f5a10; --warn-soft:#f6eddc; --warn-line:#d8b476;
+    --stop:#92243a; --stop-soft:#f7e4e7; --stop-line:#d79aa6;
+    --sans:"IBM Plex Sans","PingFang TC","Noto Sans TC","Heiti TC",system-ui,sans-serif;
+    --serif:"Noto Serif TC","Songti TC",Georgia,serif;
+    --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#0f151b; --surface:#18212a; --surface-2:#141c24;
+      --ink:#dfe7ee; --muted:#8e9eae; --rule:#2a3642;
+      --accent:#55b7af; --accent-soft:#12312f; --accent-line:#2f6a65;
+      --warn:#d2a055; --warn-soft:#2c2418; --warn-line:#6b5327;
+      --stop:#e17d8e; --stop-soft:#33191f; --stop-line:#7a3945;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0f151b; --surface:#18212a; --surface-2:#141c24;
+    --ink:#dfe7ee; --muted:#8e9eae; --rule:#2a3642;
+    --accent:#55b7af; --accent-soft:#12312f; --accent-line:#2f6a65;
+    --warn:#d2a055; --warn-soft:#2c2418; --warn-line:#6b5327;
+    --stop:#e17d8e; --stop-soft:#33191f; --stop-line:#7a3945;
+  }
+
+  *{box-sizing:border-box}
+  body{background:var(--ground);color:var(--ink);font-family:var(--sans);
+       line-height:1.75;font-size:15px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:48px 24px 96px}
+
+  .mast{border-bottom:2px solid var(--ink);padding-bottom:22px;margin-bottom:40px}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+          color:var(--accent);margin:0 0 10px}
+  h1{font-family:var(--serif);font-weight:700;font-size:clamp(28px,4.4vw,40px);line-height:1.3;
+     margin:0 0 12px;text-wrap:balance;letter-spacing:.01em}
+  .standfirst{margin:0;max-width:62ch;color:var(--muted);font-size:15.5px}
+  .mast-meta{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:20px;
+             font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+  .mast-meta b{color:var(--ink);font-weight:600}
+
+  section{margin-top:52px}
+  h2{font-family:var(--serif);font-weight:600;font-size:21px;margin:0 0 6px;
+     padding-bottom:8px;border-bottom:1px solid var(--rule);text-wrap:balance}
+  h3{font-family:var(--sans);font-weight:600;font-size:15px;margin:28px 0 8px;letter-spacing:.02em}
+  .lede{color:var(--muted);margin:0 0 18px;max-width:66ch}
+  p{margin:0 0 12px;max-width:68ch}
+  u{text-decoration-color:var(--accent-line);text-underline-offset:3px}
+
+  .ledger{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:18px}
+  .ledger div{background:var(--surface);padding:13px 16px;display:grid;
+              grid-template-columns:152px 1fr;gap:16px;align-items:baseline}
+  .ledger dt{font-family:var(--mono);font-size:11.5px;color:var(--muted);
+             text-transform:uppercase;letter-spacing:.08em}
+  .ledger dd{margin:0;font-size:14px}
+  .ledger dd small{display:block;color:var(--muted);font-size:12.5px;margin-top:2px}
+  @media (max-width:620px){ .ledger div{grid-template-columns:1fr;gap:4px} }
+
+  .scroller{overflow-x:auto;border:1px solid var(--rule);background:var(--surface);margin-top:18px}
+  table{border-collapse:collapse;min-width:720px;width:100%;font-size:13.5px}
+  thead th{background:var(--surface-2);text-align:left;padding:11px 14px;font-weight:600;
+           font-size:11.5px;font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase;
+           color:var(--muted);border-bottom:1px solid var(--rule);white-space:nowrap}
+  tbody th{text-align:left;padding:12px 14px;vertical-align:top;background:var(--surface);
+           border-bottom:1px solid var(--rule);border-right:1px solid var(--rule);
+           font-weight:600;min-width:190px}
+  tbody th span{display:block;font-family:var(--mono);font-size:10.5px;color:var(--muted);
+                font-weight:400;letter-spacing:0}
+  td{padding:12px 14px;vertical-align:top;border-bottom:1px solid var(--rule);
+     border-right:1px solid var(--rule)}
+  td:last-child{border-right:0}
+  tbody tr:last-child th, tbody tr:last-child td{border-bottom:0}
+  .num{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:13px}
+  .na{color:var(--muted);font-style:italic}
+
+  .cor{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:600;
+       padding:1px 7px;border-radius:2px;white-space:nowrap}
+  .cor1{background:var(--accent-soft);color:var(--accent);border:1px solid var(--accent-line)}
+  .cor2a{background:var(--surface-2);color:var(--ink);border:1px solid var(--rule)}
+  .cor2b{background:var(--warn-soft);color:var(--warn);border:1px solid var(--warn-line)}
+  .cor3{background:var(--stop-soft);color:var(--stop);border:1px solid var(--stop-line)}
+
+  .callout{border:1px solid var(--rule);border-top:3px solid var(--warn-line);
+           background:var(--warn-soft);padding:18px 20px;margin-top:20px}
+  .callout.good{border-top-color:var(--accent);background:var(--accent-soft)}
+  .callout.hard{border-top-color:var(--stop);background:var(--stop-soft)}
+  .callout h4{margin:0 0 8px;font-size:14px;font-family:var(--serif);font-weight:600}
+  .callout p{max-width:none}
+  .callout p:last-child{margin-bottom:0}
+
+  .versus{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);
+          border:1px solid var(--rule);margin-top:18px}
+  .versus > div{background:var(--surface);padding:16px 18px}
+  .versus h5{margin:0 0 8px;font-size:12px;font-family:var(--mono);letter-spacing:.08em;
+             text-transform:uppercase;color:var(--muted)}
+  .versus .claim{font-family:var(--serif);font-size:16px;font-weight:600;display:block;
+                 margin-bottom:8px;line-height:1.5}
+  .versus p{font-size:13.5px;margin:0;max-width:none}
+  @media (max-width:620px){ .versus{grid-template-columns:1fr} }
+
+  ul.plain{padding-left:19px;margin:10px 0}
+  ul.plain li{margin-bottom:7px;max-width:66ch}
+  ul.plain li b{font-weight:600}
+
+  .impact{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:18px}
+  .impact > div{background:var(--surface);padding:14px 18px;display:grid;
+                grid-template-columns:128px 1fr;gap:18px}
+  .impact h5{margin:0;font-family:var(--serif);font-size:14.5px;font-weight:600}
+  .impact p{margin:0;font-size:13.5px;max-width:none}
+  @media (max-width:620px){ .impact > div{grid-template-columns:1fr;gap:5px} }
+
+  footer{margin-top:64px;padding-top:18px;border-top:1px solid var(--rule);
+         color:var(--muted);font-size:12.5px}
+  footer p{max-width:70ch}
+  code{font-family:var(--mono);font-size:.92em;background:var(--surface-2);
+       padding:1px 5px;border:1px solid var(--rule)}
+  ::selection{background:var(--accent-soft);color:var(--ink)}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <p class="kicker">中風單張 ・ 證據整理</p>
+  <h1>中風步態訓練的分歧與共識</h1>
+  <p class="standfirst">六份來源對「中風後該怎麼練走路」的說法並排。共識比想像中一致，分歧集中在三件事：輔具的地位、步態品質誰負責、以及跑步機和機器人的定位。</p>
+  <div class="mast-meta">
+    <span>整理日期 <b>2026-09-13</b></span>
+    <span>用途 <b>中風居家單張下肢 1–4</b></span>
+  </div>
+</header>
+
+<section>
+  <h2>六份來源</h2>
+  <div class="ledger">
+    <div><dt>AHA/ASA 2026</dt><dd>成人中風復健與恢復指引，5.5 節「Gait and Mobility」18 條建議
+      <small>最新、最權威，有明確的 COR／LOE 分級。也是唯一明確列出「不建議」項目的。</small></dd></div>
+    <div><dt>ANPT 2020</dt><dd>Locomotor CPG（Hornby 等，<i>JNPT</i> 44:49–100）
+      <small>只涵蓋慢性期（&gt;6 個月）、能行走者，結果指標只有步行速度與距離。</small></dd></div>
+    <div><dt>O'Sullivan 8e</dt><dd>Ch.11 Strategies to Improve Locomotor Function
+      <small>給出最完整的強度操作細節與 HIIT 協定；輔具訓練細節放在線上附錄，紙本沒有。</small></dd></div>
+    <div><dt>Motor Control 6e</dt><dd>Ch.16 Clinical Management of the Patient with a Mobility Disorder
+      <small>唯一把「修正步態模式」明列為介入目標之一的來源。八個環境向度出自此。</small></dd></div>
+    <div><dt>Umphred 8e</dt><dd>Ch.24 Movement Dysfunction in Stroke／Ch.31 心肺體能
+      <small>採 Ryerson &amp; Levit 的損傷分類；Ch.31 Table 31.3 給了中風後強度分級的判定門檻。</small></dd></div>
+    <div><dt>ACSM CDD4</dt><dd>Ch.25 Stroke, Brain Trauma, and Spinal Cord Injuries
+      <small>唯一一套可照抄的居家漸進協定（六步驟），且明確要求 Focus on Form。</small></dd></div>
+  </div>
+</section>
+
+<section>
+  <h2>共識一：強度是主變項，而且門檻一致</h2>
+  <p class="lede">六份來源對「60% 心率儲備是中強度與高強度的分界」沒有異議。差別只在有沒有給上界。</p>
+  <div class="scroller">
+  <table>
+    <thead><tr><th scope="col">來源</th><th scope="col">中強度</th><th scope="col">高強度</th><th scope="col">備註</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">AHA/ASA 2026<span>5.5 建議 3</span></th>
+        <td class="num">40–60% HRR<br>65–75% HRmax</td>
+        <td class="num">&gt;60% HRR<br>&gt;75% HRmax</td>
+        <td>明講 HRR 優於 HRmax，因中風後安靜心率常偏高，不校正會低估強度</td></tr>
+      <tr><th scope="row">Umphred 8e<span>Table 31.3</span></th>
+        <td class="num">40–60% HRR<br>RPE 11–13</td>
+        <td class="num">&gt;60% HRR<br>RPE ≥14</td>
+        <td>另附三個分層判準：心電圖反應、VO₂peak 百分比、Chedoke-McMaster 下肢分期</td></tr>
+      <tr><th scope="row">ANPT CPG 2020</th>
+        <td class="na">未分級</td>
+        <td class="num">&gt;60% HRR<br>或 70% HRmax</td>
+        <td>只給下界，強建議等級</td></tr>
+      <tr><th scope="row">O'Sullivan 8e<span>Ch.11</span></th>
+        <td class="na">—</td>
+        <td class="num">60–80% HRR<br>70–85% HRmax</td>
+        <td><b>唯一給上界的來源。</b>HIIT 協定：30 秒最大耐受速度 ＋ 30–60 秒休息，跑步機 20 分鐘加地面 20 分鐘，平均目標約 70% HRR</td></tr>
+      <tr><th scope="row">ACSM GETP 12e<span>Ch.8</span></th>
+        <td class="num">40–70% HRR<br>55–80% HRmax</td>
+        <td class="na">未另立</td>
+        <td>心肺健康導向，涵蓋所有期別，區間最寬</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout good">
+    <h4>β 阻斷劑要換公式</h4>
+    <p style="margin-bottom:0">AHA/ASA 特別點名：服用 β 阻斷劑者的最大心率要用校正過的公式，例如 <span class="num">164 − 0.7×年齡</span>，或 <span class="num">119 + 0.5×安靜心率 − 0.5×年齡</span>（跑步機減 0、固定式腳踏車再減 5）。一般長者可用 <span class="num">208 − 0.7×年齡</span>。用 220 減年齡會高估。</p>
+  </div>
+</section>
+
+<section>
+  <h2>共識二：量不夠沒用，但光有量也沒用</h2>
+  <p class="lede">三份來源分別從不同角度講同一件事——劑量與強度缺一不可。</p>
+  <ul class="plain">
+    <li><b>AHA/ASA</b>：高劑量行走訓練建議為 <span class="num">4–8</span> 週、每次 <span class="num">1–2</span> 小時、每週 <span class="num">5</span> 次、中到高心血管強度並增加踏步次數（Class 2a B-R）。回溯分析顯示<u>約需 30 次療程才會出現臨床上有意義的改善</u>。但原文同時寫明：「<u>在訓練強度不足的情況下，光有劑量不足以帶來功能進步</u>」。</li>
+    <li><b>O'Sullivan</b>：動物與人類動作學習研究顯示，每一節要做到 <span class="num">500–600</span> 次任務重複才看得到動作行為改變——並指出觀察研究發現實際臨床遠低於此。</li>
+    <li><b>ANPT CPG</b>：納入研究多為每週 <span class="num">3</span> 次、每次 <span class="num">30–50</span> 分鐘、共 <span class="num">12–36</span> 次療程。</li>
+  </ul>
+  <p>三者換算到門診居家的現實：一週 3 次、每次 30 分鐘、做滿三個月，大約就是 36 次——落在 CPG 的區間內，但遠低於 AHA/ASA 的高劑量建議。<u>居家單張能開到的是 CPG 那一檔，不是 AHA/ASA 的高劑量檔</u>，這件事要誠實。</p>
+</section>
+
+<section>
+  <h2>分歧一：輔具是介入，還是損傷</h2>
+  <p class="lede">這是六份來源裡最直接的立場衝突，也是你問的那個問題的核心。</p>
+
+  <div class="versus">
+    <div>
+      <h5>AHA/ASA 2026 ・ Class 1 B-NR</h5>
+      <span class="claim">有步態或平衡障礙者，<u>應</u>使用助行輔具以提升移動效率與安全</span>
+      <p>同節引述病人自述：他們覺得用輔具後走路、信心與安全都改善，而且<b>寧可用輔具走，也不要為了達成正常步態而延後開始走路</b>。AFO 或 FES 改善平衡與行動另有 Class 1 A。</p>
+    </div>
+    <div>
+      <h5>Umphred 8e ・ Ch.24</h5>
+      <span class="claim">「<u>依賴輔助器材</u>」被列為妨礙功能性行走的損傷之一</span>
+      <p>採 Ryerson &amp; Levit 的分類，把「不良代償模式」列為複合損傷的三類之一（另兩類為動作缺損、非典型動作）。立場是輔具依賴屬於要處理的問題，不是要提供的解方。</p>
+    </div>
+  </div>
+
+  <p style="margin-top:16px">兩者其實在講不同層次：AHA/ASA 講的是<b>活動與參與</b>（走得安全、走得出門），Umphred 講的是<b>身體功能</b>（動作品質）。不衝突，但優先序相反。Motor Control 提供了第三種處理方式——<u>把輔具寫進目標本身</u>，例如「使用四腳拐在家中獨立行走 50 英尺」「使用單拐與矯具在社區獨立行走 1,000 英尺」都是合法的長期目標。<b>輔具在這個框架裡不是失敗的標記。</b></p>
+
+  <div class="callout">
+    <h4>而且有客觀的分界：看步速</h4>
+    <p>AHA/ASA 引 Nascimento 等人的研究，拐杖的效果<u>取決於病人的基線步速</u>：</p>
+    <ul class="plain" style="margin-top:8px">
+      <li>慢走者 <span class="num">&lt;0.4 m/s</span>：拐杖改善步速與步長</li>
+      <li>中等走者 <span class="num">0.4–0.8 m/s</span>：<b>獲益最大</b></li>
+      <li>快走者 <span class="num">&gt;0.8 m/s</span>：<b>拐杖反而讓速度變慢</b></li>
+    </ul>
+    <p style="margin-bottom:0">這條直接可以用在單張分層上——<u>0.8 m/s 這個分界，正好就是我們下肢層級 3 與 4 的界線</u>。層級 4 的病人若還拿著拐杖，拐杖可能正在拖慢他；層級 2–3 的病人拿拐杖則是獲益最大的一群。</p>
+  </div>
+</section>
+
+<section>
+  <h2>分歧二：步態品質由誰負責</h2>
+  <p class="lede">同樣是中風走路，各來源對「要不要管姿勢」的處理差很多。</p>
+  <div class="scroller">
+  <table>
+    <thead><tr><th scope="col">來源</th><th scope="col">對步態品質的立場</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">ANPT CPG 2020</th>
+        <td><b>完全沒有立場。</b>全文搜尋 gait quality 零命中，也不談輔具。結果指標只有步行速度與時間距離。<u>不能拿這份來正當化「不管姿勢猛走」——它只是沒處理這件事。</u></td></tr>
+      <tr><th scope="row">Motor Control 6e</th>
+        <td>三大介入目標之一就是<b>「修正步態模式，以有效率地滿足前進與穩定的需求」</b>。把膝過伸明列為代償（compensatory passive locking of the knee），並列出五種成因：蹠屈肌或股四頭肌痙攣、踝背屈活動度不足、膝伸肌無力、伸肌共同運動模式、選擇性控制不良。</td></tr>
+      <tr><th scope="row">ACSM CDD4</th>
+        <td>六步驟第 4 步就叫 <b>Focus on Form</b>：姿勢與軀幹對稱能改善全身平衡與動作學習，並<u>減少不必要的代償動作</u>；並指出放慢速度可減少速度依賴的病理反射（陣攣、主動肌—拮抗肌痙攣）。</td></tr>
+      <tr><th scope="row">AHA/ASA 2026</th>
+        <td>把 gait spatiotemporal kinematics（步長、步頻、對稱性）列為有效的結果指標，並描述當代做法是<b>神經可塑性療法與代償技巧並用</b>——不站在任何一邊。</td></tr>
+      <tr><th scope="row">Umphred 8e</th>
+        <td>把「不良代償模式」列為需要處理的複合損傷。立場最偏向品質。</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout hard">
+    <h4>對單張的意義：不能叫病人自己矯正</h4>
+    <p style="margin-bottom:0">膝過伸一項就有五種成因，處理方式完全不同。在衛教單張上寫「記得膝蓋不要頂死」，結果多半是病人換一個代償。<u>單張能做的是教病人與家屬「看得出來」，並明說發現了就回來調整</u>——不是自己矯正。</p>
+  </div>
+</section>
+
+<section>
+  <h2>分歧三：跑步機與機器人</h2>
+  <p class="lede">看起來三份來源互相矛盾，但把強度這個變項抽出來之後就一致了。</p>
+  <ul class="plain">
+    <li><b>AHA/ASA</b>：對能行走者，<u>輕到中強度</u>跑步機訓練（含減重）<b>不建議</b>優於任務特定的地面行走訓練（Class 3 No Benefit, LOE A）；機器人輔助步態訓練同樣<b>不建議</b>優於地面訓練（Class 3 No Benefit, LOE A）。但<u>高強度</u>踏步與間歇訓練是 Class 2a。</li>
+    <li><b>ANPT CPG</b>：不建議治療師徒手協助的減重跑步機訓練，也不建議外骨骼機器人。理由寫得很清楚——<u>這些方式提供大量物理引導，反而讓心肺需求受限</u>，強度上不去。</li>
+    <li><b>O'Sullivan</b>：仍教跑步機，但定位是「可控的中到最大強度運動刺激」，並強調徒手協助要<b>最小化</b>。</li>
+  </ul>
+  <p>所以三者其實是同一句話：<u>被否定的不是跑步機，是低強度與過多協助</u>。設備本身中性，強度才是有效成分。這也解釋了為什麼 AHA/ASA 把地面行走訓練放在 Class 1——它便宜、可行，而且強度推得上去。</p>
+  <p><b>另外一條值得注意</b>：AHA/ASA 明確不建議以 Bobath 等神經發展治療法改善行走與行動（Class 3 No Benefit, LOE B-R）。</p>
+</section>
+
+<section>
+  <h2>AHA/ASA 2026 完整建議一覽</h2>
+  <p class="lede">5.5 節「Gait and Mobility」的 18 條，依建議強度排序。</p>
+  <div class="scroller">
+  <table>
+    <thead><tr><th scope="col">建議</th><th scope="col">分級</th><th scope="col">內容</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">1</th><td><span class="cor cor1">1 A</span></td><td>實證、目標導向的多專業物理復健計畫</td></tr>
+      <tr><th scope="row">2</th><td><span class="cor cor1">1 A</span></td><td>任務特定訓練，聚焦地面行走、踏步與平衡</td></tr>
+      <tr><th scope="row">3</th><td><span class="cor cor2a">2a B-R</span></td><td>亞急性或慢性：中至高強度踏步／高強度間歇，改善耐力、速度、平衡</td></tr>
+      <tr><th scope="row">4</th><td><span class="cor cor2a">2a A</span></td><td>阻力訓練，<b>患側與健側都要</b>——單練健側無效</td></tr>
+      <tr><th scope="row">5</th><td><span class="cor cor2a">2a B-R</span></td><td>節律聽覺刺激或提示（節拍器、音樂）</td></tr>
+      <tr><th scope="row">6</th><td><span class="cor cor2a">2a B-R</span></td><td>下肢侷限誘發動作治療（CIMT）</td></tr>
+      <tr><th scope="row">7</th><td><span class="cor cor2a">2a B-R</span></td><td>動作想像或鏡像治療，搭配雙側動作</td></tr>
+      <tr><th scope="row">8</th><td><span class="cor cor2a">2a B-R</span></td><td>互動式步態訓練（體感遊戲或 VR）</td></tr>
+      <tr><th scope="row">9</th><td><span class="cor cor2a">2a B-R</span></td><td>高劑量治療 4–8 週：每次 1–2 小時、每週 5 次、中到高強度、增加踏步次數</td></tr>
+      <tr><th scope="row">10</th><td><span class="cor cor2b">2b A</span></td><td>患側下肢 FES 合併運動計畫，作為恢復性治療</td></tr>
+      <tr><th scope="row">11</th><td><span class="cor cor2b">2b B-R</span></td><td>慢性期水中運動</td></tr>
+      <tr><th scope="row">12</th><td><span class="cor cor2b">2b B-R</span></td><td>針灸合併復健</td></tr>
+      <tr><th scope="row">13</th><td><span class="cor cor2b">2b B-R</span></td><td>患側下肢感覺閾下 TENS</td></tr>
+      <tr><th scope="row">14</th><td><span class="cor cor2b">2b B-R</span></td><td>視覺生物回饋步態訓練</td></tr>
+      <tr><th scope="row">15</th><td><span class="cor cor2b">2b B-R</span></td><td>痙攣的藥物治療以改善步速</td></tr>
+      <tr><th scope="row">16</th><td><span class="cor cor3">3 無益 A</span></td><td><b>機器人輔助步態訓練</b>不建議優於任務特定地面訓練</td></tr>
+      <tr><th scope="row">17</th><td><span class="cor cor3">3 無益 A</span></td><td><b>輕到中強度跑步機</b>（含減重）不建議優於任務特定地面訓練</td></tr>
+      <tr><th scope="row">18</th><td><span class="cor cor3">3 無益 B-R</span></td><td><b>神經發展治療（Bobath）</b>不建議用於改善行走與行動</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="margin-top:14px">輔具另在 5.7 節：助行輔具 <span class="cor cor1">1 B-NR</span>、輪椅 <span class="cor cor1">1 C-LD</span>、AFO 或 FES <span class="cor cor1">1 A</span>。</p>
+</section>
+
+<section>
+  <h2>對七張單張的四個影響</h2>
+  <div class="impact">
+    <div><h5>輔具當第五輸入</h5><p>依 Nascimento 的分層，輔具的價值隨步速改變。層級 2–3（0.4–0.8 m/s）獲益最大，層級 4（&gt;0.8 m/s）可能被拐杖拖慢。輔具不改變層級，但要改變動作措辭、禁止清單，以及強度的可行性——<b>用四腳拐幾乎走不到會喘</b>，層級 4 配四腳拐時「走到會喘」要換模式。</p></div>
+    <div><h5>加步態檢查區塊</h5><p>教病人與家屬看四件事：膝往後頂死、患側腳往外畫半圓、骨盆往上提把腳拎過去、身體往健側倒。並明寫<b>發現了是回來調整，不是自己矯正</b>。</p></div>
+    <div><h5>下肢 3 的強度要降</h5><p>目前寫「還能講話但不能唱歌」對應中強度，正確。但要補上 AHA/ASA 的觀察：<u>做不到高強度時，中強度在亞急性期住院復健也能改善行走耐力</u>——這給層級 3 的病人一個正當的中間檔。</p></div>
+    <div><h5>下肢 4 的斑馬線目標要改</h5><p>Motor Control 引 Perry 的資料：中風後社區行走能力最高組的平均速度就是 <span class="num">0.8 m/s</span>，而該書同時寫明那個速度<u>不足以安全過馬路</u>。目前單張寫「綠燈內走完斑馬線」會給錯誤的安全感，應改為訓練目標並加上「寧可等下一個綠燈」。</p></div>
+  </div>
+</section>
+
+<footer>
+  <p>本頁為依上述來源改寫的整理，非原文轉載。AHA/ASA 的 COR／LOE 分級與各來源的數值，寫入單張或引用前請回查原文該節。</p>
+  <p>工作檔位置：<code>tools/stroke-sheet/步態訓練來源對照.html</code>（不部署）。</p>
+</footer>
+
+</div>

@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>中風居家單張產生器</title>
+<meta name="description" content="門診與病房用的中風居家運動衛教單張產生器：依下肢與上肢功能分層、患側、場景與輔具產生單張，當場列印給病人帶回家。">
+<meta name="author" content="吳俊諺">
+<meta name="theme-color" content="#1d5c54">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<!-- 分享縮圖。上線網址若改，這四行的絕對網址要一起改：canonical、og:url、og:image、twitter:image -->
+<link rel="canonical" href="https://chunyenwu.net/stroke-sheet/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="吳俊諺 chunyenwu.net">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:title" content="中風居家單張產生器">
+<meta property="og:description" content="依下肢與上肢功能分層產生中風居家運動單張，當場列印給病人帶回家。">
+<meta property="og:url" content="https://chunyenwu.net/stroke-sheet/">
+<meta property="og:image" content="https://chunyenwu.net/stroke-sheet/og.png">
+<meta property="og:image:secure_url" content="https://chunyenwu.net/stroke-sheet/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="中風居家單張產生器：左側標題與七個功能層級標籤，右側是一張印好的單張，上面有每天要練的三件事與紅框的「這些事請不要做」">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="中風居家單張產生器">
+<meta name="twitter:description" content="依下肢與上肢功能分層產生中風居家運動單張，當場列印給病人帶回家。">
+<meta name="twitter:image" content="https://chunyenwu.net/stroke-sheet/og.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700&display=swap">
+<style>
+  :root{
+    --paper:#faf9f6; --ground:#e8e9e4; --ink:#1f2421; --muted:#6a7370;
+    --rule:#d6d8d1; --rule-soft:#e5e7e0;
+    --go:#1d5c54; --go-soft:#e5efec;
+    --no:#a62b2b; --no-soft:#f8eae8;
+    --sans:"PingFang TC","Noto Sans TC","Heiti TC",system-ui,-apple-system,sans-serif;
+    --serif:"Noto Serif TC","Songti TC",serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --paper:#1c1f1c; --ground:#121412; --ink:#e6e9e3; --muted:#97a09b;
+      --rule:#343832; --rule-soft:#2a2e29;
+      --go:#63b5aa; --go-soft:#172f2c;
+      --no:#e0736b; --no-soft:#301d1b;
+    }
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--ground);color:var(--ink);font-family:var(--sans)}
+
+  /* ---------- 控制列（置頂，不列印） ---------- */
+  .bar{position:sticky;top:0;z-index:20;background:var(--paper);
+       border-bottom:1px solid var(--rule);font-size:14px;line-height:1.7}
+  .bar-in{max-width:1180px;margin:0 auto;padding:11px 20px 12px}
+  .bar-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:9px}
+  .bar h1{font-family:var(--serif);font-size:18px;font-weight:700;margin:0}
+  .bar .lede{margin:0;color:var(--muted);font-size:12.5px;flex:1;min-width:180px}
+  .bar-top .right{display:flex;align-items:center;gap:9px;margin-left:auto}
+
+  .ctrls{display:flex;flex-wrap:wrap;gap:9px 22px;align-items:center}
+  .grp{display:flex;align-items:center;gap:8px}
+  .grp > label{font-size:11.5px;font-weight:600;color:var(--muted);
+               letter-spacing:.06em;white-space:nowrap}
+  .seg{display:flex;flex-wrap:wrap;gap:4px}
+  .seg button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--rule);
+              background:var(--paper);color:var(--ink);cursor:pointer;border-radius:2px;white-space:nowrap}
+  .seg button[aria-pressed="true"]{background:var(--go);color:var(--paper);border-color:var(--go);font-weight:600}
+  .seg button:focus-visible{outline:2px solid var(--go);outline-offset:2px}
+
+  input[type=text]{font:inherit;font-size:13.5px;width:150px;padding:5px 9px;
+                   border:1px solid var(--rule);background:var(--paper);color:var(--ink);border-radius:2px}
+  input[type=text]:focus-visible{outline:2px solid var(--go);outline-offset:-1px}
+
+  .opts{display:flex;flex-wrap:wrap;align-items:center;gap:4px 14px;
+        border-top:1px solid var(--rule-soft);margin-top:9px;padding-top:8px}
+  .opts:empty{display:none}
+  .opts h3{margin:0;font-size:11.5px;font-weight:600;color:var(--muted);letter-spacing:.06em}
+  .opts .grpname{font-size:11.5px;color:var(--muted);margin:0}
+  .opts label{display:flex;gap:6px;align-items:center;font-size:13px;cursor:pointer}
+  .opts input{accent-color:var(--go)}
+  .opts .none{color:var(--muted);font-size:12.5px;margin:0}
+
+  .go{font:inherit;font-size:14px;font-weight:600;padding:6px 20px;
+      border:0;background:var(--go);color:var(--paper);cursor:pointer;border-radius:2px}
+  .go:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+  .hint{margin:0;font-size:11.5px;color:var(--muted)}
+  .warn{flex-basis:100%;border:1px solid var(--no);background:var(--no-soft);
+        padding:7px 11px;font-size:12.5px;line-height:1.6;color:var(--ink);margin-top:4px}
+  .warn b{color:var(--no)}
+  .pages{margin:8px 0 0;padding-top:8px;border-top:1px solid var(--rule-soft);
+         font-size:12.5px;line-height:1.6;color:var(--muted)}
+  .pages:empty{display:none}
+  .pages b{color:var(--ink)}
+  .pages .note{display:block;font-size:12px}
+  .pages b.hot,.pages .note b{color:var(--no)}
+
+  /* ---------- 單張 ---------- */
+  .main{max-width:1180px;margin:0 auto;padding:22px 20px 70px}
+  .sheets{display:grid;gap:22px;justify-items:start}
+  .sheet{background:var(--paper);border:1px solid var(--rule);
+         padding:34px 40px 40px;line-height:1.95;font-size:16.5px;max-width:820px}
+  /* 雙欄：動作與安全內容各自分欄，區塊之間仍上下排開、不互相穿插 */
+  .sheet.cols2 ol.three{columns:2;column-gap:26px}
+  .sheet.cols2 ol.three > li{break-inside:avoid;-webkit-column-break-inside:avoid}
+  .sheet.cols2 ol.three > li:last-child{border-bottom:1px solid var(--rule-soft);
+                                        margin-bottom:18px;padding-bottom:18px}
+  .sheet.cols2 .check .body > ul,
+  .sheet.cols2 .danger .body > ul,
+  .sheet.cols2 .danger .split ul{columns:2;column-gap:20px}
+  .sheet.cols2 .check li,.sheet.cols2 .danger li{break-inside:avoid;-webkit-column-break-inside:avoid}
+  .empty{color:var(--muted);padding:40px;border:1px dashed var(--rule);text-align:center}
+
+  /* 分頁預估用的離畫面容器。裡面套的是從 @media print 推導出來的同一份規則，
+     不是另外寫一份，所以列印樣式改了這裡會跟著改。 */
+  #measure{position:absolute;left:-10000px;top:0;visibility:hidden;background:#fff;color:#000}
+
+  /* 補白頁：只在列印時出現，讓第二張單張從新的一張紙正面開始 */
+  .filler{display:none}
+
+  .hd{border-bottom:2px solid var(--ink);padding-bottom:16px}
+  .hd .who{font-size:13px;color:var(--go);font-weight:600;letter-spacing:.06em;margin:0 0 6px}
+  .hd h2{font-family:var(--serif);font-weight:700;font-size:27px;line-height:1.35;margin:0 0 4px}
+  .hd .sub{margin:0;color:var(--muted);font-size:14px}
+  .fields{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:16px;font-size:14px}
+  .fields span{display:flex;align-items:baseline;gap:8px;color:var(--muted)}
+  .fields i{font-style:normal;border-bottom:1px solid var(--rule);min-width:96px;
+            display:inline-block;height:1.5em}
+  .fields i.filled{border-bottom:0;color:var(--ink);font-weight:600;min-width:0}
+  .fields .side{color:var(--ink);font-weight:600;border-bottom:0}
+
+  .gate{margin-top:16px;border:1px solid var(--no);background:var(--no-soft);
+        padding:11px 15px;font-size:14px;line-height:1.7}
+  .gate b{color:var(--no)}
+
+  .blk{margin-top:26px}
+  .blk > h3{font-family:var(--serif);font-size:19px;font-weight:600;margin:0 0 4px;
+            display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .blk > h3 small{font-family:var(--sans);font-size:13px;font-weight:400;color:var(--muted)}
+  .blk > h3 .opt{font-family:var(--sans);font-size:11.5px;font-weight:600;color:var(--go);
+                 border:1px solid var(--go);padding:1px 7px;border-radius:2px;letter-spacing:.04em}
+
+  .why{background:var(--go-soft);border-left:4px solid var(--go);padding:14px 18px;margin-top:22px}
+  .why p{margin:0 0 8px}
+  .why p:last-child{margin:0}
+  .why b{color:var(--go)}
+  .why p+p{font-size:15px}
+
+  .goals{border:1px solid var(--go);border-left-width:4px;margin-top:14px;padding:11px 15px;
+         font-size:15px;line-height:1.75}
+  .goals p{margin:0}
+  .goals b{color:var(--go)}
+  .goals .cap{display:block;margin-top:4px;font-size:13px;color:var(--muted)}
+
+  ol.three{list-style:none;counter-reset:t;padding:0;margin:12px 0 0}
+  ol.three > li{counter-increment:t;position:relative;padding:0 0 18px 44px;
+                margin-bottom:18px;border-bottom:1px solid var(--rule-soft)}
+  ol.three > li:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+  ol.three > li::before{content:counter(t);position:absolute;left:0;top:2px;
+      width:29px;height:29px;border-radius:50%;background:var(--go);color:var(--paper);
+      font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center;
+      font-family:var(--serif)}
+  ol.three h4{font-size:18px;font-weight:600;margin:0 0 2px;font-family:var(--serif)}
+  ol.three .how{margin:0 0 8px}
+  .how em,.tip em{font-style:normal;color:var(--no);font-weight:600}
+  .dose{display:inline-block;background:var(--go-soft);color:var(--go);font-weight:600;
+        font-size:14.5px;padding:3px 12px;border-radius:2px}
+  .fill{display:inline-block;border-bottom:1px solid var(--ink);min-width:58px;height:1.15em;
+        vertical-align:baseline}
+  .tip{margin:8px 0 0;font-size:14.5px;color:var(--muted)}
+  .tip b{color:var(--ink)}
+  .pos{margin:8px 0 0;padding-left:0;list-style:none;font-size:15px}
+  .pos li{margin-bottom:5px;padding-left:14px;position:relative}
+  .pos li::before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;
+                  background:var(--go);border-radius:50%}
+
+  .extra{display:grid;grid-template-columns:repeat(auto-fit,minmax(206px,1fr));gap:16px;margin-top:12px}
+  .extra > div{border:1px solid var(--rule);padding:14px 16px}
+  .extra h4{font-size:16.5px;font-weight:600;margin:0 0 4px;font-family:var(--serif)}
+  .extra p{margin:0 0 8px;font-size:15px}
+  @media (max-width:620px){ .extra{grid-template-columns:1fr} }
+
+  .check,.danger{margin-top:26px;font-size:14.5px;line-height:1.7}
+  .check{border:1px solid var(--go)}
+  .danger{border:1px solid var(--no)}
+  .check > h3,.danger > h3{font-family:var(--serif);font-size:15.5px;font-weight:600;margin:0;
+                           padding:7px 15px}
+  .check > h3{color:var(--go);border-bottom:1px solid var(--go)}
+  .danger > h3{color:var(--no);border-bottom:1px solid var(--no)}
+  .check .body,.danger .body{padding:12px 15px}
+  .check ul,.danger ul{margin:0;padding-left:18px}
+  .check li,.danger li{margin-bottom:5px}
+  .check li:last-child,.danger li:last-child{margin-bottom:0}
+  .danger li b{color:var(--no)}
+  .check li b{color:var(--ink)}
+  .check .after{margin:10px -15px -12px;padding:11px 15px;border-top:1px solid var(--go);
+                background:var(--go-soft);font-size:14px}
+  .check .after b{color:var(--go)}
+  .danger .split{background:var(--no-soft);margin:11px -15px -12px;padding:11px 15px;
+                 border-top:1px solid var(--no)}
+  .danger .split h4{margin:0 0 5px;font-size:14.5px;font-weight:600;font-family:var(--serif);color:var(--no)}
+  .danger .split p{margin:8px 0 0}
+
+  .care{margin-top:26px;border-top:1px solid var(--rule);padding-top:16px}
+  .care h3{font-family:var(--serif);font-size:17px;font-weight:600;margin:0 0 6px}
+  .care p{margin:0;font-size:15px}
+  .prevent{margin-top:16px;font-size:15px;color:var(--muted)}
+  .prevent b{color:var(--ink)}
+  .memo{margin-top:26px;border-top:2px solid var(--ink);padding-top:16px}
+  .memo h3{font-family:var(--serif);font-size:16px;font-weight:600;margin:0 0 10px}
+  .memo .lines{border-bottom:1px solid var(--rule);height:2.4em}
+  .foot{margin-top:22px;font-size:12.5px;color:var(--muted);line-height:1.7}
+  .foot p{margin:0}
+
+  /* ---------- 列印 ---------- */
+  @media print{
+    @page{size:A4;margin:12mm}
+    body{background:#fff;color:#000;font-size:10.2pt}
+    .bar,.empty,#measure{display:none!important}
+    .main{max-width:none;margin:0;padding:0}
+    .sheets{display:block}
+    .sheet{max-width:none;margin:0;padding:0;border:0;background:#fff;
+           font-size:10.2pt;line-height:1.6}
+    .sheet.brk{break-before:page}
+    .filler{display:block;break-before:page}
+    .filler p{margin:0;font-size:8.5pt;color:#666}
+    .sheet.big{font-size:11pt;line-height:1.65}
+    .hd h2{font-size:17pt} .blk > h3{font-size:12pt} ol.three h4{font-size:11pt}
+    .gate{background:#fff;border:1.2pt solid #000;padding:6pt 8pt}
+    .goals{background:#fff;border:1pt solid #000;border-left-width:2.5pt;padding:6pt 8pt}
+    .check > h3,.danger > h3{color:#000;border-bottom:1pt solid #000;padding:4pt 8pt;font-size:11pt}
+    .check,.danger{border:1.2pt solid #000;font-size:8.8pt}
+    .sheet.big .check,.sheet.big .danger{font-size:9.6pt}
+    .why{font-size:9.4pt}
+    .sheet.big .why{font-size:10.2pt}
+    .tip{font-size:9.2pt}
+    .sheet.big .tip{font-size:9.9pt}
+    .check .body,.danger .body{padding:7pt 8pt}
+    .check .after,.danger .split{background:#fff;border-top:1pt solid #000;
+                                 margin:8pt -8pt -7pt;padding:7pt 8pt}
+    .why{background:#fff;border-left:2.5pt solid #000;padding:6pt 0 6pt 10pt}
+    .dose{background:#fff;border:0.8pt solid #000;color:#000;padding:1pt 6pt}
+    ol.three > li::before{background:#000;color:#fff}
+    .pos li::before{background:#000}
+    .extra > div{border:1pt solid #000}
+    .blk,.check,.danger,.care,.memo,.gate,.goals,.why,.prevent,.foot{break-inside:avoid}
+    .danger li,.check li{break-inside:avoid;-webkit-column-break-inside:avoid}
+    .sheet.cols2 ol.three{columns:2;column-gap:16pt}
+    .sheet.cols2 ol.three > li{break-inside:avoid;-webkit-column-break-inside:avoid}
+    .sheet.cols2 ol.three > li:last-child{border-bottom:1px solid #ccc;
+                                          margin-bottom:10pt;padding-bottom:10pt}
+    .sheet.cols2 .check .body > ul,
+    .sheet.cols2 .danger .body > ul,
+    .sheet.cols2 .danger .split ul{columns:2;column-gap:14pt;margin-top:0}
+    /* 列印間距：螢幕留白在紙上太鬆 */
+    .hd{padding-bottom:9pt;break-after:avoid}
+    .fields{margin-top:8pt;gap:5pt 18pt}
+    .why{margin-top:11pt} .why p{margin-bottom:4pt}
+    .blk{margin-top:13pt} .blk > h3{margin-bottom:2pt}
+    ol.three{margin-top:7pt}
+    ol.three > li{margin-bottom:10pt;padding-bottom:10pt;padding-left:30pt}
+    ol.three > li::before{width:20pt;height:20pt;font-size:10pt}
+    ol.three .how{margin-bottom:4pt}
+    .tip{margin-top:4pt} .pos{margin-top:4pt} .pos li{margin-bottom:2pt}
+    .extra{gap:9pt;margin-top:7pt} .extra > div{padding:7pt 9pt} .extra p{margin-bottom:4pt}
+    .check,.danger{margin-top:13pt} .check li,.danger li{margin-bottom:3pt}
+    .care{margin-top:13pt;padding-top:9pt}
+    .prevent{margin-top:9pt}
+    .memo{margin-top:13pt;padding-top:9pt} .memo h3{margin-bottom:6pt} .memo .lines{height:2em}
+    .foot{margin-top:11pt}
+  }
+</style>
+</head>
+<body>
+
+<form class="bar" id="panel" onsubmit="return false">
+  <div class="bar-in">
+    <div class="bar-top">
+      <h1>中風居家單張</h1>
+      <p class="lede">選層級就能印。下肢與上肢各一張紙、雙面；列印設定記得勾「雙面列印」並關掉頁首頁尾。</p>
+      <div class="right">
+        <input type="text" id="doctor" placeholder="開立者（會記住）" autocomplete="off">
+        <button class="go" id="print">列印</button>
+      </div>
+    </div>
+
+    <div class="ctrls">
+      <div class="grp"><label>下肢</label><div class="seg" id="segLE"></div></div>
+      <div class="grp"><label>上肢</label><div class="seg" id="segUE"></div></div>
+      <div class="grp"><label>患側</label><div class="seg" id="segSide"></div></div>
+      <div class="grp"><label>場景</label><div class="seg" id="segSetting"></div></div>
+      <div class="grp" id="grpDevice"><label>輔具</label><div class="seg" id="segDevice"></div></div>
+      <div class="grp"><label>版面</label><div class="seg" id="segCols"></div></div>
+      <div class="grp"><label>安全內容</label><div class="seg" id="segSafety"></div></div>
+    </div>
+
+    <div class="opts" id="opts"></div>
+    <div id="warnBox"></div>
+    <p class="pages" id="pages"></p>
+  </div>
+</form>
+
+<main class="main">
+  <div class="sheets" id="out"></div>
+</main>
+<div id="measure" aria-hidden="true"></div>
+
+<script src="sheets.js"></script>
+<script>
+(function(){
+  const D = window.STROKEDATA, SH = D.SHEETS;
+
+  const S = {
+    le:'1', ue:'A', side:'左', setting:'clinic', device:'cane',
+    cols:'1', safety:'full', doctor:'', extraOn:{}
+  };
+  try{ S.doctor = localStorage.getItem('strokeSheetDoctor') || ''; }catch(e){}
+
+  const LE = [['1','1 還站不起來','還沒辦法自己站起來'],
+              ['2','2 能扶著站','能扶著站、能轉位到輪椅'],
+              ['3','3 室內能走','室內能走，出門要人陪'],
+              ['4','4 能出門','能自己出門，但走不遠或不敢'],
+              ['','不印','不印下肢']];
+  const UE = [['A','A 不能動','手完全不能動'],
+              ['B','B 肩肘能動','肩肘能動、手指不行'],
+              ['C','C 抓得住','能抓握但笨拙'],
+              ['','不印','不印上肢']];
+  const DEV = [['walker','四腳拐／助行器'],['cane','單拐'],['none','不用輔具']];
+
+  const other = ()=> S.side==='左' ? '右' : '左';
+
+  function tpl(s){
+    if(s==null) return '';
+    return String(s)
+      .replace(/\{clinic:([\s\S]*?)\|inpatient:([\s\S]*?)\}/g,(m,a,b)=> S.setting==='clinic'?a:b)
+      .replace(/%\{([^}]+)\}/g,(m,k)=>{ const p=D.PH[k]; return p ? (p[S.setting]||'') : ''; })
+      .replace(/\{患\}/g,S.side).replace(/\{健\}/g,other());
+  }
+  function esc(t){ return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+
+  /* 條目可以是字串，或 {dev,t}；輔具不符就不印 */
+  function li(it){
+    if(it==null) return '';
+    if(typeof it==='object'){
+      if(it.dev && it.dev!==S.device) return '';
+      return '<li>'+tpl(it.t)+'</li>';
+    }
+    return '<li>'+tpl(it)+'</li>';
+  }
+
+  function sheetId(region){ return region==='le' ? ('le'+S.le) : ('ue'+S.ue); }
+
+  function extraState(id, n){
+    if(!S.extraOn[id] || S.extraOn[id].length!==n){
+      S.extraOn[id] = new Array(n).fill(true);
+    }
+    return S.extraOn[id];
+  }
+
+  /* 安全規則：下肢 1–3 的病人，上肢 C 的限制練習只能坐著做 */
+  const seatedRule = ()=> S.ue==='C' && S.le!=='' && Number(S.le)<=3;
+
+  function render(sh, id, isSecond){
+    if(!sh) return '';
+    let h = '<section class="sheet'+(sh.big?' big':'')+(S.cols==='2'?' cols2':'')
+          + (isSecond?' brk':'')+'">';
+
+    h += '<header class="hd">'
+       + '<h2>'+tpl(sh.title)+'</h2>'
+       + '<p class="meta"><span class="who">'+tpl(sh.who)+'</span> ・ '+tpl(sh.sub)+'</p>'
+       + '<div class="fields"><span>姓名 <i></i></span>'
+       + '<span class="side">受影響的是：'+S.side+'邊</span>'
+       + '<span>開始日期 <i></i></span>'
+       + '<span>醫師／治療師 '+(S.doctor ? '<i class="filled">'+esc(S.doctor)+'</i>' : '<i></i>')+'</span>'
+       + '</div>';
+    if(sh.gate){
+      let g = tpl(sh.gate);
+      if(id==='ueC') g += ' ' + tpl(seatedRule() ? sh.gateSeated : sh.gateFree);
+      h += '<p class="gate">'+g+'</p>';
+    }
+    h += '</header><div class="flow">';
+
+    h += '<div class="why">'+sh.why.map(p=>'<p>'+tpl(p)+'</p>').join('')+'</div>';
+
+    if(sh.goals){
+      h += '<div class="goals"><p>'+tpl(sh.goals)
+         + (sh.goalsCap ? '<span class="cap">'+tpl(sh.goalsCap)+'</span>' : '')+'</p></div>';
+    }
+
+    /* 主動作：固定三項 */
+    h += '<div class="blk"><h3>'+tpl(sh.coreH)
+       + (sh.coreSub?' <small>'+tpl(sh.coreSub)+'</small>':'')+'</h3><ol class="three">';
+    sh.core.forEach(function(c){
+      h += '<li><h4>'+tpl(c.n)+'</h4><p class="how">'+tpl(c.how)+'</p>';
+      if(c.pos) h += '<ul class="pos">'+c.pos.map(p=>'<li>'+tpl(p)+'</li>').join('')+'</ul>';
+      h += '<span class="dose">'+tpl(c.dose)+'</span>';
+      if(c.tipDev && c.tipDev[S.device]) h += '<p class="tip">'+tpl(c.tipDev[S.device])+'</p>';
+      if(c.tip) h += '<p class="tip">'+tpl(c.tip)+'</p>';
+      h += '</li>';
+    });
+    h += '</ol></div>';
+
+    /* 加分動作：可勾選 */
+    if(sh.extra && sh.extra.length){
+      const on = extraState(id, sh.extra.length);
+      const picked = sh.extra.filter((e,i)=>on[i]);
+      if(picked.length){
+        h += '<div class="blk"><h3>'+tpl(sh.extraH||'有餘力再做')
+           + ' <span class="opt">可勾選</span>'
+           + (sh.extraSub?'<small>'+tpl(sh.extraSub)+'</small>':'')+'</h3><div class="extra">';
+        picked.forEach(function(e){
+          h += '<div><h4>'+tpl(e.n)+'</h4><p>'+tpl(e.t)+'</p>'
+             + '<span class="dose">'+tpl(e.dose)+'</span></div>';
+        });
+        h += '</div></div>';
+      }
+    }
+
+    if(sh.check && S.safety==='full'){
+      h += '<section class="check"><h3>'+tpl(sh.check.h)+'</h3><div class="body"><ul>'
+         + sh.check.items.map(li).join('')+'</ul>'
+         + '<p class="after">'+tpl(sh.check.after)+'</p></div></section>';
+    }
+
+    if(sh.danger && S.safety!=='off'){
+      h += '<section class="danger">';
+      if(S.safety==='full'){
+        h += '<h3>這些事請不要做</h3><div class="body"><ul>'
+           + sh.danger.items.map(li).join('')+'</ul>'
+           + '<div class="split"><h4>出現這些，當下就停</h4><ul>'
+           + sh.danger.stop.map(li).join('')+'</ul>'
+           + (sh.danger.note?'<p>'+tpl(sh.danger.note)+'</p>':'')
+           + '</div></div>';
+      } else {
+        h += '<h3>出現這些，當下就停</h3><div class="body"><ul>'
+           + sh.danger.stop.map(li).join('')+'</ul></div>';
+      }
+      h += '</section>';
+    }
+
+    if(sh.care){
+      h += '<div class="care">'+(sh.care.h?'<h3>'+tpl(sh.care.h)+'</h3>':'')
+         + '<p>'+tpl(sh.care.t)+'</p></div>';
+    }
+
+    if(sh.prevent && !isSecond) h += '<p class="prevent"><b>另外一件同樣重要的事：</b>'+tpl(sh.prevent)+'</p>';
+
+    h += '<div class="memo"><h3>補充</h3><div class="lines"></div><div class="lines"></div></div>';
+    h += '<div class="foot"><p>'+tpl(sh.foot)+'</p></div>';
+    return h + '</div></section>';
+  }
+
+  function segment(el, list, get, set){
+    el.innerHTML = list.map(function(o){
+      const v=o[0], t=o[1];
+      const tip = o[2] ? ' title="'+o[2]+'"' : '';
+      return '<button type="button" data-v="'+v+'"'+tip+' aria-pressed="'+(get()===v)+'">'+t+'</button>';
+    }).join('');
+    el.querySelectorAll('button').forEach(function(b){
+      b.onclick = function(){ set(b.dataset.v); draw(); };
+    });
+  }
+
+  function drawOpts(){
+    const box = document.getElementById('opts');
+    let h = '<h3>加分動作</h3>';
+    let any = false;
+    [['le',S.le,'下肢'],['ue',S.ue,'上肢']].forEach(function(p){
+      const region=p[0], lvl=p[1], name=p[2];
+      if(!lvl) return;
+      const id = region+lvl, sh = SH[id];
+      if(!sh || !sh.extra || !sh.extra.length) return;
+      any = true;
+      const on = extraState(id, sh.extra.length);
+      h += '<span class="grpname">'+name+' '+lvl+'</span>';
+      sh.extra.forEach(function(e,i){
+        h += '<label><input type="checkbox" data-id="'+id+'" data-i="'+i+'"'
+           + (on[i]?' checked':'')+'><span>'+tpl(e.n)+'</span></label>';
+      });
+    });
+    if(!any) h += '<span class="none">目前選的層級沒有加分動作。</span>';
+    box.innerHTML = h;
+    box.querySelectorAll('input').forEach(function(c){
+      c.onchange = function(){
+        S.extraOn[c.dataset.id][+c.dataset.i] = c.checked;
+        draw();
+      };
+    });
+  }
+
+  function drawWarn(){
+    const w = document.getElementById('warnBox');
+    const ws = [];
+    if(!S.le && !S.ue){
+      ws.push('<b>兩面都沒有選。</b>至少要選一個層級才印得出東西。');
+    }
+    if(S.safety!=='full'){
+      ws.push('<b>安全內容已經' + (S.safety==='brief'?'精簡':'關閉')+'。</b>'
+        + (S.safety==='brief'
+           ? '自我檢查與「請不要做」清單不會印出來，只保留停止訊號。'
+           : '包含緊急送醫訊號在內，所有安全內容都不會印出來。')
+        + '印給病人前請確認這是你要的。');
+    }
+    if(seatedRule()){
+      ws.push('<b>已自動加上安全限制。</b>這位病人走路還需要協助或輔具，上肢 C 的「把'
+        + other() + '手收起來」已改成只能坐著做。');
+    }
+    w.innerHTML = ws.map(function(t){ return '<div class="warn">'+t+'</div>'; }).join('');
+  }
+
+  /* ---------- 分頁預估 ----------
+     把單張放進一個離畫面的容器，套上「由 @media print 規則推導出來」的同一份樣式，
+     再依頂層區塊貪婪裝箱——列印樣式裡每個頂層區塊都是 break-inside:avoid 的原子單位，
+     所以裝箱結果就等於瀏覽器的實際分頁。紙張尺寸直接從 @page 讀回來，不另外寫死。 */
+  const measure = document.getElementById('measure');
+
+  function paperBox(){
+    let w = 210, hgt = 297, m = 12;                 /* 讀不到就用 A4 / 12mm */
+    function scan(rules){
+      for(const r of rules){
+        if(r.type === 4){ if(/print/.test(r.conditionText||'')) scan(r.cssRules); continue; }
+        if(r.type === 6 && r.style){                /* @page */
+          const mm = parseFloat(r.style.marginTop||r.style.margin||'');
+          if(!isNaN(mm) && /mm/.test(r.style.marginTop||r.style.margin||'')) m = mm;
+          if(/A5/i.test(r.style.size||'')){ w = 148; hgt = 210; }
+        }
+      }
+    }
+    for(const ss of document.styleSheets){
+      let rs; try{ rs = ss.cssRules; }catch(e){ continue; }   /* 外部字型會擋 */
+      scan(rs);
+    }
+    return { w: w - 2*m, h: hgt - 2*m };
+  }
+
+  /* 把 @media print 裡的規則原樣複製一份、加上 #measure 前綴。
+     複製而不是重寫，列印樣式改了量測就跟著改；前綴讓它在容器內蓋過螢幕樣式，
+     正如列印時它會蓋過螢幕樣式一樣。 */
+  function derivePrintCSS(){
+    const out = [];
+    for(const ss of document.styleSheets){
+      let rs; try{ rs = ss.cssRules; }catch(e){ continue; }
+      for(const r of rs){
+        if(r.type !== 4 || !/print/.test(r.conditionText||'')) continue;
+        for(const sub of r.cssRules){
+          if(sub.type !== 1) continue;
+          out.push(sub.selectorText.split(',')
+                     .map(function(s){ return '#measure '+s.trim(); }).join(',')
+                   + '{' + sub.style.cssText + '}');
+        }
+      }
+    }
+    return out.join('\n');
+  }
+
+  const BOX = paperBox();
+  measure.style.width = BOX.w + 'mm';
+  const pcss = document.createElement('style');
+  pcss.textContent = derivePrintCSS();
+  document.head.appendChild(pcss);
+
+  function countPages(el){
+    const atoms = [];
+    const hd = el.querySelector('.hd'); if(hd) atoms.push(hd);
+    const flow = el.querySelector('.flow');
+    if(flow) for(const c of flow.children) atoms.push(c);
+    if(!atoms.length) return 1;
+    const mm = measure.offsetWidth / BOX.w;         /* 自我校正，不假設 1mm 幾 px */
+    const H = BOX.h * mm, base = el.getBoundingClientRect().top;
+    let pages = 1, start = 0;
+    for(const a of atoms){
+      const r = a.getBoundingClientRect();
+      if(r.bottom - base - start > H + 0.5){ pages++; start = r.top - base; }
+    }
+    return pages;
+  }
+
+  /* 量完頁數：①更新頁數列 ②第一張是奇數頁時補一張白頁，
+     否則雙面列印會把第二張單張印在第一張的背面。 */
+  function paginate(){
+    const box = document.getElementById('pages');
+    const outBox = document.getElementById('out');
+    const old = outBox.querySelector('.filler'); if(old) old.remove();
+
+    const sheets = measure.querySelectorAll('.sheet');
+    if(!sheets.length){ box.textContent = ''; box.className = 'pages'; return; }
+
+    const names = [];
+    if(S.le) names.push('下肢');
+    if(S.ue) names.push('上肢');
+    const n = Array.prototype.map.call(sheets, countPages);
+
+    let filler = 0;
+    if(n.length === 2 && n[0] % 2 === 1){
+      filler = 1;
+      const second = outBox.querySelectorAll('.sheet')[1];
+      if(second){
+        const f = document.createElement('div');
+        f.className = 'filler';
+        f.setAttribute('aria-hidden','true');
+        f.innerHTML = '<p>這一面是空白的——為了讓下一張單張從新的一張紙開始。</p>';
+        outBox.insertBefore(f, second);
+      }
+    }
+
+    const parts = [];
+    n.forEach(function(c,i){
+      parts.push(names[i] + ' <b' + (c > 2 ? ' class="hot"' : '') + '>' + c + ' 頁</b>');
+      if(i === 0 && filler) parts.push('空白 1 頁');
+    });
+    const total = n.reduce(function(a,b){ return a+b; }, 0) + filler;
+    const over = names.filter(function(name,i){ return n[i] > 2; });
+    const notes = [];
+    if(over.length) notes.push(over.join('、') + '<b>超過 2 頁</b>，會多用一張紙'
+      + '——取消一個加分動作、或把版面改成雙欄，通常就會回到 2 頁。');
+    if(filler) notes.push('空白那一頁是刻意補的，為了讓'
+      + names[1] + '那張從新的一張紙正面開始。');
+    box.innerHTML = parts.join(' ＋ ') + ' ・ 共 <b>' + Math.ceil(total/2) + ' 張紙</b>（雙面）'
+      + (notes.length ? '<span class="note">' + notes.join('') + '</span>' : '');
+    box.className = 'pages' + (over.length ? ' over' : '');
+  }
+
+  function draw(){
+    document.getElementById('grpDevice').style.display =
+      (S.le==='3'||S.le==='4') ? '' : 'none';
+    segment(document.getElementById('segLE'), LE, ()=>S.le, v=>S.le=v);
+    segment(document.getElementById('segUE'), UE, ()=>S.ue, v=>S.ue=v);
+    segment(document.getElementById('segSide'), [['左','左邊'],['右','右邊']], ()=>S.side, v=>S.side=v);
+    segment(document.getElementById('segSetting'),
+            [['clinic','門診個案'],['inpatient','住院中']], ()=>S.setting, v=>S.setting=v);
+    segment(document.getElementById('segDevice'), DEV, ()=>S.device, v=>S.device=v);
+    segment(document.getElementById('segCols'),
+            [['1','單欄'],['2','雙欄']], ()=>S.cols, v=>S.cols=v);
+    segment(document.getElementById('segSafety'),
+            [['full','完整','檢查＋禁止＋停止訊號'],['brief','精簡','只留停止訊號'],
+             ['off','不印','完全不印安全內容']], ()=>S.safety, v=>S.safety=v);
+    drawOpts(); drawWarn();
+
+    let out = '';
+    if(S.le) out += render(SH['le'+S.le], 'le'+S.le, false);
+    if(S.ue) out += render(SH['ue'+S.ue], 'ue'+S.ue, !!S.le);
+    document.getElementById('out').innerHTML =
+      out || '<div class="empty">左邊選一個層級，這裡就會出現單張。</div>';
+    measure.innerHTML = out;
+    try{ paginate(); }catch(e){ document.getElementById('pages').textContent = ''; }
+  }
+
+  const doc = document.getElementById('doctor');
+  doc.value = S.doctor;
+  doc.oninput = function(){
+    S.doctor = doc.value.trim();
+    try{ localStorage.setItem('strokeSheetDoctor', S.doctor); }catch(e){}
+    draw();
+  };
+  document.getElementById('print').onclick = function(){ window.print(); };
+
+  draw();
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(paginate);
+})();
+</script>
+</body>
+</html>

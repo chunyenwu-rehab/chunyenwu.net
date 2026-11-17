@@ -8,7 +8,7 @@ image: /stroke-sheet/og.png
 imageWidth: 1200
 imageHeight: 630
 tags: [中風, 神經復健, 居家運動, 衛教, 照顧者支持, 醫病溝通]
-draft: false
+draft: true
 ---
 
 在病房交代出院衛教的時候，我手上通常有一疊影印的動作圖。

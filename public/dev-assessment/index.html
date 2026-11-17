@@ -1,0 +1,875 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>兒童發展評估門診紀錄</title>
+<meta name="description" content="兒童發展評估門診紀錄：勾選後即時產出中英混寫 SOAP，可切換初診／複診，含 ASD、ADHD、SLD 評估與標準化分數判讀。不連網、不存資料。">
+<meta name="author" content="吳俊諺">
+<link rel="canonical" href="https://chunyenwu.net/dev-assessment/">
+<style>
+:root{
+  --bg:#f5f6f8;--card:#fff;--ink:#1d2430;--mut:#667085;--line:#e2e5ea;
+  --acc:#2f6f8f;--accbg:#e7f1f6;
+  --pos:#1f7a4d;--posbg:#e3f3ea;--mid:#946200;--midbg:#fcf1d6;--neg:#b42318;--negbg:#fde9e7;
+  --lo:#5b5fc7;--lobg:#ecebfb;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:14px/1.5 -apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif}
+header.top{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);padding:8px 16px;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+header.top h1{font-size:16px;margin:0 8px 0 0;white-space:nowrap}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{border:0;background:#fff;padding:5px 12px;font:inherit;cursor:pointer;color:var(--mut)}
+.seg button.on{background:var(--acc);color:#fff}
+.set{display:flex;gap:6px;align-items:center;color:var(--mut);font-size:13px}
+.set select{font:inherit;padding:3px 4px;border:1px solid var(--line);border-radius:6px;background:#fff}
+.btn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:5px 12px;font:inherit;cursor:pointer}
+.btn.pri{background:var(--acc);border-color:var(--acc);color:#fff}
+.btn:hover{filter:brightness(.97)}
+.agebox{font-weight:600;color:var(--acc)}
+main{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,40%);gap:16px;padding:16px;max-width:1500px;margin:0 auto}
+.form{min-width:0}
+nav.jump{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+nav.jump a{font-size:12px;color:var(--acc);background:var(--accbg);padding:2px 8px;border-radius:10px;text-decoration:none}
+details.sec{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:12px}
+details.sec>summary{cursor:pointer;padding:10px 14px;font-weight:600;font-size:15px;list-style:none;display:flex;align-items:center;gap:8px}
+details.sec>summary::before{content:"▸";color:var(--mut);transition:transform .15s}
+details.sec[open]>summary::before{transform:rotate(90deg)}
+details.sec>summary .tag{font-size:11px;font-weight:500;color:var(--mut);background:var(--bg);border-radius:8px;padding:1px 7px}
+.body{padding:2px 14px 14px;display:flex;flex-wrap:wrap;gap:10px 18px}
+.field{flex:1 1 100%;min-width:0}
+.field.half{flex:1 1 calc(50% - 18px);min-width:240px}
+.field.third{flex:1 1 calc(33% - 18px);min-width:160px}
+.field>label{display:block;font-size:12.5px;color:var(--mut);margin-bottom:4px}
+.sub{flex:1 1 100%;font-size:12.5px;font-weight:600;color:var(--acc);border-top:1px dashed var(--line);padding-top:8px;margin-top:2px}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{border:1px solid var(--line);background:#fff;border-radius:14px;padding:3px 10px;font:inherit;font-size:13px;cursor:pointer;color:var(--ink);display:inline-flex;gap:5px;align-items:center}
+.chip:hover{border-color:var(--acc)}
+.chip.on{background:var(--accbg);border-color:var(--acc);color:var(--acc);font-weight:600}
+.chip .st{font-size:11px;font-weight:700;border-radius:8px;padding:0 5px;min-width:22px;text-align:center}
+.chip.s-p{background:var(--posbg);border-color:var(--pos);color:var(--pos)}
+.chip.s-m{background:var(--midbg);border-color:var(--mid);color:var(--mid)}
+.chip.s-n{background:var(--negbg);border-color:var(--neg);color:var(--neg)}
+.chip.s-p .st{background:var(--pos);color:#fff}.chip.s-m .st{background:var(--mid);color:#fff}.chip.s-n .st{background:var(--neg);color:#fff}
+input[type=text],input[type=number],input[type=date],textarea,select.in{font:inherit;border:1px solid var(--line);border-radius:7px;padding:5px 8px;width:100%;background:#fff;color:var(--ink)}
+input.sm{width:70px}
+textarea{min-height:56px;resize:vertical}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--accbg);border-color:var(--acc)}
+.inl{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.inl span{color:var(--mut);font-size:13px}
+.other{margin-top:5px}
+.hint{flex:1 1 100%;font-size:12.5px;background:#f7f9fb;border-left:3px solid var(--acc);padding:5px 9px;color:#3c4a5c;border-radius:0 6px 6px 0}
+.hint b{color:var(--acc)}
+.warn{flex:1 1 100%;font-size:13px;background:var(--midbg);color:#6b4700;border-radius:7px;padding:6px 10px}
+.warn:empty{display:none}
+.note{font-size:12px;color:var(--mut);flex:1 1 100%}
+table.sc{width:100%;border-collapse:collapse;font-size:13px}
+table.sc th{font-weight:500;color:var(--mut);text-align:left;padding:3px 4px;font-size:12px}
+table.sc td{padding:3px 4px;vertical-align:middle}
+table.sc input,table.sc select{width:100%;font:inherit;border:1px solid var(--line);border-radius:6px;padding:4px 6px;background:#fff}
+.badge{display:inline-block;font-size:12px;border-radius:8px;padding:1px 8px;white-space:nowrap}
+.b-d{background:var(--negbg);color:var(--neg)}.b-b{background:var(--midbg);color:var(--mid)}.b-l{background:var(--lobg);color:var(--lo)}.b-n{background:var(--posbg);color:var(--pos)}.b-x{color:var(--mut)}
+.del{border:0;background:none;color:var(--mut);cursor:pointer;font-size:16px}
+.out{position:sticky;top:64px;align-self:start;max-height:calc(100vh - 80px);display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:10px}
+.outhead{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line);gap:8px}
+.outhead b{font-size:15px}
+.audit{display:flex;flex-wrap:wrap;gap:4px;padding:8px 14px;border-bottom:1px solid var(--line)}
+.audit span{font-size:11.5px;border-radius:8px;padding:1px 7px;background:var(--bg);color:var(--mut)}
+.audit span.ok{background:var(--posbg);color:var(--pos)}
+.audit .t{background:none;padding-left:0;font-weight:600}
+pre#out{margin:0;padding:12px 14px;overflow:auto;white-space:pre-wrap;word-break:break-word;font:13px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,"PingFang TC",monospace;flex:1}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1d2430;color:#fff;padding:7px 16px;border-radius:8px;font-size:13px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:50}
+.toast.on{opacity:.92}
+footer{max-width:1500px;margin:0 auto;padding:0 16px 24px;font-size:12px;color:var(--mut)}
+body[data-mode=init] [data-mode=fu],body[data-mode=fu] [data-mode=init]{display:none!important}
+body:not(.school) [data-age=school]{display:none!important}
+@media (max-width:900px){
+  main{grid-template-columns:1fr}
+  .out{position:static;max-height:none}
+  pre#out{max-height:60vh}
+}
+@media print{header.top,nav.jump,.form{display:none}main{display:block}.out{border:0;max-height:none}.audit,.outhead button{display:none}}
+</style>
+</head>
+<body data-mode="init">
+<header class="top">
+  <h1>兒童發展評估門診紀錄</h1>
+  <div class="seg" id="modeSeg"><button data-m="init" class="on">初診</button><button data-m="fu">複診</button></div>
+  <span class="agebox" id="ageTop"></span>
+  <label class="set"><input type="checkbox" id="setTag" checked>輸出附判讀</label>
+  <label class="set">學齡模組
+    <select id="setSchool"><option value="auto">自動（≥6 歲或已讀國小）</option><option value="on">顯示</option><option value="off">隱藏</option></select></label>
+  <span style="flex:1"></span>
+  <button class="btn" id="btnClear">清除重填</button>
+</header>
+<main>
+  <div class="form">
+    <nav class="jump" id="jump"></nav>
+    <div id="secs"></div>
+  </div>
+  <aside class="out">
+    <div class="outhead"><b>病歷文字</b><button class="btn pri" id="btnCopy">複製</button></div>
+    <div class="audit" id="audit"></div>
+    <pre id="out"></pre>
+  </aside>
+</main>
+<footer>
+  架構依盧璐醫師（臺大醫院復健部）〈兒童復健門診評估及病歷寫作〉講義：台灣復健醫學會初診評估表格、病歷審查 38 分評分表、SOAP 實例；里程碑提示整理自講義（Braddom 5th、國健署兒童健康手冊、CDC 2022）。<br>
+  本頁不連網、不儲存任何資料，關閉或重新整理即清空。里程碑提示僅供參考、不計分；ICD 編碼請以院內系統為準。
+</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+/* ================= state ================= */
+const S = {scores: []};
+const OPTS = {};          // id -> [{zh,en}]
+const SET = {tag:true, school:'auto'};
+let curBand = null;
+
+/* ================= helpers ================= */
+function h(tag, attrs, ...kids){
+  const el = document.createElement(tag);
+  for (const k in (attrs||{})){
+    const v = attrs[k];
+    if (k.startsWith('on')) el[k] = v;
+    else if (v === true) el.setAttribute(k, '');
+    else if (v != null && v !== false) el.setAttribute(k, v);
+  }
+  for (const c of kids.flat()) if (c != null && c !== false) el.append(c instanceof Node ? c : document.createTextNode(c));
+  return el;
+}
+function op(s){ const i = s.indexOf('|'); return i < 0 ? {zh:s, en:s} : {zh:s.slice(0,i), en:s.slice(i+1)}; }
+const has = id => { const v = S[id]; if (v == null) return false; if (Array.isArray(v)) return v.length > 0; if (typeof v === 'object') return Object.keys(v).length > 0; return String(v).trim() !== ''; };
+const anyHas = (...ids) => ids.some(has);
+const tv = id => (S[id] == null ? '' : String(S[id]).trim());
+function list(id){ // multi chips in option order + other
+  const sel = S[id] || [];
+  const r = (OPTS[id] || []).filter(o => sel.includes(o.en)).map(o => o.en);
+  if (tv(id + '_x')) r.push(tv(id + '_x'));
+  return r;
+}
+function one(id){ // single chip, other text overrides/appends
+  const v = S[id] || '';
+  const x = tv(id + '_x');
+  if (v && x) return v + ' (' + x + ')';
+  return v || x;
+}
+function triList(id, fmt){
+  const st = S[id] || {};
+  const r = (OPTS[id] || []).filter(o => st[o.en]).map(o => fmt ? fmt(o.en, st[o.en]) : o.en + ' ' + st[o.en]);
+  return r;
+}
+const joinAnd = a => a.length <= 1 ? (a[0]||'') : a.length === 2 ? a.join(' and ') : a.slice(0,-1).join(', ') + ' and ' + a[a.length-1];
+function fmtM(m){ m = Math.max(0, Math.floor(m)); return m < 12 ? m + 'm' : Math.floor(m/12) + 'y' + (m % 12 ? (m % 12) + 'm' : ''); }
+function msVal(v){ // milestone/DA text: pure number = months
+  v = String(v||'').trim(); if (!v) return '';
+  if (/^\d+$/.test(v)) return fmtM(+v);
+  if (/^\d+\.\d+$/.test(v)) return v + 'm';
+  return v;
+}
+function parseMonths(s){
+  s = String(s||'').trim(); if (!s) return null;
+  let m = s.match(/^(\d+)\s*y\s*(\d+(?:\.\d+)?)?\s*m?$/i); if (m) return (+m[1])*12 + (m[2] ? +m[2] : 0);
+  m = s.match(/^(\d+(?:\.\d+)?)\s*m?$/i); if (m) return +m[1];
+  return null;
+}
+function pd(s){ if (!s) return null; const [y,m,d] = s.split('-').map(Number); return y ? new Date(y, m-1, d) : null; }
+function today(){ const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0'); }
+
+/* ================= field builders ================= */
+function chips(id, label, opts, o = {}){
+  OPTS[id] = opts.map(op);
+  const box = h('div', {class:'chips', 'data-id':id, 'data-kind': o.single ? 'single' : 'multi'});
+  OPTS[id].forEach(p => {
+    box.append(h('button', {type:'button', class:'chip', 'data-v':p.en, title:p.en, onclick:() => {
+      if (o.single) S[id] = S[id] === p.en ? undefined : p.en;
+      else { const a = S[id] || (S[id] = []); const i = a.indexOf(p.en); i < 0 ? a.push(p.en) : a.splice(i,1); }
+      paint(box); update();
+    }}, p.zh));
+  });
+  return h('div', {class:'field ' + (o.cls||'')}, label ? h('label', {}, label) : null, box,
+    o.other ? h('div', {class:'other'}, inp(id + '_x', o.other === true ? '其他（自填）' : o.other)) : null);
+}
+const CYC3 = ['+', '+/-', '-'], CYC2 = ['+', '-'];
+function tri(id, label, opts, o = {}){
+  OPTS[id] = opts.map(op);
+  const cyc = o.two ? CYC2 : CYC3;
+  const box = h('div', {class:'chips', 'data-id':id, 'data-kind':'tri'});
+  OPTS[id].forEach(p => {
+    box.append(h('button', {type:'button', class:'chip', 'data-v':p.en, title:p.en + '（點擊循環：' + cyc.join(' → ') + ' → 清除）', onclick:() => {
+      const st = S[id] || (S[id] = {});
+      const i = cyc.indexOf(st[p.en]);
+      if (i === cyc.length - 1) delete st[p.en]; else st[p.en] = cyc[i + 1];
+      paint(box); update();
+    }}, p.zh, h('span', {class:'st'})));
+  });
+  return h('div', {class:'field ' + (o.cls||'')}, label ? h('label', {}, label) : null, box);
+}
+function paint(box){
+  const id = box.dataset.id, kind = box.dataset.kind;
+  box.querySelectorAll('.chip').forEach(b => {
+    const v = b.dataset.v;
+    b.className = 'chip';
+    if (kind === 'tri'){
+      const s = (S[id] || {})[v]; const st = b.querySelector('.st');
+      st.textContent = s || '';
+      if (s === '+') b.classList.add('s-p'); else if (s === '+/-') b.classList.add('s-m'); else if (s === '-') b.classList.add('s-n');
+    } else if (kind === 'single' ? S[id] === v : (S[id] || []).includes(v)) b.classList.add('on');
+  });
+}
+function inp(id, ph, o = {}){
+  const el = h('input', {type:o.type || 'text', placeholder:ph || '', class:o.cls || '', 'data-id':id});
+  if (S[id] != null) el.value = S[id];
+  el.oninput = () => { S[id] = el.value; update(); };
+  return el;
+}
+function txt(id, label, ph, cls){ return h('div', {class:'field ' + (cls||'')}, label ? h('label', {}, label) : null, inp(id, ph)); }
+function area(id, label, ph, cls){
+  const el = h('textarea', {placeholder:ph || '', 'data-id':id});
+  el.oninput = () => { S[id] = el.value; update(); };
+  return h('div', {class:'field ' + (cls||'')}, label ? h('label', {}, label) : null, el);
+}
+const sub = t => h('div', {class:'sub'}, t);
+const note = t => h('div', {class:'note'}, t);
+const hintBox = key => h('div', {class:'hint', 'data-hint':key});
+
+/* ================= milestone hints（講義 p6、p9–27） ================= */
+const BANDS = [0,2,4,6,9,12,18,24,36,48,60,72];
+const HINT = {
+ 0:{gm:'手腳伸展抖動、轉頭、抓握反射',fm:'抓握反射',lang:'哭；聽到熟悉聲音會安靜或轉頭',cog:'焦距 20–30 cm，喜歡看人臉、黑白對比',soc:'—',adl:'—'},
+ 2:{gm:'俯臥抬頭',fm:'手張開',lang:'咕咕聲（cooing 2–3m）',cog:'追視人或玩具',soc:'社會性微笑',adl:'—'},
+ 4:{gm:'頭控穩定、俯臥手肘撐、開始翻身（側翻 3–4m）',fm:'手到口／中線、握住搖晃',lang:'開始牙牙學語（4–6m）',cog:'看自己的手、追視良好',soc:'認熟人臉',adl:'—'},
+ 6:{gm:'腹→背翻身、扶坐（手撐）、扶站腳可出力、俯臥手掌撐',fm:'單手伸手拿、耙抓（raking）、兩手換物',lang:'babbling、母音',cog:'伸手探索玩具',soc:'笑出聲、認家人',adl:'幫忙扶奶瓶'},
+ 9:{gm:'獨坐穩（7–9m）、爬（7–10m）、扶站（7–12m）',fm:'粗略鉗抓、主動放開、用手指',lang:'用手勢、聽懂「不」、聽懂名字',cog:'物體恆存（躲貓貓）、感覺動作遊戲',soc:'怕生／分離焦慮（6–8m 起）、peek-a-boo',adl:'自己拿餅乾吃'},
+ 12:{gm:'扶走（cruising）、放手站、走幾步（獨走 12–15m）',fm:'成熟鉗抓、放積木進容器、對敲積木',lang:'有意義叫爸媽＋1–2 個字、對名字有反應',cog:'容器遊戲、找藏起來的玩具',soc:'揮手再見、模仿、分離焦慮高峰',adl:'協助下拿杯喝水、穿衣伸手腳'},
+ 18:{gm:'走穩、會跑、蹲下站起不扶、扶著上樓',fm:'疊 2 塊、亂畫、翻書、丟球',lang:'5–10 個以上單字、指認部分身體部位、簡單指令、用手指表達需求',cog:'功能性遊戲、簡單配對、辨認圖片',soc:'簡單假扮、拿給父母看、照鏡子認自己、回應叫喚',adl:'用湯匙、杯子、脫襪子'},
+ 24:{gm:'跑跳（雙腳跳 2–2.5y）、踢球、扶欄杆上下樓',fm:'疊 4–6 塊、畫直線、開盒子、轉門把',lang:'兩詞短句、>50 詞彙、一步驟指令、指認圖片、約 70% 聽得懂',cog:'象徵遊戲、2 片拼圖、找東西',soc:'模仿大人、平行遊戲、對小朋友有興趣、說「我」',adl:'用湯匙杯子、穿部分衣物'},
+ 36:{gm:'單腳站約 3 秒、一步一階上樓、騎三輪車、雙腳跳',fm:'疊 9–10 塊、仿畫圓、正確握蠟筆、摺紙',lang:'3–4 詞句子、兩步驟指令、說姓名年齡性別、用代名詞、簡單對話',cog:'認一種顏色、大小概念、分類配對、專注 3–5 分鐘',soc:'輪流、關心他人、角色扮演、表達多種情緒',adl:'自己吃飯、洗手、協助下穿衣如廁'},
+ 48:{gm:'單腳跳 2 下、單腳站 3–5 秒、一步一階下樓',fm:'仿畫十字、用剪刀、過肩丟球、靜態三指握筆',lang:'4–5 詞句子、簡單報告事件、重述故事',cog:'說出基本顏色、數到 5、方位',soc:'簡單規則遊戲、喜歡和小朋友玩、可坐著上課',adl:'穿脫衣物較獨立'},
+ 60:{gm:'單腳跳 5 下、單腳站 5–10 秒、skipping、腳跟腳尖走',fm:'仿畫正方形（4.5y）、三角形、畫人、接球',lang:'完整句子說故事／描述圖片、知道住址、認數字',cog:'認數字與部分字母、數到 10、時間日期概念、專注 >10 分鐘',soc:'規則遊戲、豐富角色扮演、輪流、情緒穩定',adl:'綁鞋帶、獨立如廁'},
+ 72:{gm:'跳繩、騎腳踏車（輔助輪）、動作協調流暢',fm:'仿畫菱形、寫名字、動態三指握筆（5–6y）',lang:'流暢敘事、理解複雜句、問因果',cog:'讀寫算入學準備；學齡後依年級學業與老師報告判斷',soc:'合作遊戲、遵守規則（4–7y cooperative play）',adl:'獨立穿衣、如廁、整理書包'}
+};
+const HINT_LABEL = {gm:'粗動作',fm:'精細動作',lang:'語言',cog:'認知／遊戲',soc:'社會情緒',adl:'生活自理'};
+
+/* ================= option lists ================= */
+const WHO = ['媽媽|mom','爸爸|dad','父母|parents','阿嬤／外婆|grandma','阿公／外公|grandpa','祖父母|grandparents','看護／保母|caregiver','老師|teacher','社工|social worker'];
+const REF = ['小兒神經|Peds neurology','兒童精神|Child psychiatry','基因遺傳|Genetics','耳鼻喉科（聽力）|ENT (hearing)','眼科|Ophthalmology','骨科|Orthopedics','牙科|Dentistry','小兒科|Pediatrics','聯評中心|EI comprehensive assessment','早療通報／個管|EI notification / case management'];
+const EXAM = ['聽力檢查|hearing test','眼科檢查|eye exam','腦波|EEG','腦部 MRI|brain MRI','染色體／基因|chromosome / microarray','甲狀腺功能|thyroid function','CK|CK','代謝篩檢|metabolic screening','X 光（脊椎／下肢）|X-ray (spine / LE)'];
+const RF = [
+  ['發展退化／失去技能|regression / loss of milestones', ['Peds neurology','Genetics']],
+  ['抽搐或疑似癲癇|possible or definite seizures', ['Peds neurology'], ['EEG']],
+  ['不自主動作（舞蹈、肌張力不全）|movement disorder', ['Peds neurology']],
+  ['肌肉無力／易疲倦／Gowers|muscle weakness / fatigue', ['Peds neurology'], ['CK']],
+  ['舌頭肌束顫動|fasciculations', ['Peds neurology'], ['CK']],
+  ['局部神經學徵象／不對稱|focal neurological signs / asymmetry', ['Peds neurology'], ['brain MRI']],
+  ['頭圍異常（小頭／大頭）|abnormal head circumference', ['Peds neurology'], ['brain MRI']],
+  ['顏面異常／先天異常|dysmorphic features', ['Genetics'], ['chromosome / microarray']],
+  ['神經皮膚表徵|neurocutaneous features', ['Peds neurology','Genetics']],
+  ['器官腫大／心臟擴大|organomegaly / cardiomegaly', ['Pediatrics','Genetics'], ['metabolic screening']],
+  ['關節攣縮／先天多發關節攣縮|joint contractures / arthrogryposis', ['Orthopedics','Peds neurology']],
+  ['新出現視覺問題／眼振／白內障|new visual problem / nystagmus / cataract', ['Ophthalmology'], ['eye exam']],
+  ['聽力疑慮（語言遲緩未驗聽力）|hearing concern', ['ENT (hearing)'], ['hearing test']],
+  ['急性疾病時動作退步|motor decline during acute illness', ['Pediatrics','Peds neurology'], ['metabolic screening']],
+];
+const ICD = [
+ 'F80.0 語音（構音）障礙|F80.0 Phonological disorder',
+ 'F80.1 表達性語言障礙|F80.1 Expressive language disorder',
+ 'F80.2 混合型接受-表達語言障礙|F80.2 Mixed receptive-expressive language disorder',
+ 'F80.4 聽損致語言發展遲緩|F80.4 Speech and language development delay due to hearing loss',
+ 'F80.81 兒童期起始口吃|F80.81 Childhood onset fluency disorder',
+ 'F80.82 社交（語用）溝通障礙|F80.82 Social pragmatic communication disorder',
+ 'F80.9 語言發展障礙，未特定|F80.9 Developmental disorder of speech and language, unspecified',
+ 'F81.0 閱讀障礙|F81.0 Specific reading disorder',
+ 'F81.2 數學障礙|F81.2 Mathematics disorder',
+ 'F81.81 書寫表達障礙|F81.81 Disorder of written expression',
+ 'F82 動作協調障礙|F82 Specific developmental disorder of motor function',
+ 'F84.0 自閉症類群障礙|F84.0 Autistic disorder',
+ 'F88 其他心理發展障礙（含全面發展遲緩）|F88 Other disorders of psychological development',
+ 'F89 未特定心理發展障礙|F89 Unspecified disorder of psychological development',
+ 'F90.0 ADHD 注意力不足型|F90.0 ADHD, predominantly inattentive type',
+ 'F90.1 ADHD 過動衝動型|F90.1 ADHD, predominantly hyperactive type',
+ 'F90.2 ADHD 混合型|F90.2 ADHD, combined type',
+ 'F90.9 ADHD 未特定|F90.9 ADHD, unspecified type',
+ 'R41.83 臨界智能|R41.83 Borderline intellectual functioning',
+ 'F70 輕度智能障礙|F70 Mild intellectual disabilities',
+ 'F71 中度智能障礙|F71 Moderate intellectual disabilities',
+ 'F79 智能障礙，未特定|F79 Unspecified intellectual disabilities',
+ 'F93.0 分離焦慮|F93.0 Separation anxiety disorder of childhood',
+ 'F94.0 選擇性緘默|F94.0 Selective mutism',
+ 'F95.9 抽動障礙|F95.9 Tic disorder, unspecified',
+ 'F98.8 其他兒童期行為情緒障礙|F98.8 Other specified behavioral and emotional disorders with onset in childhood',
+ 'R62.0 發展里程碑遲緩|R62.0 Delayed milestone in childhood',
+ 'G80.0 痙攣型四肢麻痺|G80.0 Spastic quadriplegic cerebral palsy',
+ 'G80.1 痙攣型雙邊麻痺|G80.1 Spastic diplegic cerebral palsy',
+ 'G80.2 痙攣型偏癱|G80.2 Spastic hemiplegic cerebral palsy',
+ 'G80.9 腦性麻痺，未特定|G80.9 Cerebral palsy, unspecified',
+ 'Q90.9 唐氏症|Q90.9 Down syndrome, unspecified',
+ 'E03.1 先天性甲狀腺低下|E03.1 Congenital hypothyroidism without goiter',
+ 'M43.6 斜頸|M43.6 Torticollis'
+];
+const ADHD_IA = ['粗心、忽略細節|Overlooks details','難以持續專注|Task inattention','好像沒在聽|Appears not to listen','無法完成工作|Fails to finish tasks','組織規劃困難|Difficulty organising tasks','逃避需持續用腦的事|Avoids tasks requiring sustained mental effort','常弄丟東西|Often loses things','容易分心|Easily distracted','常忘記日常事務|Often forgetful'];
+const ADHD_HI = ['手腳動個不停|Fidgets','常離開座位|Leaves seat','亂跑亂爬|Runs or climbs','無法安靜玩|Unable to play quietly','像裝了馬達|Always on the go','話多|Talks excessively','搶答|Blurts answers','難以等待輪流|Struggles to take turns','打斷或干擾別人|Interrupts or intrudes'];
+
+/* ================= sections ================= */
+const SECTIONS = [
+ {id:'hdr', title:'基本資料與主訴', build:() => [
+   h('div',{class:'field third'}, h('label',{},'就診日期'), inp('vdate','',{type:'date'})),
+   h('div',{class:'field third'}, h('label',{},'出生日期'), inp('dob','',{type:'date'})),
+   h('div',{class:'field third'}, h('label',{},'出生週數（GA）'), h('div',{class:'inl'}, inp('ga_w','週',{type:'number',cls:'sm'}), h('span',{},'+'), inp('ga_d','天',{type:'number',cls:'sm'}), h('span',{},'（未滿 2 歲早產兒自動算矯正年齡）'))),
+   h('div',{class:'warn',id:'ageWarn'}),
+   chips('sex','性別',['男|boy','女|girl'],{single:true,cls:'third'}),
+   chips('who','陪同者',WHO,{other:true,cls:'half'}),
+   h('div',{'data-mode':'init',class:'field'}, chips('refsrc','轉介來源',['家長自行|self-referred','小兒科／健兒門診|pediatrician','幼兒園／學校老師|school teacher','聯評中心|EI assessment center','發展篩檢未通過|developmental screening','其他院所|other hospital'],{single:true,other:true})),
+   h('div',{'data-mode':'init',class:'field'}, chips('cc','主訴',['說話慢／語言遲緩|speech delay','構音不清|unclear articulation','動作發展慢|motor delay','走路不穩／易跌倒|unsteady gait / frequent falls','墊腳走|toe walking','全面發展慢|global delay','互動／社交弱|poor social interaction','疑似自閉|suspected ASD','情緒行為問題|behavior problem','好動／不專心|restless / inattention','學習困難|learning difficulty','動作笨拙|clumsiness','手部操作差|poor hand skills','早產追蹤|preterm follow-up','篩檢未通過|failed developmental screening'],{other:true})),
+   h('div',{'data-mode':'init',class:'field'}, txt('concern','家長主要擔心與期待','例：想知道要不要上課、上小學前能否跟上')),
+ ]},
+ {id:'fu', title:'複診：追蹤期間變化', mode:'fu', build:() => [
+   area('known','已知診斷／背景摘要（可貼上次病歷）','例：ASD with mixed delay, dx at 2y; on PT, OT'),
+   chips('prog','整體進展',['進步|improving','穩定|stable','停滯|plateau','退步|regression'],{single:true,cls:'half'}),
+   chips('better','進步的面向',['粗動作|motor','精細動作|fine motor','語言|language','認知|cognition','社會互動|social','生活自理|self-care','情緒行為|behavior'],{cls:'half'}),
+   area('interval','這次家長反映／主要問題（一行一項）','例：Speaking many words now\nStill fluctuated compliance\nMore behavior problems lately'),
+ ]},
+ {id:'birth', title:'出生史', mode:'init', build:() => [
+   h('div',{class:'field half'}, h('label',{},'胎次與出生體重'), h('div',{class:'inl'}, h('span',{},'G'), inp('g','',{type:'number',cls:'sm'}), h('span',{},'P'), inp('p','',{type:'number',cls:'sm'}), h('span',{},'BBW'), inp('bbw','gm',{type:'number',cls:'sm'}), h('span',{},'gm'))),
+   chips('deliv','生產方式',['自然產|NSD','剖腹產|CS','器械輔助|instrumental delivery'],{single:true,other:'原因（如 breech）',cls:'half'}),
+   chips('peri','週產期事件',['無特殊|uneventful','早期破水|PROM','妊娠糖尿病|GDM','妊娠高血壓／子癇前症|PIH / preeclampsia','產前出血|antepartum hemorrhage','母體感染|maternal infection','多胞胎|twin / multiple','窒息／低 Apgar|birth asphyxia','住 NICU|NICU stay','黃疸照光|hyperbilirubinemia with phototherapy','呼吸窘迫／插管|RDS / ventilator','腦室出血|IVH','低血糖|hypoglycemia','孕期菸酒藥物|prenatal substance exposure'],{other:'其他（如 NICU 天數、Apgar）'}),
+   chips('nbs','新生兒代謝篩檢',['正常|normal','異常|abnormal'],{single:true,other:'異常項目',cls:'half'}),
+   chips('nhs','新生兒聽力篩檢',['通過|pass','未通過|refer','未做／不清楚|not done / unknown'],{single:true,cls:'half'}),
+ ]},
+ {id:'med', title:'醫療史與檢查', mode:'init', build:() => [
+   chips('ph','過去病史',['無特殊|unremarkable','熱痙攣|febrile convulsion','癲癇／抽搐|seizure / epilepsy','先天心臟病|congenital heart disease','聽力障礙|hearing impairment','視力問題|visual problem','斜視|strabismus','反覆中耳炎|recurrent otitis media','甲狀腺低下|hypothyroidism','基因／染色體異常|genetic / chromosomal disorder','代謝疾病|metabolic disorder','過敏／氣喘|allergy / asthma','睡眠問題／打鼾|sleep problem / snoring','進食／咀嚼困難|feeding / chewing difficulty','便秘|constipation','頭部外傷|head injury','住院／手術|hospitalization / surgery'],{other:true}),
+   txt('meds','目前用藥','例：Eltroxin 25 mcg QD','half'),
+   chips('exdone','已做過的檢查',['腦波|EEG','腦部 MRI|brain MRI','腦部超音波|brain sono','染色體／基因|chromosome / genetic test','聽力檢查|hearing test','眼科檢查|eye exam','甲狀腺功能|thyroid function','代謝篩檢|metabolic screen'],{cls:'half'}),
+   txt('exres','檢查結果（日期＋結果）','例：2022/4 EEG negative; 2022/1 OAE normal'),
+ ]},
+ {id:'dev', title:'發展史', mode:'init', build:() => [
+   note('填月齡數字（如 15）會自動轉成 1y3m；也可直接打文字。'),
+   ...[['ms_head','抬頭／頭控'],['ms_roll','翻身'],['ms_sit','獨坐'],['ms_crawl','爬'],['ms_walk','獨走'],['ms_word','有意義單字'],['ms_phrase','片語（兩詞）'],['ms_sent','句子'],['ms_toilet','如廁訓練（白天）']]
+     .map(([id,l]) => h('div',{class:'field',style:'flex:1 1 100px;min-width:96px'}, h('label',{},l), inp(id,'月齡'))),
+   chips('regr','退化',['無|no regression','語言退化|language regression','社交退化|social regression','動作退化|motor regression'],{other:'何時、怎麼退（如 1y6m 會說的字消失）',cls:'half'}),
+   h('div',{class:'field half'}, h('label',{},'第一次擔心'), h('div',{class:'inl'}, inp('concern_age','年齡（如 2y）'), )),
+   chips('concern_by','由誰發現',['父母|parents','祖父母|grandparents','老師|teacher','醫師|doctor','篩檢|screening'],{cls:'half'}),
+ ]},
+ {id:'env', title:'家庭與環境', mode:'init', build:() => [
+   chips('fh','家族史',['無|negative','語言遲緩|speech delay','自閉症|ASD','ADHD|ADHD','智能障礙|ID','學習障礙|learning disorder','癲癇|epilepsy','精神疾病|psychiatric disorder','遺傳疾病|genetic disorder','近親婚姻|consanguinity'],{other:true}),
+   chips('live','同住',['父母|parents','媽媽|mom','爸爸|dad','祖父母|grandparents','外祖父母|maternal grandparents','兄弟姊妹|siblings','外籍看護|foreign caregiver'],{other:true,cls:'half'}),
+   chips('order','排行',['獨子／獨女|single kid','老大|1st child','老二|2nd child','老三以後|3rd or later'],{single:true,other:'手足狀況（如 姊 7y 正常）',cls:'half'}),
+   h('div',{class:'field half'}, h('label',{},'父母教育程度與職業'), h('div',{class:'inl'}, inp('fa','父：如 大學／工程師'), inp('mo','母：如 高中／家管'))),
+   chips('fam','家庭狀況',['父母離異|parents divorced','單親|single parent','隔代教養|grandparent-raised','新住民家庭|immigrant parent','經濟困難|financial difficulty','雙薪忙碌|both parents working'],{other:true,cls:'half'}),
+   chips('cg','主要照顧者',['媽媽|mom','爸爸|dad','阿嬤／外婆|grandma','阿公／外公|grandpa','保母|nanny','外籍看護|foreign caregiver','托嬰中心|daycare'],{cls:'half'}),
+   chips('lang','家中語言',['國語|國語','台語|台語','客語|客語','英語|英語','越南語|越南語','印尼語|印尼語'],{other:true,cls:'half'}),
+   chips('c3','3C 使用',['<1 hr/day|<1 hr/day','1–2 hr/day|1-2 hr/day','2–4 hr/day|2-4 hr/day','>4 hr/day|>4 hr/day'],{single:true,cls:'half'}),
+   chips('read','親子共讀',['每天|daily','偶爾|sometimes','很少|rare','沒有|no experience'],{single:true,cls:'half'}),
+   chips('outd','戶外活動',['常常|often','偶爾|sometimes','很少|rare'],{single:true,cls:'third'}),
+   chips('peer','同儕機會',['足夠|adequate','有限|limited'],{single:true,cls:'third'}),
+   chips('toys','玩具／刺激',['足夠|adequate','有限|limited'],{single:true,cls:'third'}),
+   chips('parent','照顧與教養',['照顧良好|adequate care','僅基本照顧|basic care only','過度保護|overprotective','教養不一致|inconsistent parenting','教養功能弱|weak parenting','互動少|limited interaction','大人耐心不足|inadequate patience'],{other:true}),
+   txt('routine','作息／主要活動','例：自己玩玩具、看手機，偶爾去公園；睡 22–8'),
+ ]},
+ {id:'care', title:'療育與就學', build:() => [
+   chips('ther','目前療育',['PT|PT','OT|OT','ST|ST','心理治療|PSY','早療機構|EI center program'],{cls:'half'}),
+   txt('ther_f','頻率／地點／開始時間','例：PT 1/wk, OT 1/wk at XX 診所 since 2025.3','half'),
+   chips('school','就學',['在家|at home','托嬰中心|daycare','幼兒園|preschool','特幼班|special preschool class','國小普通班|regular class','資源班|resource room','集中式特教班|self-contained special class'],{single:true,cls:'half'}),
+   txt('school_t','年級／開始時間','例：中班 / 2025.9；國小二年級','half'),
+   chips('spec','特教／福利',['特教身分|special education status','IEP|IEP','身心障礙證明|disability certificate','早療個管|EI case management'],{cls:'half'}),
+   txt('teacher','老師的觀察','例：上課坐不住、同儕互動少','half'),
+   area('prior','過去／外院評估報告摘要','例：EI assessment 2025.11 at XX: global delay with autistic feature'),
+ ]},
+ {id:'cur', title:'目前各領域（家長報告／會談）', build:() => [
+   note('點一下 = +（會／有），再點 = +/-（部分），再點 = −（不會／無），再點清除。下方灰框為此年齡常見里程碑，僅供參考。'),
+   sub('粗動作 GM'), hintBox('gm'),
+   tri('gm','',['抬頭|head control','翻身|roll','獨坐|sit','爬|crawl','扶站／扶走|pull to stand / cruise','走穩|walk stable','跑|run','雙腳跳|jump','上下樓梯|stairs','交替上下樓|alternating stairs','單腳站|stand on one foot','單腳跳|hop','騎三輪車／腳踏車|ride tricycle / bike','丟接球|throw / catch ball','易跌倒|frequent falls','墊腳走|toe walking','動作笨拙|clumsy','怕高怕盪|gravitational insecurity']),
+   txt('gm_t','','補充（如：外出多半抱著，怕他亂跑）'),
+   sub('精細動作 FM'), hintBox('fm'),
+   tri('fm','',['抓握|grasp','兩手換物|transfer','鉗抓|pincer grasp','疊積木|stack blocks','塗鴉|scribble','仿畫圖形|copy shapes','成熟握筆|mature pencil grasp','剪刀|scissors','扣釦子|buttoning','寫字|handwriting','手部操作差|poor hand skills']),
+   txt('fm_t','','補充（如：疊 4 塊、仿畫圓）'),
+   sub('語言理解'), hintBox('lang'),
+   tri('lr','',['叫名有反應|response to name','聽懂「不」|understand no','一步驟指令|1-step command','兩步驟指令|2-step commands','指認身體部位|body parts','指認圖片|picture identification','理解問句|understand questions','需情境才懂|understands only in context']),
+   txt('lr_t','','補充（如：看人禁止玩水拔插頭仍會拔）'),
+   sub('語言表達'),
+   tri('le','',['牙牙語|babbling','亂語|jargon','單字|single words','片語|phrases','句子|sentences','簡單對話|simple conversation','敘事／說故事|narrative','仿說|imitate words','鸚鵡式仿說|echolalia','代名詞|pronouns','問問題|asking questions']),
+   txt('le_t','','補充（如：只會說 bubu，約 10 個詞）'),
+   sub('溝通意圖與口腔'),
+   tri('cm','',['用手指|pointing','拉大人手|pulling for needs','手勢|gestures','用聲音表達需求|sounds for needs','共享注意力|joint attention','構音不清|unclear articulation','口吃|dysfluency','流口水|drooling','咀嚼弱|weak chewing','挑食|picky eating']),
+   txt('cm_t','','補充'),
+   sub('認知／遊戲'), hintBox('cog'),
+   tri('cog','',['物體恆存|object permanence','功能性遊戲|functional play','假扮遊戲|pretend play','配對|matching','分類|sorting','拼圖|puzzles','認顏色|colors','數數|counting','認數字／字母|digits / letters','大小多少概念|size / quantity concept','解決問題|problem solving']),
+   txt('cog_t','','補充（如：主要玩坐車車、手機）'),
+   sub('社會情緒'), hintBox('soc'),
+   tri('soc','',['眼神接觸|EC','社會性微笑|social smile','分享興趣|sharing interest','拿東西給人看|showing','模仿|imitation','對小朋友有興趣|interest in kids','同儕互動|peer interaction','輪流|turn taking','分離焦慮|separation anxiety','怕生|stranger anxiety','發脾氣|tantrums','攻擊行為|aggression','情緒不穩|labile mood']),
+   txt('soc_t','','補充（如：在公園會主動接近小朋友但機會少）'),
+   sub('生活自理'), hintBox('adl'),
+   tri('adl','',['手指抓食|finger feeding','用湯匙|spoon','用杯子|cup','自己吃飯|self feeding','脫衣|undressing','穿衣|dressing','白天如廁|toilet trained (day)','夜間不尿床|dry at night','洗手刷牙|hand washing / brushing','生活依賴|dependent ADL']),
+   txt('adl_t','','補充'),
+   sub('行為／感覺／睡眠'),
+   tri('beh','',['活動量大|high activity','不專心|inattention','衝動|impulsive','坐不住|restless','挫折忍受度低|low frustration tolerance','固執|rigidity','重複行為|repetitive behavior','感覺過度敏感|sensory over-responsivity','感覺尋求|sensory seeking','睡眠問題|sleep problem','3C 依賴|screen dependence','自傷|self-injury']),
+   txt('beh_t','','補充（如：制止看手機會摔東西）'),
+ ]},
+ {id:'sld', title:'學業與學習障礙篩查（學齡）', age:'school', build:() => [
+   txt('acad','成績／困難科目','例：國語 60–70 分，數學尚可；考試題目看不懂'),
+   sub('閱讀'), tri('rd','',['閱讀速度慢|slow reading','認字錯誤／跳字跳行|word reading errors / skipping','閱讀理解差|poor reading comprehension','注音拼讀困難|zhuyin decoding difficulty']),
+   sub('書寫'), tri('wr','',['寫字慢／字跡差|poor / slow handwriting','抄寫困難|copying difficulty','錯別字／部件錯|character errors','鏡像字|mirror writing','造句作文困難|poor written expression']),
+   sub('數學'), tri('ma','',['數感差|poor number sense','計算錯誤／慢|calculation difficulty','應用題困難|math word problems','九九乘法困難|multiplication facts']),
+   chips('sldx','排除條件',['智力在正常範圍|intellectual ability adequate','視聽正常|vision / hearing normal','無神經疾病|no neurological disorder','教育機會足夠|adequate instruction','補救教學後仍持續 ≥6 月|persistent ≥6m despite intervention']),
+ ]},
+ {id:'obs', title:'診間觀察（O）', build:() => [
+   chips('o_ec','眼神接觸',['好|Good EC','尚可|Fair EC','少|Limited EC','差|Poor EC'],{single:true,cls:'half'}),
+   chips('o_call','叫名反應',['有|response to name +','時有時無|response to name +/-','無|neglect calls'],{single:true,cls:'half'}),
+   chips('o_comp','配合度',['好|good compliance','尚可|fair compliance','時好時壞|fluctuated compliance','差|poor compliance'],{single:true,cls:'half'}),
+   chips('o_mood','情緒',['穩定|stable mood','害羞|shy','不穩|labile mood','易怒哭鬧|irritable'],{single:true,cls:'half'}),
+   chips('o_act','活動量',['適中|fair activity level','偏高|high activity level','偏低|low activity level'],{single:true,cls:'half'}),
+   chips('o_att','專注',['尚可|fair attention','短|short attention span'],{single:true,cls:'half'}),
+   chips('o_sep','與照顧者分離',['可分離|separates well','黏照顧者|clingy to caregiver','分離焦慮明顯|strong separation anxiety'],{single:true,cls:'half'}),
+   chips('o_frus','挫折忍受',['尚可|fair frustration tolerance','低|low frustration tolerance'],{single:true,cls:'half'}),
+   chips('o_spk','診間口語',['無口語|nonverbal','亂語|jargon','單字|single words','片語|phrases','句子|sentences','可對話|conversational'],{single:true}),
+   tri('o_beh','觀察到的行為',['用手指|pointing','共享注意力|joint attention','模仿|imitation','假扮遊戲|pretend play','分享|sharing','仿說|echolalia','自言自語|self talking','刻板動作|motor stereotypes','排列／轉物|lining up / spinning objects','墊腳|toe walking','坐不住|fidget','到處探索|explores around','感覺尋求|sensory seeking','盯著特定物|fixated on objects']),
+   area('o_t','觀察描述','例：盯著月曆數數字，手中拿著小花，可配合簡單指令，仿說叫人'),
+   sub('外觀與生長'),
+   txt('o_bhw','身高／體重','例：BH 102 cm, BW 16 kg','third'),
+   h('div',{class:'field third'}, h('label',{},'頭圍'), h('div',{class:'inl'}, inp('o_hc','cm',{type:'number',cls:'sm'}), h('span',{},'cm'))),
+   chips('o_hcs','頭圍判讀',['正常|normal','小頭|microcephaly','大頭|macrocephaly'],{single:true,cls:'third'}),
+   chips('o_dys','顏面／先天異常',['無|no dysmorphism','有|dysmorphic features'],{single:true,other:'描述',cls:'half'}),
+   chips('o_skin','皮膚與眼睛',['牛奶咖啡斑|café-au-lait spots','色素脫失斑|hypopigmented macules','血管瘤／葡萄酒斑|hemangioma / port-wine stain','斜視|strabismus','眼振|nystagmus'],{cls:'half'}),
+ ]},
+ {id:'pe', title:'理學檢查', build:() => [
+   chips('pe_tone','張力',['正常|normal tone','低張|hypotonia','高張|hypertonia','張力波動|fluctuating tone'],{single:true,cls:'half'}),
+   chips('pe_tdist','分布',['全身|generalized','軀幹|trunk','上肢|UE','下肢|LE','右側|R\'t','左側|L\'t'],{cls:'half'}),
+   txt('pe_mas','MAS／Tardieu','例：B/L ankle PF MAS 1+','half'),
+   chips('pe_dtr','DTR',['正常|DTR normal','亢進|DTR brisk','減弱|DTR hypoactive'],{single:true,cls:'half'}),
+   chips('pe_path','病理反射／不對稱',['踝陣攣|ankle clonus','Babinski +|Babinski +','原始反射殘留|persistent primitive reflexes','左右不對稱|asymmetry'],{other:'姿勢反應等',cls:'half'}),
+   chips('pe_mx','肌力與其他',['肌力正常|muscle power normal','肌力偏弱|muscle weakness','Gowers sign|Gowers sign +','小腿肥大|calf hypertrophy','關節鬆弛|joint laxity','關節攣縮|joint contracture','不自主動作|involuntary movement','運動失調|ataxia'],{cls:'half'}),
+   chips('pe_gait','步態',['正常|normal gait','墊腳|toe walking','寬基底|wide-based gait','內八|in-toeing','外八|out-toeing','笨拙|clumsy gait','鴨步|waddling gait','尚未獨走|not walking independently'],{single:true,other:'補充'}),
+   chips('pe_ms','骨骼關節',['脊椎側彎|scoliosis','斜頸|torticollis','O 型腿|genu varum','X 型腿|genu valgum','扁平足|flat foot','蹠骨內收|metatarsus adductus','脛骨內轉|internal tibial torsion','股骨前傾|femoral anteversion','長短腳|leg length discrepancy'],{other:'ROM 受限等'}),
+   chips('pe_hand','慣用手',['右|R\'t-handed','左|L\'t-handed','未確立|hand preference not established'],{single:true,cls:'half'}),
+   txt('pe_ortho','輔具','例：B/L AFO、足弓墊','half'),
+   txt('pe_t','其他理學發現',''),
+ ]},
+ {id:'scores', title:'標準化評估結果', build:() => [
+   txt('sc_src','評估日期與單位','例：2025.11 XX 醫院聯評'),
+   h('div',{class:'field',id:'scoreWrap'}),
+   h('div',{class:'note',id:'stdNote'}),
+   h('datalist',{id:'dlTool'}, ...['CDIIT','Bayley-III','Bayley-4','PDMS-2','MABC-2','WPPSI-IV','WISC-V','學前兒童語言障礙評量表','CLST','PLS-5','修訂畢保德圖畫詞彙測驗'].map(v => h('option',{value:v}))),
+   h('datalist',{id:'dlDom'}, ...['GM','FM','Cognition','Language','Comprehension','Expression','Social','Self-care','Adaptive','Motor','TMQ','GMQ','FMQ','FSIQ','VCI','VSI','FRI','WMI','PSI','NVI','GAI','Total','Manual dexterity','Aiming & catching','Balance'].map(v => h('option',{value:v}))),
+ ]},
+ {id:'asd', title:'ASD checklist', closed:true, build:() => [
+   sub('Social communication and social interaction'),
+   tri('asd_s','',['主動接近人|social approach','來回對話|back-and-forth conversation','分享興趣與情感|sharing of interest and emotion','發起社交或小組遊戲|initiating social interaction','整合口語與非口語|integrated verbal and nonverbal communication','眼神接觸|eye contact','工具性手勢|instrumental gestures','臉部表情|facial expression','依情境調整行為|adjusting behaviors to social context','想像遊戲|imaginative play','分享行為|sharing behaviors','自發模仿|spontaneous imitation','提供關心|offering comfort','對同儕有興趣|interest in peers']),
+   sub('Restricted, repetitive behaviors and interests'),
+   tri('asd_r','',['刻板動作|motor stereotypes','排列玩具|lining up toys','仿說|echolalia','無法承受小變化|distress at small changes','僵化思考|rigid thinking','儀式|rituals','固守常規|inflexible adherence to routines','對物體異常執著|unusual attachment to objects','墊腳走|toe walking','興趣侷限且強烈|restricted and fixated interests','感覺過度反應|hyperreactive to sensory input','感覺反應不足／自我刺激|hyporeactive to sensory input']),
+   chips('asd_dsm','DSM-5 準則（勾選符合者）',['A1 社會情緒互惠缺損|A1','A2 非口語溝通缺損|A2','A3 發展與維持關係缺損|A3','B1 刻板重複動作／語言／物品|B1','B2 堅持同一性／儀式|B2','B3 侷限固著興趣|B3','B4 感覺反應異常|B4']),
+   h('div',{class:'warn',id:'asdBadge'}),
+   txt('asd_t','','補充'),
+ ]},
+ {id:'adhd', title:'ADHD checklist', closed:true, build:() => [
+   chips('adhd_src','資訊來源',['家長|parent','老師|teacher','診間觀察|clinic observation'],{cls:'half'}),
+   note('點一下 = (+) 有，再點 = (−) 無，再點清除。'),
+   sub('Attention-deficit'), tri('adhd_ia','',ADHD_IA,{two:true}),
+   sub('Hyperactivity-impulsivity'), tri('adhd_hi','',ADHD_HI,{two:true}),
+   chips('adhd_cr','其他條件',['症狀 ≥6 個月|≥6 months','≥2 個情境|≥2 settings','12 歲前出現|onset <12y','影響學業／社交功能|functional impairment','非其他疾病更能解釋|not better explained by other disorder']),
+   h('div',{class:'warn',id:'adhdBadge'}),
+   txt('adhd_t','','補充（如：Ever prescribed Ritalin, not yet taken）'),
+ ]},
+ {id:'rf', title:'Red flags', build:() => [
+   chips('rf','',RF.map(r => r[0])),
+   h('div',{class:'warn',id:'rfHint'}),
+   h('div',{class:'field'}, h('button',{type:'button',class:'btn',id:'rfAdd',onclick:addRfToPlan},'把建議的轉介與檢查加入計畫')),
+ ]},
+ {id:'ax', title:'評估與診斷（A）', build:() => [
+   chips('fx','功能性診斷',['粗動作遲緩|gross motor delay','精細動作遲緩|fine motor delay','語言遲緩|language delay','表達性語言遲緩|expressive language delay','理解性語言遲緩|receptive language delay','構音問題|articulation problem','認知遲緩|cognitive delay','社會情緒發展遲緩|social-emotional delay','生活自理遲緩|self-care delay','混合性發展遲緩|mixed delay','全面發展遲緩|global developmental delay','自閉特質|autistic feature','注意力／過動問題|attention / hyperactivity problem','情緒行為問題|behavior problem','學習困難|learning difficulty','動作協調問題|motor coordination problem','發展在正常範圍|development within normal range']),
+   chips('qual','鑑別與相關因素',['疑似自閉症|r/o ASD','疑似 ADHD|r/o ADHD','懷疑環境因素|suspect environmental factor','教養功能弱|weak parenting','待排除聽力問題|r/o hearing impairment','待排除器質性病因|r/o organic etiology'],{other:true}),
+   txt('ax_etio','病因／相關疾病（輸出為 # 開頭）','例：Congenital hypothyroidism; prematurity','half'),
+   txt('ax_imp','其他印象','','half'),
+   h('div',{class:'warn',id:'gddWarn'}),
+   chips('icd','ICD-10-CM（常用碼）',ICD,{other:'其他診斷碼'}),
+ ]},
+ {id:'plan', title:'處置計畫（P）', build:() => [
+   chips('pl_ref','會診／轉介',REF,{other:true}),
+   chips('pl_ex','安排檢查',EXAM,{other:true}),
+   chips('pl_th','療育',['PT|PT','OT|OT','ST|ST','心理治療|PSY','早療機構|EI center program','維持目前療育|keep current therapy'],{cls:'half'}),
+   txt('pl_thf','頻率','例：1/wk','half'),
+   chips('pl_edu','家長衛教',['增加親子互動與對話|increase interaction and talk','減少 3C|reduce screen time','親子共讀|book reading','增加同儕與戶外機會|more peer play / outdoor activities','行為管理技巧|behavior management','居家活動／運動|home program','如廁訓練|toilet training','規律作息|regular routine'],{other:true}),
+   chips('pl_sch','學校／早療',['入學轉銜|school transition','申請特教鑑定（鑑輔會）|special education evaluation','提供學校建議|school recommendations','早療通報|EI notification'],{other:true}),
+   chips('pl_fu','追蹤',['1 個月|1m','2 個月|2m','3 個月|3m','6 個月|6m'],{single:true,other:'或其他（如 評估後回診）',cls:'half'}),
+   area('pl_t','其他計畫',''),
+ ]},
+];
+
+/* ================= scores table ================= */
+const TYPES = [['DQ','DQ'],['IQ','IQ／指數'],['SS','標準分數(100)'],['SD','SD'],['PR','PR'],['T','T 分數'],['ScS','量表分數(10)']];
+function defType(tool){
+  const t = (tool||'').toUpperCase();
+  if (/WPPSI|WISC|SB|LEITER/.test(t)) return 'IQ';
+  if (/MABC|畢保德|PPVT/.test(t)) return 'PR';
+  if (/語言障礙評量/.test(tool||'')) return 'T';
+  if (/CLST/.test(t)) return 'SD';
+  if (/PLS/.test(t)) return 'SS';
+  return 'DQ';
+}
+function renderScores(){
+  const wrap = document.getElementById('scoreWrap'); wrap.innerHTML = '';
+  const tb = h('tbody');
+  S.scores.forEach((r, i) => {
+    const mk = (k, ph, dl, w) => { const e = h('input',{type:'text',placeholder:ph,list:dl||null,style:w?'width:'+w:null}); e.value = r[k]||''; e.oninput = () => { r[k] = e.value; if (k === 'tool' && !r._typeTouched){ r.type = defType(e.value); sel.value = r.type; } update(); }; return e; };
+    const sel = h('select'); TYPES.forEach(([v,l]) => sel.append(h('option',{value:v},l))); sel.value = r.type || 'DQ';
+    sel.onchange = () => { r.type = sel.value; r._typeTouched = true; update(); };
+    tb.append(h('tr',{},
+      h('td',{style:'width:22%'}, mk('tool','工具','dlTool')),
+      h('td',{style:'width:18%'}, mk('dom','領域','dlDom')),
+      h('td',{style:'width:13%'}, mk('da','DA')),
+      h('td',{style:'width:15%'}, sel),
+      h('td',{style:'width:11%'}, mk('val','分數')),
+      h('td',{style:'width:16%'}, h('span',{class:'badge b-x','data-row':i})),
+      h('td',{}, h('button',{type:'button',class:'del',title:'刪除',onclick:() => { S.scores.splice(i,1); renderScores(); update(); }},'×'))));
+  });
+  wrap.append(h('table',{class:'sc'}, h('thead',{}, h('tr',{}, ...['工具','領域','發展年齡','分數類型','分數','判讀',''].map(t => h('th',{},t)))), tb),
+    h('div',{style:'margin-top:6px;display:flex;gap:6px;flex-wrap:wrap'},
+      h('button',{type:'button',class:'btn',onclick:() => { const last = S.scores[S.scores.length-1]; S.scores.push({tool:last?last.tool:'', type:last?last.type:'DQ', _typeTouched:last?last._typeTouched:false}); renderScores(); update(); }},'＋ 新增一列'),
+      h('button',{type:'button',class:'btn',onclick:() => { ['GM','FM','Cognition','Comprehension','Expression','Social','Self-care'].forEach(d => S.scores.push({tool:'CDIIT',dom:d,type:'DQ'})); renderScores(); update(); }},'＋ CDIIT 七領域'),
+      h('button',{type:'button',class:'btn',onclick:() => { ['FSIQ','VCI','VSI','FRI','WMI','PSI'].forEach(d => S.scores.push({tool:'WPPSI-IV',dom:d,type:'IQ',_typeTouched:true})); renderScores(); update(); }},'＋ WPPSI-IV 指數')));
+}
+const CLS = {d:['遲緩','delayed'], b:['臨界','borderline'], l:['中下／需綜合判斷','low average'], n:['正常範圍','WNL']};
+function classify(tool, type, raw){
+  const s = String(raw == null ? '' : raw).trim(); if (!s) return null;
+  const v = parseFloat(s.replace(/[^\d.\-]/g,'')); if (isNaN(v)) return null;
+  const T = (tool||'').toUpperCase();
+  if (type === 'SD'){ if (/CLST/.test(T)) return v <= -1.5 ? 'd' : 'n'; return v <= -2 ? 'd' : v <= -1.5 ? 'b' : 'n'; }
+  if (type === 'T') return v <= 29 ? 'd' : v <= 39 ? 'b' : 'n';
+  if (type === 'PR'){
+    if (/MABC/.test(T)) return v < 5 ? 'd' : v <= 15 ? 'b' : 'n';
+    return v < 9 ? 'd' : v <= 16 ? 'b' : v <= 25 ? 'l' : 'n';
+  }
+  if (type === 'ScS') return v <= 4 ? 'd' : v <= 5 ? 'b' : v <= 7 ? 'l' : 'n';
+  return v < 80 ? 'd' : v <= 85 ? 'b' : v <= 90 ? 'l' : 'n';
+}
+function scoreText(r){
+  const da = msVal(r.da); const v = String(r.val||'').trim(); const dom = (r.dom||'').trim();
+  let sc = '';
+  if (v){
+    switch (r.type){
+      case 'DQ': sc = 'DQ ' + v; break;
+      case 'SD': sc = v + ' SD'; break;
+      case 'PR': sc = 'PR ' + v; break;
+      case 'T': sc = 'T ' + v; break;
+      default: sc = v;
+    }
+  }
+  const c = classify(r.tool, r.type, r.val);
+  return [dom, da, sc].filter(Boolean).join(' ') + (SET.tag && c ? ' (' + CLS[c][1] + ')' : '');
+}
+
+/* ================= age ================= */
+function ageInfo(){
+  const v = pd(S.vdate), b = pd(S.dob);
+  if (!v || !b || b > v) return null;
+  let m = (v.getFullYear()-b.getFullYear())*12 + v.getMonth() - b.getMonth(); if (v.getDate() < b.getDate()) m--;
+  const days = Math.round((v - b) / 864e5);
+  const ga = +S.ga_w ? (+S.ga_w)*7 + (+S.ga_d || 0) : null;
+  let cm = null;
+  if (ga && ga < 259 && m < 24) cm = Math.max(0, Math.floor((days - (280 - ga)) / 30.4375));
+  return {m, cm, eff: cm != null ? cm : m};
+}
+function ageStr(a){ return a ? fmtM(a.m) + (a.cm != null ? ' (corrected ' + fmtM(a.cm) + ')' : '') : ''; }
+
+/* ================= red flag helpers ================= */
+function rfSuggest(){
+  const sel = S.rf || []; const ref = new Set(), ex = new Set();
+  RF.forEach(r => { const en = op(r[0]).en; if (sel.includes(en)){ (r[1]||[]).forEach(x => ref.add(x)); (r[2]||[]).forEach(x => ex.add(x)); } });
+  return {ref:[...ref], ex:[...ex]};
+}
+function addRfToPlan(){
+  const {ref, ex} = rfSuggest();
+  S.pl_ref = S.pl_ref || []; S.pl_ex = S.pl_ex || [];
+  ref.forEach(x => { if (!S.pl_ref.includes(x)) S.pl_ref.push(x); });
+  ex.forEach(x => { if (!S.pl_ex.includes(x)) S.pl_ex.push(x); });
+  document.querySelectorAll('.chips[data-id=pl_ref],.chips[data-id=pl_ex]').forEach(paint);
+  update(); toast('已加入計畫');
+}
+
+/* ================= output ================= */
+function build(){
+  const L = []; const add = (...xs) => xs.forEach(x => { if (x != null && String(x).trim() !== '') L.push(x); });
+  const a = ageInfo(); const age = ageStr(a); const sex = S.sex || '';
+  const fu = document.body.dataset.mode === 'fu';
+  const vd = (S.vdate || '').replace(/-/g, fu ? '/' : '.');
+  const who = list('who'); const come = who.length ? 'come with ' + joinAnd(who) : '';
+
+  /* ---- S ---- */
+  if (!fu){
+    add('Subjective (' + vd + ')');
+    const ref = one('refsrc');
+    add([[age, sex].filter(Boolean).join(' '), come, ref ? (ref === 'self-referred' ? ref : 'referred by ' + ref) : ''].filter(Boolean).join(', '));
+    if (list('cc').length) add('CC: ' + list('cc').join(', '));
+    if (tv('concern')) add('Concern / expectation: ' + tv('concern'));
+    const bg = [];
+    // birth
+    const gp = (tv('g') || tv('p')) ? 'G' + (tv('g')||'_') + 'P' + (tv('p')||'_') : '';
+    const deliv = one('deliv');
+    const gaS = tv('ga_w') ? 'GA ' + tv('ga_w') + (tv('ga_d') ? '+' + tv('ga_d') : '') + ' wk' : '';
+    const bbw = tv('bbw') ? 'BBW ' + tv('bbw') + ' gm' : '';
+    const b1 = [gp, deliv, gaS, bbw].filter(Boolean).join(', '); if (b1) bg.push(b1);
+    if (list('peri').length) bg.push('Perinatal: ' + list('peri').join(', '));
+    const nbs = one('nbs'), nhs = one('nhs');
+    if (nbs || nhs) bg.push([nbs ? 'Newborn screen: ' + nbs : '', nhs ? 'neonatal hearing screen: ' + nhs : ''].filter(Boolean).join('; '));
+    // med
+    if (list('ph').length) bg.push('PH: ' + list('ph').join(', '));
+    if (tv('meds')) bg.push('Meds: ' + tv('meds'));
+    if (tv('exres')) bg.push('Exams: ' + tv('exres')); else if (list('exdone').length) bg.push('Exams done: ' + list('exdone').join(', '));
+    // env
+    if (list('fh').length) bg.push('FH: ' + list('fh').join(', '));
+    const lv = list('live'); const ord = one('order');
+    if (lv.length || ord) bg.push([lv.length ? 'Live with ' + lv.join(', ') : '', ord].filter(Boolean).join('; '));
+    if (tv('fa') || tv('mo')) bg.push('Parents: ' + [tv('fa') ? 'fa ' + tv('fa') : '', tv('mo') ? 'mo ' + tv('mo') : ''].filter(Boolean).join(', '));
+    if (list('fam').length) bg.push('Family: ' + list('fam').join(', '));
+    const cgl = [list('cg').length ? 'Caregiver: ' + list('cg').join(', ') : '', list('lang').length ? 'Language: ' + list('lang').join('/') : ''].filter(Boolean);
+    if (cgl.length) bg.push(cgl.join('; '));
+    const act = [S.c3 ? '3C ' + S.c3 : '', S.read ? 'book reading: ' + S.read : '', S.outd ? 'outdoor: ' + S.outd : '', S.peer ? 'peer interaction chance: ' + S.peer : '', S.toys ? 'toys: ' + S.toys : ''].filter(Boolean);
+    if (act.length) bg.push('Activity: ' + act.join(', '));
+    if (tv('routine')) bg.push('Major activity / routine: ' + tv('routine'));
+    if (list('parent').length) bg.push('Parenting: ' + list('parent').join(', '));
+    careLines().forEach(x => bg.push(x));
+    if (bg.length){ add('=========='); bg.forEach(x => add(x)); }
+    // dev history
+    const ms = [['ms_head','head control'],['ms_roll','roll'],['ms_sit','sit'],['ms_crawl','crawl'],['ms_walk','walk'],['ms_word','words'],['ms_phrase','phrases'],['ms_sent','sentences'],['ms_toilet','toilet trained']]
+      .filter(([id]) => tv(id)).map(([id,n]) => n + ' ' + msVal(S[id]));
+    const dh = [];
+    if (ms.length) dh.push('Milestones: ' + ms.join(', '));
+    if (list('regr').length) dh.push('Regression: ' + list('regr').join(', '));
+    if (tv('concern_age') || list('concern_by').length) dh.push('First concern' + (tv('concern_age') ? ' at ' + tv('concern_age') : '') + (list('concern_by').length ? ' by ' + list('concern_by').join(', ') : ''));
+    const cur = domainLines();
+    if (dh.length || cur.length){ add('=========='); dh.forEach(x => add(x)); cur.forEach(x => add(x)); }
+    sldLines().forEach(x => add(x));
+  } else {
+    add([vd, age, sex].filter(Boolean).join(' ') + (come ? ', ' + come : ''));
+    if (tv('known')) tv('known').split('\n').filter(s => s.trim()).forEach(s => add(s.trim()));
+    const pg = [S.prog ? 'Overall ' + S.prog : '', list('better').length ? 'better in ' + list('better').join(', ') : ''].filter(Boolean);
+    if (pg.length) add(pg.join('; '));
+    if (tv('interval')) tv('interval').split('\n').filter(s => s.trim()).forEach(s => add(s.trim()));
+    careLines().forEach(x => add(x));
+    domainLines().forEach(x => add(x));
+    sldLines().forEach(x => add(x));
+  }
+
+  /* ---- O ---- */
+  const O = [];
+  const o1 = [S.o_ec, S.o_call, S.o_comp, S.o_mood, S.o_act, S.o_att, S.o_sep, S.o_frus].filter(Boolean);
+  if (o1.length) O.push(o1.join(', '));
+  const o2 = [S.o_spk ? 'Speech: ' + S.o_spk : '', triList('o_beh').join(', ')].filter(Boolean);
+  if (o2.length) O.push(o2.join('; '));
+  if (tv('o_t')) tv('o_t').split('\n').filter(s => s.trim()).forEach(s => O.push(s.trim()));
+  const ap = [tv('o_bhw'), tv('o_hc') ? 'HC ' + tv('o_hc') + ' cm' + (S.o_hcs ? ' (' + S.o_hcs + ')' : '') : (S.o_hcs ? 'HC ' + S.o_hcs : ''), one('o_dys'), list('o_skin').join(', ')].filter(Boolean);
+  if (ap.length) O.push('Appearance: ' + ap.join(', '));
+  const pe = [];
+  if (S.pe_tone) pe.push(S.pe_tone + (list('pe_tdist').length ? ' (' + list('pe_tdist').join(', ') + ')' : ''));
+  if (tv('pe_mas')) pe.push(tv('pe_mas'));
+  if (S.pe_dtr) pe.push(S.pe_dtr);
+  if (list('pe_path').length) pe.push(list('pe_path').join(', '));
+  if (list('pe_mx').length) pe.push(list('pe_mx').join(', '));
+  if (one('pe_gait')) pe.push(one('pe_gait'));
+  if (list('pe_ms').length) pe.push(list('pe_ms').join(', '));
+  if (S.pe_hand) pe.push(S.pe_hand);
+  if (tv('pe_ortho')) pe.push('orthosis: ' + tv('pe_ortho'));
+  if (tv('pe_t')) pe.push(tv('pe_t'));
+  if (pe.length) O.push('PE: ' + pe.join(', '));
+  // scores
+  const rows = S.scores.filter(r => (r.tool||'').trim() && (String(r.da||'').trim() || String(r.val||'').trim()));
+  if (rows.length){
+    O.push('Assessment results' + (tv('sc_src') ? ' (' + tv('sc_src') + ')' : '') + ':');
+    const byTool = [];
+    rows.forEach(r => { const t = r.tool.trim(); let g = byTool.find(x => x.t === t); if (!g) byTool.push(g = {t, items:[]}); g.items.push(scoreText(r)); });
+    byTool.forEach(g => O.push(g.t + ': ' + g.items.join(', ')));
+  }
+  // ASD
+  const as = triList('asd_s'), ar = triList('asd_r'), dsm = S.asd_dsm || [];
+  if (as.length || ar.length || dsm.length || tv('asd_t')){
+    O.push('# ASD checklist');
+    if (as.length) O.push('Social communication: ' + as.join(', '));
+    if (ar.length) O.push('RRB: ' + ar.join(', '));
+    if (dsm.length){ const A = dsm.filter(x => x[0] === 'A'), B = dsm.filter(x => x[0] === 'B'); O.push('DSM-5: A ' + A.length + '/3' + (A.length ? ' (' + A.join(', ') + ')' : '') + ', B ' + B.length + '/4' + (B.length ? ' (' + B.join(', ') + ')' : '')); }
+    if (tv('asd_t')) O.push(tv('asd_t'));
+  }
+  // ADHD
+  const ia = S.adhd_ia || {}, hi = S.adhd_hi || {};
+  if (Object.keys(ia).length || Object.keys(hi).length || list('adhd_cr').length){
+    O.push('# ADHD' + (list('adhd_src').length ? ' (' + list('adhd_src').join(', ') + ')' : ''));
+    const f = (en, s) => en + ' (' + s + ')';
+    if (Object.keys(ia).length) O.push('Attention-deficit (' + Object.values(ia).filter(x => x === '+').length + '/9): ' + triList('adhd_ia', f).join(', '));
+    if (Object.keys(hi).length) O.push('Hyperactivity-impulsivity (' + Object.values(hi).filter(x => x === '+').length + '/9): ' + triList('adhd_hi', f).join(', '));
+    if (list('adhd_cr').length) O.push('Criteria: ' + list('adhd_cr').join(', '));
+    if (tv('adhd_t')) O.push(tv('adhd_t'));
+  }
+  const rf = list('rf'); if (rf.length) O.push('Red flags: ' + rf.join(', '));
+  if (O.length){ add(fu ? 'O.' : 'Objective'); O.forEach(x => add(x)); }
+
+  /* ---- A ---- */
+  const ax = [...list('fx'), ...list('qual')]; if (tv('ax_imp')) ax.push(tv('ax_imp'));
+  const etio = tv('ax_etio') ? tv('ax_etio').split(/[;；]/).map(s => s.trim()).filter(Boolean).map(s => '# ' + s).join(' ') : '';
+  if (ax.length || etio) add('Assessment: ' + [ax.join(', '), etio].filter(Boolean).join(' '));
+  const icd = list('icd'); if (icd.length) add('Dx: ' + icd.join('; '));
+
+  /* ---- P ---- */
+  const P = [];
+  if (list('pl_ref').length) P.push('Refer: ' + list('pl_ref').join(', '));
+  if (list('pl_ex').length) P.push('Arrange: ' + list('pl_ex').join(', '));
+  if (list('pl_th').length) P.push('Therapy: ' + list('pl_th').join(', ') + (tv('pl_thf') ? ' (' + tv('pl_thf') + ')' : ''));
+  if (list('pl_edu').length) P.push('Parent education: ' + list('pl_edu').join(', '));
+  if (list('pl_sch').length) P.push('School / EI: ' + list('pl_sch').join(', '));
+  if (tv('pl_t')) tv('pl_t').split('\n').filter(s => s.trim()).forEach(s => P.push(s.trim()));
+  const fuv = one('pl_fu'); if (fuv) P.push('FU ' + fuv);
+  if (P.length){ add('Plan:'); P.forEach(x => add('- ' + x)); }
+  return L.join('\n');
+}
+function careLines(){
+  const r = [];
+  if (list('ther').length) r.push('Therapy: ' + list('ther').join(', ') + (tv('ther_f') ? ' (' + tv('ther_f') + ')' : ''));
+  else if (tv('ther_f')) r.push('Therapy: ' + tv('ther_f'));
+  const sc = [S.school, tv('school_t')].filter(Boolean).join(' '); const sp = list('spec');
+  if (sc || sp.length) r.push('School: ' + [sc, sp.join(', ')].filter(Boolean).join('; '));
+  if (tv('teacher')) r.push('Teacher report: ' + tv('teacher'));
+  if (tv('prior')) tv('prior').split('\n').filter(s => s.trim()).forEach((s, i) => r.push((i ? '' : 'Previous assessment: ') + s.trim()));
+  return r;
+}
+function domainLines(){
+  const D = [['GM',['gm']],['FM',['fm']],['Comprehension',['lr']],['Expression',['le']],['Communication',['cm']],['Cognition / play',['cog']],['Social',['soc']],['ADL',['adl']],['Behavior',['beh']]];
+  const r = [];
+  D.forEach(([name, [id]]) => {
+    const t = triList(id); const x = tv(id + '_t');
+    if (t.length || x) r.push(name + ': ' + [t.join(', '), x].filter(Boolean).join('; '));
+  });
+  return r;
+}
+function sldLines(){
+  if (!document.body.classList.contains('school')) return [];
+  const r = [];
+  if (tv('acad')) r.push('Academics: ' + tv('acad'));
+  [['Reading','rd'],['Writing','wr'],['Math','ma']].forEach(([n, id]) => { const t = triList(id); if (t.length) r.push(n + ': ' + t.join(', ')); });
+  if (list('sldx').length) r.push('SLD exclusion: ' + list('sldx').join(', '));
+  return r.length ? ['# Learning', ...r] : [];
+}
+
+/* ================= audit (講義 p108) ================= */
+function audit(){
+  const box = document.getElementById('audit'); box.innerHTML = '';
+  const fu = document.body.dataset.mode === 'fu';
+  const items = fu ? [
+    ['追蹤進展', anyHas('prog','better','interval')],
+    ['目前各領域', anyHas('gm','fm','lr','le','cm','cog','soc','adl','beh','gm_t','fm_t','lr_t','le_t','soc_t')],
+    ['診間觀察', anyHas('o_ec','o_comp','o_mood','o_beh','o_t')],
+    ['評估／診斷', anyHas('fx','icd','qual')],
+    ['計畫', anyHas('pl_ref','pl_ex','pl_th','pl_fu','pl_t')],
+  ] : [
+    ['出生史及醫療史', anyHas('deliv','bbw','peri','nbs','ph')],
+    ['發展史', anyHas('ms_walk','ms_word','ms_sit','ms_phrase','regr')],
+    ['家族史及家庭', anyHas('fh','live','cg','fam')],
+    ['照顧及療育史', anyHas('cg','ther','school','c3','read','parent')],
+    ['主訴分析', anyHas('cc')],
+    ['理學檢查', anyHas('pe_tone','pe_dtr','pe_gait','pe_ms','pe_mx','o_hc','o_dys')],
+    ['診斷性會談', anyHas('gm','fm','lr','le','cm','cog','soc','adl','beh')],
+    ['各領域評估', anyHas('o_ec','o_comp','o_beh','o_t') || S.scores.some(r => r.val)],
+    ['結論或診斷', anyHas('fx','icd')],
+    ['會診／檢查／轉介', anyHas('pl_ref','pl_ex','pl_th')],
+  ];
+  box.append(h('span',{class:'t'}, fu ? '複診要點：' : '審查項目：'));
+  items.forEach(([t, ok]) => box.append(h('span',{class: ok ? 'ok' : ''}, (ok ? '✓ ' : '○ ') + t)));
+}
+
+/* ================= update ================= */
+function update(){
+  const a = ageInfo();
+  document.getElementById('ageTop').textContent = a ? ageStr(a).replace('corrected','矯正') : '';
+  // school band
+  const inSchool = ['regular class','resource room','self-contained special class'].includes(S.school);
+  const school = SET.school === 'on' || (SET.school === 'auto' && ((a && a.m >= 72) || inSchool));
+  document.body.classList.toggle('school', !!school);
+  const band = school ? 'school' : 'pre';
+  if (band !== curBand){
+    curBand = band;
+  }
+  // hints
+  const eff = a ? a.eff : null;
+  let bk = null; if (eff != null) BANDS.forEach(b => { if (eff >= b) bk = b; });
+  document.querySelectorAll('[data-hint]').forEach(el => {
+    const k = el.dataset.hint;
+    if (bk == null){ el.innerHTML = '<b>' + HINT_LABEL[k] + '</b>：填出生日期後顯示此年齡常見里程碑'; return; }
+    const nx = BANDS[BANDS.indexOf(bk) + 1];
+    const lab = bk === 0 ? '0–1m' : fmtM(bk);
+    let s = '<b>' + lab + (a.cm != null ? '（矯正）' : '') + '</b> 通常：' + HINT[bk][k];
+    if (nx != null && bk < 72) s += '　<span style="color:#8a94a6">｜' + fmtM(nx) + '：' + HINT[nx][k] + '</span>';
+    el.innerHTML = s;
+  });
+  // warnings
+  const aw = document.getElementById('ageWarn');
+  aw.textContent = (S.dob && S.vdate && !a) ? '出生日期晚於就診日期，請確認。' : '';
+  const g = document.getElementById('gddWarn');
+  const gdd = (S.fx || []).includes('global developmental delay') || (S.icd || []).some(x => x.startsWith('F88'));
+  g.textContent = gdd && a && a.m >= 60 ? '已滿 5 歲：GDD 保留給 5 歲以下、嚴重度無法可靠評估者；5 歲以上請考慮智能障礙或特定神經發展診斷。' : '';
+  // ASD badge
+  const dsm = S.asd_dsm || []; const A = dsm.filter(x => x[0] === 'A').length, B = dsm.filter(x => x[0] === 'B').length;
+  document.getElementById('asdBadge').textContent = dsm.length ? ('DSM-5：A ' + A + '/3、B ' + B + '/4　' + (A === 3 && B >= 2 ? '→ A、B 準則達標（仍需確認 C 早期出現、D 功能損害、E 非智障／GDD 更能解釋）' : '→ 未達 3A＋2B')) : '';
+  // ADHD badge
+  const ia = Object.values(S.adhd_ia || {}).filter(x => x === '+').length, hi = Object.values(S.adhd_hi || {}).filter(x => x === '+').length;
+  const thr = a && a.m >= 204 ? 5 : 6;
+  let ab = '';
+  if (Object.keys(S.adhd_ia || {}).length || Object.keys(S.adhd_hi || {}).length){
+    ab = '注意力不足 ' + ia + '/9' + (ia >= thr ? '（達門檻）' : '') + '、過動衝動 ' + hi + '/9' + (hi >= thr ? '（達門檻）' : '') + '　門檻 ≥' + thr + ' 項，另需 ≥6 個月、≥2 情境、12 歲前出現、影響功能。';
+  }
+  if (a && a.m < 48) ab += (ab ? '　' : '') + '未滿 4 歲：AAP 指引適用 4 歲以上，判斷宜保守。';
+  document.getElementById('adhdBadge').textContent = ab;
+  // red flags
+  const {ref, ex} = rfSuggest();
+  document.getElementById('rfHint').textContent = (ref.length || ex.length) ? '建議轉介：' + (ref.join('、') || '—') + '；建議檢查：' + (ex.join('、') || '—') : '';
+  document.getElementById('rfAdd').style.display = (ref.length || ex.length) ? '' : 'none';
+  // score badges
+  S.scores.forEach((r, i) => {
+    const el = document.querySelector('[data-row="' + i + '"]'); if (!el) return;
+    const c = classify(r.tool, r.type, r.val);
+    if (c){ el.className = 'badge b-' + c; el.textContent = CLS[c][0]; }
+    else {
+      el.className = 'badge b-x'; el.textContent = '';
+      const dm = parseMonths(r.da);
+      if (dm != null && a && a.eff > 0 && r.type === 'DQ') el.textContent = 'DA/CA ≈ ' + Math.round(dm / a.eff * 100);
+    }
+  });
+  document.getElementById('stdNote').textContent = '判讀：DQ／IQ／標準分數 <80 遲緩、80–85 臨界、86–90 需綜合判斷；PR <9 遲緩、9–16 臨界；工具自有標準優先：CDIIT ≤−2 SD 遲緩、≤−1.5 SD 臨界；MABC PR <5 遲緩、5–15 臨界；學前語言 T ≤29 遲緩、30–39 臨界；CLST ≤−1.5 SD。';
+  document.getElementById('out').textContent = build() || '（左側填寫後，這裡會即時產生病歷文字）';
+  audit();
+}
+
+/* ================= init ================= */
+function init(){
+  S.vdate = today();
+  const secs = document.getElementById('secs'), jump = document.getElementById('jump');
+  SECTIONS.forEach(sec => {
+    const d = h('details', {class:'sec', id:'sec-' + sec.id, open: false, 'data-mode': sec.mode || null, 'data-age': sec.age || null},
+      h('summary', {}, sec.title, sec.mode === 'fu' ? h('span',{class:'tag'},'複診') : sec.mode === 'init' ? h('span',{class:'tag'},'初診') : null, sec.age ? h('span',{class:'tag'},'學齡') : null),
+      h('div', {class:'body'}, sec.build()));
+    secs.append(d);
+    jump.append(h('a', {href:'#sec-' + sec.id, 'data-mode': sec.mode || null, 'data-age': sec.age || null, onclick:() => { d.open = true; }}, sec.title.replace(/（.*?）/g,'')));
+  });
+  document.querySelector('[data-id=vdate]').value = S.vdate;
+  renderScores();
+  document.querySelectorAll('#modeSeg button').forEach(b => b.onclick = () => {
+    document.body.dataset.mode = b.dataset.m;
+    document.querySelectorAll('#modeSeg button').forEach(x => x.classList.toggle('on', x === b));
+    update();
+  });
+  document.getElementById('setTag').onchange = e => { SET.tag = e.target.checked; update(); };
+  document.getElementById('setSchool').onchange = e => { SET.school = e.target.value; update(); };
+  document.getElementById('btnClear').onclick = () => { if (confirm('清除所有已填內容？')) location.reload(); };
+  document.getElementById('btnCopy').onclick = copyOut;
+  const fitOut = () => { const hh = document.querySelector('header.top').offsetHeight; const o = document.querySelector('.out'); o.style.top = (hh + 12) + 'px'; o.style.maxHeight = 'calc(100vh - ' + (hh + 28) + 'px)'; };
+  window.addEventListener('resize', fitOut); fitOut();
+  update();
+}
+function copyOut(){
+  const t = document.getElementById('out').textContent;
+  const done = () => toast('已複製，可貼到病歷系統');
+  if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(t).then(done, fallback); else fallback();
+  function fallback(){ const ta = h('textarea'); ta.value = t; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.append(ta); ta.select(); try { document.execCommand('copy'); done(); } catch (e) { toast('複製失敗，請手動選取'); } ta.remove(); }
+}
+let tt; function toast(m){ const el = document.getElementById('toast'); el.textContent = m; el.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => el.classList.remove('on'), 1600); }
+init();
+</script>
+</body>
+</html>

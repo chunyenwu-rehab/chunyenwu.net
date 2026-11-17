@@ -16,6 +16,7 @@ export const NAV = [
   { label: '學習筆記', href: '/learning/' },
   { label: '醫療現場', href: '/clinic/' },
   { label: '精選復健', href: '/featured/' },
+  { label: '門診工具', href: '/tools/' },
   { label: '關於', href: '/about/' },
 ] as const;
 

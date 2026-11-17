@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = '門診工具';
+const blurb = '我在門診自己用的小工具，直接在瀏覽器打開就能用。頁面不連網、不存任何病人資料，關掉就清空。';
+
+const tools = [
+  {
+    name: '兒童發展評估門診紀錄',
+    href: '/dev-assessment/',
+    desc: '用勾選的方式記錄兒童目前的發展狀況，即時產出中英混寫的 SOAP，複製後貼進病歷。可切換初診和複診，涵蓋 0–6 歲與學齡（含 ASD、ADHD、SLD），也會判讀標準化評估分數。',
+    who: '給醫師',
+    color: 'var(--teal)',
+  },
+  {
+    name: '中風居家單張產生器',
+    href: '/stroke-sheet/',
+    desc: '依下肢、上肢功能分層，再選患側、場景和輔具，產生中風病人的居家運動單張，當場印給病人帶回家。',
+    who: '給病人帶回家',
+    post: '/posts/stroke-home-exercise-sheet/',
+    color: 'var(--coral)',
+  },
+  {
+    name: '居家運動單張產生器',
+    href: '/exercise-sheet/',
+    desc: '依部位和階段挑選動作，每個動作都附示意圖，劑量可以照病人狀況調整，印成一頁居家運動衛教單。',
+    who: '給病人帶回家',
+    post: '/posts/home-exercise-sheet-generator/',
+    color: 'var(--gold)',
+  },
+];
+---
+
+<BaseLayout title={title} description={blurb}>
+  <section class="container head">
+    <h1>{title}</h1>
+    <p class="blurb">{blurb}</p>
+  </section>
+  <section class="container">
+    <ul class="tools">
+      {
+        tools.map((t) => (
+          <li class="tool" style={`--accent:${t.color}`}>
+            <span class="who">{t.who}</span>
+            <h2>
+              <a href={t.href}>{t.name}</a>
+            </h2>
+            <p>{t.desc}</p>
+            <div class="links">
+              <a class="open" href={t.href}>打開工具 →</a>
+              {t.post && <a class="more" href={t.post}>介紹文</a>}
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .head {
+    padding: 3rem 0 1.5rem;
+    border-bottom: 2px solid var(--teal);
+    margin-bottom: 1.5rem;
+  }
+  .head h1 {
+    margin: 0 0 0.6rem;
+  }
+  .blurb {
+    color: var(--ink-soft);
+    max-width: 40rem;
+    margin: 0;
+  }
+  .tools {
+    list-style: none;
+    margin: 0 0 3rem;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    gap: 1.2rem;
+  }
+  .tool {
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--accent);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.3rem 1.4rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .who {
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+  }
+  .tool h2 {
+    font-size: 1.25rem;
+    margin: 0.3rem 0 0.6rem;
+  }
+  .tool h2 a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .tool h2 a:hover {
+    color: var(--teal);
+  }
+  .tool p {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    margin: 0 0 1rem;
+    flex: 1;
+  }
+  .links {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    font-size: 0.95rem;
+  }
+  .open {
+    font-weight: 700;
+  }
+  .more {
+    color: var(--ink-soft);
+  }
+</style>

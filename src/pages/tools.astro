@@ -59,7 +59,7 @@ const tools = [
 
 <style>
   .head {
-    padding: 3rem 0 1.5rem;
+    padding-block: 3rem 1.5rem;
     border-bottom: 2px solid var(--teal);
     margin-bottom: 1.5rem;
   }
@@ -76,7 +76,7 @@ const tools = [
     margin: 0 0 3rem;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(18rem, 100%), 1fr));
     gap: 1.2rem;
   }
   .tool {
